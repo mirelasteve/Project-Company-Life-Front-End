@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+mat-dialog-container {
+    border: 4px solid rgba(250, 128, 114, 0.5);
+    font-family: 'Trebuchet MS';
+}
+
+mat-form-field {
+    color: rgb(10, 10, 77);
+}
+
+.loginDialog {
+    height: 150px;
+}

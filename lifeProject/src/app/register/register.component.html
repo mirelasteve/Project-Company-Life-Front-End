@@ -1,0 +1,30 @@
+<div>
+    <form>
+        <label>Registation form</label>
+
+        <mat-icon (click)="noClick()">home</mat-icon>
+
+        <div>
+            <mat-form-field>
+                Please enter email:
+                <input matInput placeholder="john@john.com">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                Please enter password:
+                <input matInput placeholder="password">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                Confirm password:
+                <input matInput placeholder="again password">
+            </mat-form-field>
+        </div>
+
+        <button mat-raised-button color="accent" (click)="noClick()">Close</button>
+        <button mat-raised-button color="primary">Register</button>
+    </form>
+</div>
