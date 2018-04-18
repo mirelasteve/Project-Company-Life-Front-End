@@ -16,7 +16,6 @@ import { AppComponent } from './app.component';
 import { ContactComponent } from './contact/contact.component';
 import { DialogComponent, LoginModalComponent } from './login-modal/login-modal.component';
 import { NavComponent } from './nav/nav.component';
-<<<<<<< HEAD
 import { RegisterComponent, RegistrationComponent } from './register/register.component';
 
 const routes = [
