@@ -1,0 +1,57 @@
+.page-container {
+    height: 100%;
+    width: 100%;
+}
+
+.parallax {
+    background-image: url("../../../../images/background-home-page.jpg");
+    opacity: 0.3;
+    background-attachment: scroll;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30em;
+    width: 80%;
+    margin-top: 1%;
+    margin-left: 10%;
+}
+
+.fieldActiveButtons {
+    background-color: rgb(255, 255, 255);
+    height: 10%;
+    width: 10%;
+    border: 1px solid rgba(221, 160, 221, 0.3);
+}
+
+.fieldActiveButtons button {
+    border: 2px solid rgba(9, 1, 10, 0.3);
+    box-shadow: 1px 1px whitesmoke !important;
+    font-size: 21px;
+    color: rgb(235, 235, 141);
+    text-shadow: 1px 1px rgba(250, 250, 55, 0.2);
+    background-color: rgb(7, 7, 1) !important;
+    margin-top: 2%;
+    margin-left: 6%;
+}
+
+.fieldActiveButtons .action {
+    margin-left: 510px;
+}
+
+.fieldActiveButtons button:hover {
+    box-shadow: 5px 5px 5px 5px rgb(128, 128, 0) !important;
+}
+
+.socialButtons {
+    background-color: transparent;
+    text-align: center;
+}
+
+.socialButtons a {
+    padding: 25px;
+    text-align: center;
+}
+
+.socialButtons a:hover {
+    background-color: rgb(9, 9, 71);
+}
