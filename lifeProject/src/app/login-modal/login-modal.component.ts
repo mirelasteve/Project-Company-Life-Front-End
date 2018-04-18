@@ -1,8 +1,9 @@
-import {Component, Inject} from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-login-modal',
@@ -11,9 +12,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 })
 export class LoginModalComponent {
 
-
   constructor(public dialog: MatDialog) {}
-  openDialog(): void {
+  public openDialog(): void {
     console.log('clicked');
     const dialogRef = this.dialog.open(DialogComponent, {
       height: '150px',

@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {MatDialogModule} from '@angular/material/dialog';
-import { LoginModalComponent, DialogComponent } from '../login-modal/login-modal.component';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { DialogComponent, LoginModalComponent } from '../login-modal/login-modal.component';
 import { RegistrationComponent } from '../register/register.component';
 @Component({
   selector: 'app-nav',
@@ -16,7 +17,7 @@ import { RegistrationComponent } from '../register/register.component';
       width: '250px',
       height: '300px',
     });
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
          });
   }
@@ -26,11 +27,10 @@ import { RegistrationComponent } from '../register/register.component';
       height: '150px',
       width: '350px',
     });
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
          });
   }
-  ngOnInit() {
+  public ngOnInit() {
   }
 }
-
