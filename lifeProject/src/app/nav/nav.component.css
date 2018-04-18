@@ -2,6 +2,7 @@
 .toolbar {
     background-color: rgb(222, 245, 245);
     height: 80px;
+    width: 100%;
 }
 
 .container .row a {
@@ -27,54 +28,3 @@ hr {
     font-size: 13px;
 }
 
-.parallax {
-    background-image: url("https://i.ytimg.com/vi/S3vTYaY-D00/maxresdefault.jpg");
-    background-attachment: scroll;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 350px;
-    width: 1000px;
-    margin-top: 1px;
-    margin-left: 180px;
-}
-
-.fieldActiveButtons {
-    background-color: rgb(255, 255, 255, 0.7);
-    height: 350px;
-    width: 1000px;
-    border: 1px solid rgba(221, 160, 221, 0.3);
-}
-
-.fieldActiveButtons button {
-    border: 2px solid rgba(9, 1, 10, 0.3);
-    box-shadow: 1px 1px whitesmoke !important;
-    font-size: 21px;
-    color: rgb(235, 235, 141);
-    text-shadow: 1px 1px rgba(128, 128, 0, 0.2);
-    background-color: rgb(7, 7, 1, 0.7) !important;
-    margin-top: 130px;
-    margin-left: 60px;
-}
-
-.fieldActiveButtons .action {
-    margin-left: 510px;
-}
-
-.fieldActiveButtons button:hover {
-    box-shadow: 5px 5px 5px 5px rgb(128, 128, 0, 0.6) !important;
-}
-
-.socialButtons {
-    background-color: transparent;
-    text-align: center;
-}
-
-.socialButtons a {
-    padding: 25px;
-    text-align: center;
-}
-
-.socialButtons a:hover {
-    background-color: rgb(9, 9, 71, 0.8);
-}
