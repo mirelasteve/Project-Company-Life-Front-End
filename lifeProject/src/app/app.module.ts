@@ -6,13 +6,21 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MAT_DIALOG_DEFAULT_OPTIONS, MatNativeDateModule, MatInputModule, MatTableModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LoginModalComponent, DialogComponent } from './login-modal/login-modal.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ViewChild } from '@angular/core/src/metadata/di';
 import { RegisterComponent, RegistrationComponent } from './register/register.component';
-
+import { CareersComponent } from './careers/careers.component';
+import { AppRoutingModule } from './app.routing.module';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import { JobDetailsComponent } from './job-details/job-details.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +29,19 @@ import { RegisterComponent, RegistrationComponent } from './register/register.co
     NavComponent,
     LoginModalComponent,
     RegisterComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    CareersComponent,
+    JobDetailsComponent
   ],
   imports: [
+    MatTableModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    MatPaginatorModule,
+    MatGridListModule,
+    MatDividerModule,
+    AppRoutingModule,
     BrowserModule,
     MatMenuModule,
     MatToolbarModule,
@@ -31,6 +49,7 @@ import { RegisterComponent, RegistrationComponent } from './register/register.co
     MatButtonModule,
     NoopAnimationsModule,
     MDBBootstrapModule.forRoot(),
+    MatInputModule,
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}],
