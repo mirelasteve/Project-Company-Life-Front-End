@@ -1,0 +1,40 @@
+.basic-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.ads-container {
+    position: absolute;
+    margin-top: 1%;
+    margin-left: 15%;
+    padding: 0.35%;
+    width: 50%;
+    top:0;
+    left:0;
+}
+
+.filter-options {
+    position: absolute;
+    margin-top: 2%;
+    margin-right: 4%;
+    padding: 0.35%;
+    height: 20em;
+    width: 20%;
+    top:0;
+    right:0;
+}
+
+div .items {
+    margin: 1.75%;
+    padding: 0.75%;
+    border: 0.2px solid black;
+    background-color: rgb(223, 217, 217);
+}
+
+div .job-title-header {
+  text-align: left;
+  font-size: 2em;
+  font-style: bold;
+  color: black;
+}

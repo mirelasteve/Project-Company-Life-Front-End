@@ -1,0 +1,43 @@
+.page-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.job-ad-info {
+    position: absolute;
+    margin-top: 3%;
+    margin-left: 15%;
+    padding: 0.35%;
+    width: 56%;
+    top:0;
+    left:0;
+}
+
+div .job-description {
+    margin: 2%;
+    padding: 1%;
+    border: 0.1px solid grey;
+}
+
+.job-title {
+    margin: 0% 0% 2% 2%;
+    padding: 1%;
+}
+
+.apply-button {
+    position: absolute;
+    margin-top: 3%;
+    margin-right: 4%;
+    padding: 0.35%;
+    height: 20em;
+    width: 20%;
+    top:0;
+    right:0;
+}
+
+.apply {
+    width: 80%;
+    background-color: blue;
+    color: white;
+}
