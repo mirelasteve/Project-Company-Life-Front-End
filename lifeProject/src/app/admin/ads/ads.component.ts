@@ -1,5 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { MatDialogModule, MatDialog , MatDialogRef } from '@angular/material/dialog';
+import { AddJobComponent } from '../../add-job/add-job.component';
+// import { JobDetailsComponent } from '../../job-details/job-details.component';
+
 
 @Component({
   selector: 'app-ads',
@@ -9,18 +13,22 @@ import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 export class AdsComponent implements OnInit {
 
   ngOnInit(): void {
-    
+
   }
-  displayedColumns = ['id', 'jobTitle', 'createdAt', 'buttonView', 'buttonEdit', 'buttonDelete'];
-  dataSource: MatTableDataSource<UserData>;
+  public displayedColumns = ['id', 'jobTitle', 'createdAt', 'buttonView', 'buttonEdit', 'buttonDelete'];
+  public dataSource: MatTableDataSource<UserData>;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  // tslint:disable-next-line:member-ordering
+  @ViewChild(MatPaginator) public paginator: MatPaginator;
+  @ViewChild(MatSort) public sort: MatSort;
 
-  constructor() {
+  // tslint:disable-next-line:member-ordering
+  constructor(public dialog: MatDialog) {
     // Create 100 users
     const users: UserData[] = [];
-    for (let i = 1; i <= 100; i++) { users.push(createNewUser(i)); }
+    for (let i = 1; i <= 100; i++) {
+       users.push(createNewUser(i));
+       }
 
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(users);
@@ -30,15 +38,26 @@ export class AdsComponent implements OnInit {
    * Set the paginator and sort after the view init since this component will
    * be able to query its view for the initialized paginator and sort.
    */
-  ngAfterViewInit() {
+  public ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
 
-  applyFilter(filterValue: string) {
+  public applyFilter(filterValue: string): void {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+  }
+  public openCreateModal(): void {
+    let dialogRef = this.dialog.open(AddJobComponent, {
+      width: '250px',
+      height: '500px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+
+    });
   }
 }
 

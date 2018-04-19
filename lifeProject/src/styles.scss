@@ -2,8 +2,8 @@
 
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 mat-dialog-container {
-    height: 300px !important;
-    width: 320px !important;
+    height: 400px !important;
+    width: 520px !important;
     border: 4px solid rgba(250, 128, 114, 0.5);
     font-family: 'Trebuchet MS';
     box-shadow: 0 11px 15px -7px rgba(236, 85, 173, 0.5) !important;
@@ -20,4 +20,8 @@ mat-form-field {
 
 .registrationForm {
     margin-left: 50px;
+}
+
+.createJob {
+    height: 500px !important;
 }

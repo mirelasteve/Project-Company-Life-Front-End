@@ -29,5 +29,6 @@ export const ROUTES: Routes = [
       { path: 'applications', component: ApplicationsComponent },
       { path: 'links', component: LinksComponent },
       { path: 'contacts', component: ContactsComponent },
+      { path: 'addJob', component: AddJobComponent },
   ]},
   ];
