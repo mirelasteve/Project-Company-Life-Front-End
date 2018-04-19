@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
-import { MatDialogModule, MatDialog , MatDialogRef } from '@angular/material/dialog';
-import { AddJobComponent } from '../../add-job/add-job.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AddJobComponent } from '../add-job/add-job.component';
+
 // import { JobDetailsComponent } from '../../job-details/job-details.component';
 
 
