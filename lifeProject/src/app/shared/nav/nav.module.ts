@@ -1,30 +1,30 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavComponent } from './nav.component';
-import { RouterModule, Routes } from '@angular/router';
-import { DialogComponent, LoginModalComponent } from './login-modal/login-modal.component';
-import { RegisterComponent, RegistrationComponent } from './register/register.component';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
+import { DialogComponent, LoginModalComponent } from './login-modal/login-modal.component';
+import { NavComponent } from './nav.component';
+import { RegisterComponent, RegistrationComponent } from './register/register.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    AngularMaterialModule
+    AngularMaterialModule,
   ],
   declarations: [
     NavComponent,
-    DialogComponent, 
+    DialogComponent,
     LoginModalComponent,
-    RegisterComponent, 
+    RegisterComponent,
     RegistrationComponent,
   ],
   exports: [
     NavComponent,
-    DialogComponent, 
+    DialogComponent,
     LoginModalComponent,
-    RegisterComponent, 
+    RegisterComponent,
     RegistrationComponent,
   ],
   entryComponents: [DialogComponent, RegistrationComponent],

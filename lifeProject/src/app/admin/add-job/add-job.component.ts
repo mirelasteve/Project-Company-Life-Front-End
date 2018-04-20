@@ -10,7 +10,8 @@ import { MatDialogRef } from '@angular/material';
 export class AddJobComponent  {
  public categories: any[];
  public options: any[];
- public title = new FormControl ('', [Validators.required, Validators.minLength( 4 )]);
+ private textLength: number = 4;
+ private title = new FormControl ('', [Validators.required, Validators.minLength( this.textLength )]);
 
  // tslint:disable-next-line:no-empty
  constructor(public dialogRef: MatDialogRef<AddJobComponent> ) {
@@ -21,14 +22,14 @@ export class AddJobComponent  {
   { value: 'operations', viewValue: 'Operations' },
   { value: 'other', viewValue: 'Other' },
 ];
-    this.options =[
+    this.options = [
   {value: 'open', status: 'open'},
   {value: 'closed', status: 'closed'},
 ];
 
 }
  public minLengthError(num: number ): string {
-   if(num < 4){
+   if (num < this.textLength ) {
     return ('Title is under 4 symbols');
    }
 
@@ -38,6 +39,3 @@ export class AddJobComponent  {
   this.dialogRef.close();
 }
 }
- // tslint:disable-next-line:no-empty
-
-

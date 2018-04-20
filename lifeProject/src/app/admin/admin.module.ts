@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { AddJobComponent } from './add-job/add-job.component';
+import { AdminNavModule } from './admin-nav/admin-nav.module';
 import { AdminComponent } from './admin.component';
 import { AdminRoutingModule } from './admin.routing.module';
 import { AdsComponent } from './ads/ads.component';
@@ -17,6 +18,7 @@ import { UsersComponent } from './users/users.component';
     AdminRoutingModule,
     FormsModule,
     SharedModule,
+    AdminNavModule,
   ],
   declarations: [
    AdminComponent,

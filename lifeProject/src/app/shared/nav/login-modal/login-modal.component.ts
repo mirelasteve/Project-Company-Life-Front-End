@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-login-modal',
   templateUrl: './login-modal.component.html',
-  styleUrls: ['./login-modal.component.scss']
+  styleUrls: ['./login-modal.component.scss'],
 })
 export class LoginModalComponent {
 
@@ -19,7 +19,7 @@ export class LoginModalComponent {
       height: '150px',
       width: '350px',
     });
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
          });
   }
@@ -30,10 +30,9 @@ export class LoginModalComponent {
   templateUrl: './dialog.html',
 })
 export class DialogComponent {
-  constructor(public dialogRef: MatDialogRef<DialogComponent>, ) { }
-  onNoClick(): void {
+  constructor(public dialogRef: MatDialogRef<DialogComponent>) { }
+  private onNoClick(): void {
     this.dialogRef.close();
   }
 
 }
-

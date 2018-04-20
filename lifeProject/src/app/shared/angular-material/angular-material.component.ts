@@ -3,13 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-angular-material',
   templateUrl: './angular-material.component.html',
-  styleUrls: ['./angular-material.component.scss']
+  styleUrls: ['./angular-material.component.scss'],
 })
 export class AngularMaterialComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  public ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
-
 }
