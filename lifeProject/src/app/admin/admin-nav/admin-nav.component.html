@@ -1,12 +1,10 @@
 <mat-toolbar class="toolbar" color="">
-    <div class="container">
-        <div class="row">
-                <a class="nav-bar" [routerLink]="['/admin']" routerLinkActive="active">Administration</a>    
+        <a class="nav-bar" [routerLink]="['/admin']" routerLinkActive="active">Administration</a> 
+    <div class="container">  
                 <a class="nav-bar" [routerLink]="['/admin', 'users']" routerLinkActive="active">Users</a>
                 <a class="nav-bar" [routerLink]="['/admin', 'ads']" routerLinkActive="active">Job Ads</a>
                 <a class="nav-bar" [routerLink]="['/admin', 'applications']" routerLinkActive="active">Job Applications</a>
                 <a class="nav-bar" [routerLink]="['/admin', 'links']" routerLinkActive="active">Links</a>
                 <a class="nav-bar" [routerLink]="['/admin', 'contacts']" routerLinkActive="active">Contact Details</a>
-            </div>
         </div>
 </mat-toolbar>

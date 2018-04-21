@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
+import { AddContactsComponent } from './add-contacts/add-contacts.component';
 import { AddJobComponent } from './add-job/add-job.component';
+import { AddLinkComponent } from './add-link/add-link.component';
 import { AdminComponent } from './admin.component';
 import { AdsComponent } from './ads/ads.component';
 import { ApplicationsComponent } from './applications/applications.component';
@@ -14,5 +16,7 @@ export const ROUTES: Routes = [
     { path: 'applications', component: ApplicationsComponent },
     { path: 'links', component: LinksComponent },
     { path: 'contacts', component: ContactsComponent },
-    { path: 'addJob', component: AddJobComponent },
+    { path: 'addJobs', component: AddJobComponent },
+    { path: 'addLinks', component: AddLinkComponent },
+    { path: 'addContacts', component: AddContactsComponent },
   ];

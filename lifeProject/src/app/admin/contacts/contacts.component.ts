@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AddContactsComponent } from '../add-contacts/add-contacts.component';
 
 @Component({
   selector: 'app-contacts',
@@ -14,7 +16,7 @@ export class ContactsComponent implements OnInit {
   @ViewChild(MatPaginator) private paginator: MatPaginator;
   @ViewChild(MatSort) private sort: MatSort;
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
     // Create 100 users
     const usersLength = 100;
     const users: IUserData[] = [];
@@ -33,6 +35,17 @@ export class ContactsComponent implements OnInit {
   public ngOnInit(): void {
   }
 
+  public openCreateModal(): void {
+    const dialogRef = this.dialog.open(AddContactsComponent, {
+      width: '50em',
+      height: '50em',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+
+    });
+  }
   public ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;

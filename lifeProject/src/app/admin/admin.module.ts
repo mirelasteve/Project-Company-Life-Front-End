@@ -2,7 +2,9 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { AddContactsComponent } from './add-contacts/add-contacts.component';
 import { AddJobComponent } from './add-job/add-job.component';
+import { AddLinkComponent } from './add-link/add-link.component';
 import { AdminNavModule } from './admin-nav/admin-nav.module';
 import { AdminComponent } from './admin.component';
 import { AdminRoutingModule } from './admin.routing.module';
@@ -28,6 +30,8 @@ import { UsersComponent } from './users/users.component';
    LinksComponent,
    ContactsComponent,
    AddJobComponent,
+   AddLinkComponent,
+   AddContactsComponent,
   ],
   exports: [
     AdminComponent,
@@ -37,6 +41,8 @@ import { UsersComponent } from './users/users.component';
     LinksComponent,
     ContactsComponent,
     AddJobComponent,
+    AddLinkComponent,
+    AddContactsComponent,
   ],
 })
 export class AdminModule { }

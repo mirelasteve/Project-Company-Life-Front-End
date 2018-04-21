@@ -28,6 +28,10 @@ export class AddJobComponent  {
 ];
 
 }
+ public close(): void {
+  this.dialogRef.close();
+}
+
  public minLengthError(num: number ): string {
    if (num < this.textLength ) {
     return ('Title is under 4 symbols');
