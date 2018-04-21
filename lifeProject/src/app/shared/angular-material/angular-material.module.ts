@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { MatButtonModule, MatDatepickerModule, MatDialog, MatDialogModule, MatDialogRef,
   MatDividerModule, MatFormFieldModule, MatIconModule, MatInputModule, MatMenuModule, MatNativeDateModule,
   MatPaginatorModule, MatSelectModule, MatSort, MatTableDataSource, MatTableModule, MatToolbarModule } from '@angular/material';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { AngularMaterialComponent } from './angular-material.component';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { AngularMaterialComponent } from './angular-material.component';
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
+    MatCheckboxModule,
   ],
   declarations: [
     AngularMaterialComponent,
@@ -41,6 +43,7 @@ import { AngularMaterialComponent } from './angular-material.component';
     MatFormFieldModule,
     MatIconModule,
     MatSort,
+    MatCheckboxModule,
   ],
 })
 export class AngularMaterialModule { }
