@@ -8,7 +8,8 @@
                 <mat-header-cell *matHeaderCellDef mat-sort-header>
                     <div class="job-title-header">Open Positions</div>
                 </mat-header-cell>
-                <mat-cell *matCellDef="let element" class="job-title"> {{element.title}} </mat-cell>
+                <mat-cell *matCellDef="let element" class="job-title">
+                    <a [routerLink]="['/careers', jobs?.{{element.id}}]">{{element.title}}</a> </mat-cell>
             </ng-container>
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
