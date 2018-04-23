@@ -13,33 +13,32 @@
       </ng-container>
 
       <!-- Progress Column -->
-      <ng-container matColumnDef="jobTitle">
+      <ng-container matColumnDef="title">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Job Title </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.progress}}% </mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
       </ng-container>
 
       <!-- Name Column -->
       <ng-container matColumnDef="createdAt">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Created At </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.createdAt}} </mat-cell>
       </ng-container>
 
-      <!-- Color Column -->
-      <ng-container matColumnDef="buttonView">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> View </mat-header-cell>
-        <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </mat-cell>
-      </ng-container>
+      <ng-container matColumnDef="view">
+          <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+          <mat-cell *matCellDef="let row"> <button>View</button> </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="buttonEdit">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Edit </mat-header-cell>
-        <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="edit">
+            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+            <mat-cell *matCellDef="let row"> <button>Edit</button> </mat-cell>
+          </ng-container>
 
-      <ng-container matColumnDef="buttonDelete">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Delete </mat-header-cell>
-        <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </mat-cell>
-      </ng-container>
-
+          <ng-container matColumnDef="delete">
+              <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+              <mat-cell *matCellDef="let row"> <button>Delete</button> </mat-cell>
+            </ng-container>
+      
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;">
       </mat-row>

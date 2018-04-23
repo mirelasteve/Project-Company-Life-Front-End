@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ContactsService } from '../../core/admin/contacts.service';
+import { IContactDetails } from '../../models/contact-details';
 import { AddContactsComponent } from '../add-contacts/add-contacts.component';
 
 @Component({
@@ -10,83 +12,26 @@ import { AddContactsComponent } from '../add-contacts/add-contacts.component';
 })
 export class ContactsComponent implements OnInit {
 
-  private displayedColumns = ['id', 'name', 'value', 'isMapAddress', 'createdAt', 'buttons'];
-  private dataSource: MatTableDataSource<IUserData>;
+  @ViewChild(MatPaginator) public paginator: MatPaginator;
+  @ViewChild(MatSort) public sort: MatSort;
 
-  @ViewChild(MatPaginator) private paginator: MatPaginator;
-  @ViewChild(MatSort) private sort: MatSort;
+  private displayedColumns = ['id', 'name', 'value', 'isMapAddress', 'createdAt', 'edit', 'delete'];
 
-  constructor(public dialog: MatDialog) {
-    // Create 100 users
-    const usersLength = 100;
-    const users: IUserData[] = [];
-    for (let i = 1; i <= usersLength; i++) { users.push(createNewUser(i)); }
+  private dataSource: MatTableDataSource<IContactDetails>;
 
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
-  }
+  constructor(public dialog: MatDialog, private readonly contactsService: ContactsService) {}
 
-  /**
-   * Set the paginator and sort after the view init since this component will
-   * be able to query its view for the initialized paginator and sort.
-   */
-
-  // tslint:disable-next-line:no-empty
   public ngOnInit(): void {
-  }
-
+    this.contactsService.getAllContactDetails().subscribe((data) => {
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
+    }
   public openCreateModal(): void {
-    const dialogRef = this.dialog.open(AddContactsComponent, {
-      width: '50em',
-      height: '50em',
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-
-    });
+      const dialogRef = this.dialog.open(AddContactsComponent, {
+        width: '250px',
+        height: '500px',
+      });
+    }
   }
-  public ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-
-  public applyFilter(filterValue: string): void {
-    let filterVal;
-    filterVal = filterValue.trim(); // Remove whitespace
-    filterVal = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-    this.dataSource.filter = filterVal;
-  }
-}
-
-/** Builds and returns a new User. */
-const createNewUser = (id: number): IUserData => {
-  const nameValue = Math.round(Math.random() * (NAMES.length - 1));
-  const name = `${NAMES[nameValue]} ${NAMES[nameValue].charAt(0)}.`;
-  const length = 100;
-
-  return {
-    id: id.toString(),
-    name,
-    value: Math.round(Math.random() * length).toString(),
-    isMapAddress: COLORS[Math.round(Math.random() * (COLORS.length - 1))],
-    createdAt: '18/04/2018',
-    buttons: 'Edit Delete',
-  };
-};
-
-/** Constants used to fill up our data base. */
-const COLORS = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
-                'fuchsia', 'lime', 'teal', 'aqua', 'blue', 'navy', 'black', 'gray'];
-const NAMES = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
-               'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper',
-               'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'];
-
-export interface IUserData {
-  id: string;
-  name: string;
-  value: string;
-  isMapAddress: string;
-  createdAt: string;
-  buttons: string;
-}
