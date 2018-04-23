@@ -1,5 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {HttpClient , HttpClientModule } from '@angular/common/http';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { CareersService } from './../core/careers.service';
+import { ICareers } from './../models/careers.model';
 
 @Component({
   selector: 'app-careers',
@@ -7,7 +11,10 @@ import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
   styleUrls: ['./careers.component.scss'],
 })
 export class CareersComponent implements OnInit {
-
+  @Input()
+  public careers: ICareers[];
+    // tslint:disable-next-line:variable-name
+  // public _dataSource: ICareers[];
   private types = [
     'IT',
     'Sales',
@@ -15,32 +22,20 @@ export class CareersComponent implements OnInit {
     'Operations',
     'Other',
   ];
-
   private value: string = 'Clear me';
-
-  private displayedColumns = ['title'];
-  private dataSource: MatTableDataSource<IUserData>;
-
+  private displayedColumns = ['id', 'title', 'description'];
+  private dataSource= new MatTableDataSource<ICareers>(this.careers);
   @ViewChild(MatPaginator) private paginator: MatPaginator;
   @ViewChild(MatSort) private sort: MatSort;
+  constructor(private careersService: CareersService, private http: HttpClient) {
 
-  constructor() {
-    // Create 100 users
-    const usersLength = 22;
-    const users: IUserData[] = [];
-    for (let i = 1; i <= usersLength; i++) { users.push(createNewUser(i)); }
-
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
   }
-
-  /**
-   * Set the paginator and sort after the view init since this component will
-   * be able to query its view for the initialized paginator and sort.
-   */
-
   // tslint:disable-next-line:no-empty
   public ngOnInit(): void {
+   this.careersService.getAll().subscribe( (data) => {
+      this.careers =  data;
+         });
+   console.log(this.dataSource);
   }
 
   public ngAfterViewInit(): void {
@@ -54,26 +49,6 @@ export class CareersComponent implements OnInit {
     filterVal = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterVal;
   }
+
 }
 
-/** Builds and returns a new User. */
-const createNewUser = (id: number): IUserData => {
-  const nameValue = Math.round(Math.random() * (NAMES.length - 1));
-  const name = `${NAMES[nameValue]} ${NAMES[nameValue].charAt(0)}.`;
-
-  return {
-    name,
-  };
-};
-
-/** Constants used to fill up our data base. */
-const NAMES = ['JavaScript Software Development Engineer', 'Customer Care Expert with Chinese',
-               'JUNIOR TOOLS PROGRAMMER', 'TOOLS PROGRAMMER', 'Scrum Master with German', 'ERP Dynamics Subject Matter Expert',
-               'Senior Java Developer', 'PHP Developer', 'System Administrator',
-               'Backup & Recovery IT Specialist for International IT Hub',
-               'Web Developer', 'Test Engineer',
-               'Junior Software Tester', 'SAP FICO Analyst', 'Senior JavaScript Developer'];
-
-export interface IUserData {
-  name: string;
-}

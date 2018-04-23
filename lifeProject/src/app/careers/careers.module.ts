@@ -5,6 +5,8 @@ import { SharedModule } from '../shared/shared.module';
 import { CareersComponent } from './careers.component';
 import { CareersRoutingModule } from './careers.routing.module';
 import { JobDetailsComponent } from './job-details/job-details.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   imports: [

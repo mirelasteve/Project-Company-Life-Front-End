@@ -1,23 +1,46 @@
 <app-nav></app-nav>
-<div class="mat-app-background basic-container">
+
+<div *ngFor="let b of careers">
+    <table>
+        <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>description</th>
+        </tr>
+        <tr>
+            <td>{{b.id}}</td>
+            <td>{{b.title}}</td>
+            <td>{{b.description}}</td>
+        </tr>
+    </table>
+</div>
+<mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+            <div class="job-title-header">Open Positions</div>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <div class="job-title">{{careers.id}}</div>
+        </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+</mat-table>
+<!-- <div class="mat-app-background basic-container">
   <div class="ads-container">
-              
+
         <div class="example-container mat-elevation-z8">
-        
+
           <mat-table [dataSource]="dataSource" matSort>
-        
-       
-            <!-- Name Column -->
             <ng-container matColumnDef="title">
               <mat-header-cell *matHeaderCellDef mat-sort-header> <div class="job-title-header">Open Positions</div> </mat-header-cell>
               <mat-cell *matCellDef="let row"> <div class="job-title">{{row.name}}</div> </mat-cell>
             </ng-container>
-              
+
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: displayedColumns;">
             </mat-row>
           </mat-table>
-        
           <mat-paginator [pageSizeOptions]="[10]"></mat-paginator>
         </div>
   </div>
@@ -32,12 +55,12 @@
           <mat-option>All</mat-option>
           <mat-option *ngFor="let type of types" [value]="type">{{type}}</mat-option>
         </mat-select>
-      </mat-form-field>   
+      </mat-form-field>
       <mat-form-field>
         <input matInput [matDatepicker]="picker" placeholder="Choose a date">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-    
+
   </div>
-</div>
+</div> -->
