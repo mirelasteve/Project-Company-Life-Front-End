@@ -1,31 +1,41 @@
 <app-nav></app-nav>
 
-<div *ngFor="let b of careers">
-    <table>
-        <tr>
-            <th>id</th>
-            <th>title</th>
-            <th>description</th>
-        </tr>
-        <tr>
-            <td>{{b.id}}</td>
-            <td>{{b.title}}</td>
-            <td>{{b.description}}</td>
-        </tr>
-    </table>
+<div class="mat-app-background basic-container">
+
+    <div class="ads-container">
+        <mat-table [dataSource]="careers">
+            <ng-container matColumnDef="title">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    <div class="job-title-header">Open Positions</div>
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="job-title"> {{element.title}} </mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            <mat-paginator [pageSizeOptions]="[10]"></mat-paginator>
+        </mat-table>
+    </div>
+    <div class="filter-options">
+        <div class="example-header">
+            <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+        </div>
+        <mat-form-field>
+            <mat-select placeholder="Job type">
+                <mat-option>All</mat-option>
+                <mat-option *ngFor="let type of types" [value]="type">{{type}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+    </div>
 </div>
-<mat-table [dataSource]="dataSource">
-    <ng-container matColumnDef="title">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>
-            <div class="job-title-header">Open Positions</div>
-        </mat-header-cell>
-        <mat-cell *matCellDef="let row">
-            <div class="job-title">{{careers.id}}</div>
-        </mat-cell>
-    </ng-container>
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;">
-</mat-table>
+
 <!-- <div class="mat-app-background basic-container">
   <div class="ads-container">
 

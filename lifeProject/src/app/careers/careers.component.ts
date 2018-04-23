@@ -23,19 +23,17 @@ export class CareersComponent implements OnInit {
     'Other',
   ];
   private value: string = 'Clear me';
-  private displayedColumns = ['id', 'title', 'description'];
+  private displayedColumns = ['title'];
   private dataSource= new MatTableDataSource<ICareers>(this.careers);
   @ViewChild(MatPaginator) private paginator: MatPaginator;
   @ViewChild(MatSort) private sort: MatSort;
-  constructor(private careersService: CareersService, private http: HttpClient) {
-
-  }
+  constructor(private careersService: CareersService, private http: HttpClient) { }
   // tslint:disable-next-line:no-empty
   public ngOnInit(): void {
    this.careersService.getAll().subscribe( (data) => {
       this.careers =  data;
          });
-   console.log(this.dataSource);
+  //  console.log(this.dataSource);
   }
 
   public ngAfterViewInit(): void {

@@ -18,11 +18,9 @@ import { AppConfig } from './config/app.config';
 export function tokenGetter(): string {
   return localStorage.getItem('access_token');
 }
-
 @NgModule({
   declarations: [
     AppComponent,
-
   ],
   imports: [
     AppRoutingModule,
