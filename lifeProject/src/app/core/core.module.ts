@@ -6,6 +6,7 @@ import { JobApplicationsService } from './admin/job-applications.service';
 import { LinksService } from './admin/links.service';
 import { UsersService } from './admin/users.service';
 import { CareersService } from './careers/careers.service';
+import { JobDetailsService } from './job-details/job-details.service';
 import { RequesterService } from './requester/requester.service';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { RequesterService } from './requester/requester.service';
     LinksService,
     ContactsService,
     UsersService,
+    JobDetailsService,
   ],
 })
 export class CoreModule { }

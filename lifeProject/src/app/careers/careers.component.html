@@ -9,7 +9,7 @@
                     <div class="job-title-header">Open Positions</div>
                 </mat-header-cell>
                 <mat-cell *matCellDef="let element" class="job-title">
-                    <a>{{element.title}}</a> </mat-cell>
+                    <a [routerLink]="['/careers/jobs/',element.id]" routerLinkActive="active">{{element.title}}</a> </mat-cell>
             </ng-container>
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
