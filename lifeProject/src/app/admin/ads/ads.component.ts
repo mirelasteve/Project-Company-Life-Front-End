@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
+import { JobAdsService } from '../../core/admin/job-ads.service';
 import { AddJobComponent } from '../add-job/add-job.component';
 
 @Component({
@@ -16,7 +17,7 @@ export class AdsComponent implements OnInit {
   private displayedColumns = ['id', 'jobTitle', 'createdAt', 'buttonView', 'buttonEdit', 'buttonDelete'];
   private dataSource: MatTableDataSource<IUserData>;
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private readonly jobAdsService: JobAdsService) {
     // Create 100 users
     const usersLength: number = 100;
     const users: IUserData[] = [];
@@ -30,6 +31,7 @@ export class AdsComponent implements OnInit {
 
   // tslint:disable-next-line:no-empty
   public ngOnInit(): void {
+    this.jobAdsService.getAllJobAds().subscribe((data) => console.log(data));
   }
 
   /**
