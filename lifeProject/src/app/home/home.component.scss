@@ -1,45 +1,38 @@
 // Variable
 $usa-image-path: '../../assets/images/background-home-page.jpg';
-.page-container {
-    // height: 100%;
-    // width: 100%;
-}
-
 .parallax {
+    position: relative;
     background-image: url($usa-image-path);
     opacity: 0.5;
     background-attachment: scroll;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 30em;
+    height: 27em;
     width: 80%;
-    margin-top: 1%;
+    // margin-top: 1%;
     margin-left: 10%;
 }
 
-.fieldActiveButtons {
-    // background-color: rgba(255, 255, 255, 0.5);
+h5 {
     display: inline;
-    // height: 13px;
-    // width: 10%;
-    border: 1px solid rgba(221, 160, 221, 0.3);
+}
+
+.fieldActiveButtons {
+    position: absolute;
+    margin-bottom: 3%;
+    bottom: 6%;
+    left: 2%;
 }
 
 .fieldActiveButtons button {
-    margin-left: 30px;
-    margin-top: 160px;
-    height: 65px;
+    // width: 3em;
+    height: 3em;
     border: 2px solid rgba(9, 1, 10, 0.3);
-    font-size: 21px;
+    font-size: 1em;
     color: rgb(228, 228, 95);
     text-shadow: 1px 1px rgba(250, 250, 55, 0.2);
     background-color: rgb(7, 7, 1) !important;
-}
-
-.fieldActiveButtons .action {
-    margin-left: 510px;
-    // margin-top: -2%;
 }
 
 .fieldActiveButtons button:hover {
@@ -49,14 +42,25 @@ $usa-image-path: '../../assets/images/background-home-page.jpg';
 
 .socialButtons {
     background-color: transparent;
-    text-align: center;
+    text-align: left;
 }
 
 .socialButtons a {
-    padding: 25px;
+    padding: 1.5em;
     text-align: center;
 }
 
 .socialButtons a:hover {
     background-color: rgb(9, 9, 71);
+}
+
+.footer {
+    margin-left: 10%;
+    position: absolute;
+}
+
+textarea {
+    position: relative;
+    width: 35em;
+    height: 10em;
 }
