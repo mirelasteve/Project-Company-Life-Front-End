@@ -11,7 +11,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
-import { CareersService } from './core/careers.service';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AppConfig } from './config/app.config';
 
@@ -40,8 +39,8 @@ export function tokenGetter(): string {
     }),
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [AppConfig,{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
-              {provide: CareersService, useClass: CareersService }],
+  providers: [AppConfig, {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
+              ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

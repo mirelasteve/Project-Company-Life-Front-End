@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { JobAdsService } from './admin/job-ads.service';
-import { CareersService } from './careers.service';
+import { CareersService } from './careers/careers.service';
 import { RequesterService } from './requester/requester.service';
 
 @NgModule({

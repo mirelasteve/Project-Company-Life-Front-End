@@ -2,8 +2,8 @@ import {HttpClient , HttpClientModule } from '@angular/common/http';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
-import { CareersService } from './../core/careers.service';
 import { ICareers } from './../models/careers.model';
+import { CareersService } from '../core/careers/careers.service';
 
 @Component({
   selector: 'app-careers',
@@ -12,9 +12,9 @@ import { ICareers } from './../models/careers.model';
 })
 export class CareersComponent implements OnInit {
   @Input()
-  public careers: ICareers[];
+  public careers: any;
     // tslint:disable-next-line:variable-name
-  // public _dataSource: ICareers[];
+  public dataSource: MatTableDataSource<any>;
   private types = [
     'IT',
     'Sales',
@@ -24,7 +24,6 @@ export class CareersComponent implements OnInit {
   ];
   private value: string = 'Clear me';
   private displayedColumns = ['title'];
-  private dataSource= new MatTableDataSource<ICareers>(this.careers);
   @ViewChild(MatPaginator) private paginator: MatPaginator;
   @ViewChild(MatSort) private sort: MatSort;
   constructor(private careersService: CareersService, private http: HttpClient) { }
@@ -32,14 +31,15 @@ export class CareersComponent implements OnInit {
   public ngOnInit(): void {
    this.careersService.getAll().subscribe( (data) => {
       this.careers =  data;
+      console.log(data);
          });
   //  console.log(this.dataSource);
   }
 
-  public ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
+  // public ngAfterViewInit(): void {
+  //   this.dataSource.paginator = this.paginator;
+  //   this.dataSource.sort = this.sort;
+  // }
 
   public applyFilter(filterValue: string): void {
     let filterVal;
@@ -49,4 +49,3 @@ export class CareersComponent implements OnInit {
   }
 
 }
-
