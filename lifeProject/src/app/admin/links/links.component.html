@@ -27,6 +27,11 @@
         
       </ng-container>
 
+      <ng-container matColumnDef="type">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Type </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.type}} </mat-cell>
+      </ng-container>
+
       <ng-container matColumnDef="createdAt">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Created At </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.createdAt}} </mat-cell>

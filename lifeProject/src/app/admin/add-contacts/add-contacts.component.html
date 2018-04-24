@@ -1,15 +1,15 @@
 <div class="create-contacts">
     <title>Create link</title>
-    <form class='createContactsModal'>
+    <form #form="ngForm" (ngSubmit)="logForm(form.value)" class='createContactsModal'>
       <div class="form">
         <mat-form-field>
-          <input matInput placeholder="Name" minlength="2">
+          <input name="name" matInput placeholder="Name" minlength="2" ngModel>
           <mat-hint align="end">Minimum length 2 symbols</mat-hint>
         </mat-form-field>
       </div>
       <div class="form">
         <mat-form-field>
-            <input matInput placeholder="Value">
+            <input name="value" matInput placeholder="Value" ngModel>
         </mat-form-field>
       </div>
       <div class="form">

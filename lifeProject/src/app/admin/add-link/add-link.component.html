@@ -1,26 +1,26 @@
 <div class="create-link">
     <title>Create link</title>
-    <form class='createLinkModal'>
+    <form #form="ngForm" (ngSubmit)="logForm(form.value)" class='createLinkModal'>
       <div class="form">
         <mat-form-field>
-          <input matInput placeholder="Name" minlength="3">
+          <input name="name" matInput placeholder="Name" minlength="3" ngModel>
           <mat-hint align="end">Minimum length 3 symbols</mat-hint>
         </mat-form-field>
       </div>
       <div class="form">
         <mat-form-field>
-            <input matInput placeholder="Link target">
+            <input name="linkTarget" matInput placeholder="Link target" ngModel>
         </mat-form-field>
       </div>
       <div class="form">
           <mat-form-field>
-              <input matInput placeholder="Icon link">
+              <input name="iconLink" matInput placeholder="Icon link" ngModel>
           </mat-form-field>
         </div>
       <div class="form">
         <mat-form-field>
-          <mat-select placeholder="Type">
-            <mat-option *ngFor="let opt of options " [value]="opt.value">
+          <mat-select name="type" placeholder="Type" ngModel>
+            <mat-option *ngFor="let opt of options " value={{opt.value}}>
               {{opt.status}}
             </mat-option>
           </mat-select>

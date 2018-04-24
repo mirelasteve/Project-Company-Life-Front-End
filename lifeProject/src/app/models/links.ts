@@ -6,4 +6,5 @@ export interface ILinks {
     hidden: null | string;
     createdAt: Date;
     updatedAt: Date;
+    type: string;
 }
