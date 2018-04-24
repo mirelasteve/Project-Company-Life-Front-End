@@ -6,5 +6,5 @@ import { JobDetailsComponent } from './job-details/job-details.component';
 export const ROUTES: Routes = [
     { path: '', component: CareersComponent },
     { path: 'jobs/:id', component: JobDetailsComponent },
-    {path: 'job-application', component: JobApplicationComponent},
+    {path: 'jobs/:id/job-application/:title', component: JobApplicationComponent},
   ];

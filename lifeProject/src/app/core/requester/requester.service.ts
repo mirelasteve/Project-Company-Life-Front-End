@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { IJobAds } from '../../models/job-ads';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class RequesterService {
@@ -15,8 +17,10 @@ export class RequesterService {
   }
 
   public post(resource: string, body: any, headers?: HttpHeaders): Observable<any>  {
-      return this.http.post(this.REQUEST_DOMAIN + resource, body, { headers });
-  }
+    return this.http.post(resource, body, {
+        headers: new HttpHeaders().set('Content-type', 'application/json'),
+  });
+}
 
   public put(resource: string, body: any, headers?: HttpHeaders): Observable<any>  {
       return this.http.put(this.REQUEST_DOMAIN + resource, body, { headers });

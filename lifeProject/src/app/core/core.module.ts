@@ -8,6 +8,7 @@ import { UsersService } from './admin/users.service';
 import { CareersService } from './careers/careers.service';
 import { JobDetailsService } from './job-details/job-details.service';
 import { RequesterService } from './requester/requester.service';
+import { CreateApplicationService } from './job-application/create-application.service';
 
 @NgModule({
   providers: [
@@ -19,6 +20,7 @@ import { RequesterService } from './requester/requester.service';
     ContactsService,
     UsersService,
     JobDetailsService,
+    CreateApplicationService,
   ],
 })
 export class CoreModule { }
