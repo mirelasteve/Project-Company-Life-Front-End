@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { IJobAds } from '../../models/job-ads';
+import { IContactDetails } from '../../models/contact-details';
 import { RequesterService } from '../requester/requester.service';
 
 @Injectable()
-export class JobAdsService {
+export class ContactsService {
 
   constructor(private readonly requester: RequesterService) {
-   }
-
-  public getAllJobAds(): Observable<IJobAds[]> {
-    return this.requester.get('/api/jobads');
-   }
+  }
+  public getAllContactDetails(): Observable<IContactDetails[]> {
+    return this.requester.get('/api/contactdetails');
+  }
 }
