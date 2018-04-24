@@ -36,16 +36,28 @@ export class CareersComponent implements OnInit {
   //  console.log(this.dataSource);
   }
 
-  // public ngAfterViewInit(): void {
-  //   this.dataSource.paginator = this.paginator;
-  //   this.dataSource.sort = this.sort;
-  // }
+  public ngAfterViewInit(): void {
+    this.careersService.getAll().subscribe( (data) => {
+      this.careers =  data;
+      this.careers = new MatTableDataSource(this.careers);
+      this.careers.sort = this.sort;
+      this.careers.paginator = this.paginator;
+
+         });
+
+     }
 
   public applyFilter(filterValue: string): void {
-    let filterVal;
-    filterVal = filterValue.trim(); // Remove whitespace
-    filterVal = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-    this.dataSource.filter = filterVal;
+    this.careersService.getAll().subscribe( (data) => {
+      this.careers =  data;
+      this.careers = new MatTableDataSource(this.careers);
+      let filterVal;
+      console.log(filterValue);
+      filterVal = filterValue.trim(); // Remove whitespace
+      filterVal = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+      this.careers.filter = filterVal;
+         });
+
   }
 
 }

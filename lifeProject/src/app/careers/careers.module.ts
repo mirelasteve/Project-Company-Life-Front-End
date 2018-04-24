@@ -18,6 +18,7 @@ import { HttpModule } from '@angular/http';
     FormsModule,
     SharedModule,
 
+
   ],
   declarations: [
     CareersComponent,
