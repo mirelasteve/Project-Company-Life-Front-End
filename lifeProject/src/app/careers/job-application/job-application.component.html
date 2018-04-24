@@ -1,14 +1,23 @@
-<div class="example-container">
+<div class="job-application">
+    <h2>{{title}}</h2>
     <mat-form-field>
-        <input matInput placeholder="Input">
+        <input matInput placeholder="Your first name" id="firstName" [(ngModel)]="firstName">
     </mat-form-field>
     <mat-form-field>
-        <input matInput placeholder="Input">
+        <input matInput placeholder="Your last name" id="lastName" [(ngModel)]="lastName">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-        <textarea matInput placeholder="Comment"></textarea>
+        <textarea matInput placeholder="Comment" id="comment" [(ngModel)]="comment"></textarea>
     </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Upload your CV" id="cv" [(ngModel)]="cv">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Upload your Cover Letter" id="cl" [(ngModel)]="cl">
+    </mat-form-field>
+    <p><button (click)="submitApp()" class="btn-primary btn-lg">Send</button></p>
+
 
 
 </div>

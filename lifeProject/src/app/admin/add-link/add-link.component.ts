@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
+import { LinksService } from '../../core/admin/links.service';
 
 @Component({
   selector: 'app-add-link',
@@ -12,12 +13,21 @@ export class AddLinkComponent implements OnInit {
   public options: any[];
   private title = new FormControl();
  // tslint:disable-next-line:no-empty
-  constructor(public dialogRef: MatDialogRef<AddLinkComponent> ) {
+  constructor(public dialogRef: MatDialogRef<AddLinkComponent>, private linksService: LinksService ) {
     this.options = [
   {value: 'action', status: 'action'},
   {value: 'social', status: 'social'},
 ];
-
+}
+  public logForm(value: any): void {
+  if (value.checked) {
+    delete value.checked;
+    value.hidden = 'yes';
+  } else {
+    delete value.checked;
+  }
+  console.log(value);
+  this.linksService.createLinks(value);
 }
   public close(): void {
   this.dialogRef.close();

@@ -14,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 export class JobDetailsComponent implements OnInit {
   public jobs: any;
   public urlId: string;
-  constructor(private jobDetailService: JobDetailsService, private http: HttpClient,private activatedRoute: ActivatedRoute){}
+  constructor(private jobDetailService: JobDetailsService, private http: HttpClient, private activatedRoute: ActivatedRoute){}
   public ngOnInit(): void {
     this.jobDetailService.getAll().subscribe( (data) => {
       this.jobs =  data;

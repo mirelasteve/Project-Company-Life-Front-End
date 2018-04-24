@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
+import { JobAdsService } from '../../core/admin/job-ads.service';
+import { IJobAds } from '../../models/job-ads';
 
 @Component({
   selector: 'app-add-job',
@@ -14,20 +16,26 @@ export class AddJobComponent  {
  private title = new FormControl ('', [Validators.required, Validators.minLength( this.textLength )]);
 
  // tslint:disable-next-line:no-empty
- constructor(public dialogRef: MatDialogRef<AddJobComponent> ) {
+ constructor(public dialogRef: MatDialogRef<AddJobComponent>, private jobAdsService: JobAdsService ) {
     this.categories = [
-  { value: 'it', viewValue: 'IT' },
-  { value: 'marketing', viewValue: 'Marketing' },
-  { value: 'sales', viewValue: 'Sales' },
-  { value: 'operations', viewValue: 'Operations' },
-  { value: 'other', viewValue: 'Other' },
+  { value: '1', viewValue: 'IT' },
+  { value: '2', viewValue: 'Marketing' },
+  { value: '3', viewValue: 'Sales' },
+  { value: '4', viewValue: 'Operations' },
+  { value: '5', viewValue: 'Other' },
 ];
     this.options = [
   {value: 'open', status: 'open'},
   {value: 'closed', status: 'closed'},
 ];
-
 }
+
+ public logForm(value: IJobAds): void {
+   value.jobTypeId = +value.jobTypeId;
+   console.log(value);
+   this.jobAdsService.createJobAds(value);
+}
+
  public close(): void {
   this.dialogRef.close();
 }
