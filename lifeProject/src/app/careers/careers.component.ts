@@ -1,4 +1,4 @@
-import {HttpClient , HttpClientModule } from '@angular/common/http';
+import { HttpClient , HttpClientModule } from '@angular/common/http';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
