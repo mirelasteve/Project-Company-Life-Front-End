@@ -11,5 +11,4 @@ export class UsersService {
   public getAllUsers(): Observable<IUsers[]> {
     return this.requester.get('/api/users');
    }
-
 }

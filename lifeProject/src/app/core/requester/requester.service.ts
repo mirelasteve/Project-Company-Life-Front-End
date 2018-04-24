@@ -15,7 +15,9 @@ export class RequesterService {
   }
 
   public post(resource: string, body: any, headers?: HttpHeaders): Observable<any>  {
-      return this.http.post(this.REQUEST_DOMAIN + resource, body, { headers });
+      return this.http.post(resource, body, {
+          headers: new HttpHeaders().set('Content-type', 'application/json'),
+    });
   }
 
   public put(resource: string, body: any, headers?: HttpHeaders): Observable<any>  {
