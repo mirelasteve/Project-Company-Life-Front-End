@@ -3,4 +3,5 @@ export interface IUsers {
     email: string;
     createdAt: Date;
     isAdmin: string;
+    numberOfJobApplications: number;
 }
