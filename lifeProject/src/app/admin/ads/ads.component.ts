@@ -40,4 +40,16 @@ export class AdsComponent implements OnInit {
       height: '500px',
     });
   }
+  public deleteAd(id: number): void {
+    const object = {
+      id,
+    };
+    this.jobAdsService.deleteJobAd(object);
+    }
+
+  public openDialog(id: number): void {
+    if (confirm('Are you sure you want to delete this job ad!')) {
+      this.deleteAd(id);
+    }
+  }
 }

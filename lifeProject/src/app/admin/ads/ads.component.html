@@ -26,7 +26,7 @@
 
       <ng-container matColumnDef="view">
           <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
-          <mat-cell *matCellDef="let row"> <button>View</button> </mat-cell>
+          <mat-cell *matCellDef="let row"> <button routerLink="/careers/jobs/{{row.id}}">View</button> </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="edit">
@@ -36,7 +36,7 @@
 
           <ng-container matColumnDef="delete">
               <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
-              <mat-cell *matCellDef="let row"> <button>Delete</button> </mat-cell>
+              <mat-cell *matCellDef="let row"> <button (click)="openDialog(row.id)">Delete</button> </mat-cell>
             </ng-container>
       
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

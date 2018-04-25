@@ -34,4 +34,16 @@ export class ContactsComponent implements OnInit {
         height: '500px',
       });
     }
+  public deleteAd(id: number): void {
+      const object = {
+        id,
+      };
+      this.contactsService.deleteContactDetails(object);
+      }
+
+  public openDialog(id: number): void {
+      if (confirm('Are you sure you want to delete this link!')) {
+        this.deleteAd(id);
+      }
+    }
   }
