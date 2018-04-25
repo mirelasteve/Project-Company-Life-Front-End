@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { IJobAds } from '../../models/job-ads';
 import { RequesterService } from '../requester/requester.service';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class JobAdsService {
@@ -24,4 +25,17 @@ export class JobAdsService {
       },
     );
   }
+  public deleteJobAd(body: any): Subscription {
+    const httpOptions = {
+      headers: new HttpHeaders ({ 'Content-Type': 'application/json' }), body };
+
+    return this.requester.delete('http://localhost:3001/api/jobads', httpOptions).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (err) => {
+        console.log(err);
+      },
+    );
+   }
 }
