@@ -11,6 +11,7 @@ import { AdminRoutingModule } from './admin.routing.module';
 import { AdsComponent } from './ads/ads.component';
 import { ApplicationsComponent } from './applications/applications.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { EditJobComponent } from './edit-job/edit-job.component';
 import { LinksComponent } from './links/links.component';
 import { UsersComponent } from './users/users.component';
 
@@ -32,6 +33,7 @@ import { UsersComponent } from './users/users.component';
    AddJobComponent,
    AddLinkComponent,
    AddContactsComponent,
+   EditJobComponent,
   ],
   exports: [
     AdminComponent,
@@ -43,6 +45,7 @@ import { UsersComponent } from './users/users.component';
     AddJobComponent,
     AddLinkComponent,
     AddContactsComponent,
+    EditJobComponent,
   ],
 })
 export class AdminModule { }

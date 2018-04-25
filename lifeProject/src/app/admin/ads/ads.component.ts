@@ -4,6 +4,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { JobAdsService } from '../../core/admin/job-ads.service';
 import { IJobAds } from '../../models/job-ads';
 import { AddJobComponent } from '../add-job/add-job.component';
+import { EditJobComponent } from '../edit-job/edit-job.component';
 
 @Component({
   selector: 'app-ads',
@@ -36,6 +37,13 @@ export class AdsComponent implements OnInit {
   }
   public openCreateModal(): void {
     const dialogRef = this.dialog.open(AddJobComponent, {
+      width: '250px',
+      height: '500px',
+    });
+  }
+  public openEditModal(jobAd: any): void {
+    console.log(jobAd);
+    const dialogRef = this.dialog.open(EditJobComponent, {
       width: '250px',
       height: '500px',
     });
