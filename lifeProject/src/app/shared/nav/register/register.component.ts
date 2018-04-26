@@ -10,17 +10,16 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent  {
 
   constructor(public dialog: MatDialog) { }
-  public ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-  private openRegister(): void {
+  // public ngOnInit(): void {
+  //   throw new Error('Method not implemented.');
+  // }
 
+  private openRegister(): void {
     console.log('clicked');
     const dialogRef = this.dialog.open(RegistrationComponent, {
-
       height: '180px',
       width: '350px',
     });
@@ -28,17 +27,23 @@ export class RegisterComponent implements OnInit {
       console.log('The dialog was closed');
          });
   }
+
 }
 
+// tslint:disable-next-line:max-classes-per-file
 @Component ({
   selector: 'app-reg',
   templateUrl: './register.component.html',
 })
 export class RegistrationComponent {
-  constructor(public dialogRef: MatDialogRef<RegistrationComponent>, ) {
-    dialogRef.disableClose = true;
+  constructor(public dialogRef: MatDialogRef<RegistrationComponent> ) {
+    // dialogRef.disableClose = true;
    }
-  noClick(): void {
+  public noClick(): void {
     this.dialogRef.close();
   }
+  public reg(): void {
+    console.log('clicked');
+  }
+
 }
