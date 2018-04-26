@@ -11,9 +11,9 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
-
 import { AppConfig } from './config/app.config';
 import { CoreModule } from './core/core.module';
+
 
 
 export function tokenGetter(): string {

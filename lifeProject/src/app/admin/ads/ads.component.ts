@@ -4,6 +4,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { JobAdsService } from '../../core/admin/job-ads.service';
 import { IJobAds } from '../../models/job-ads';
 import { AddJobComponent } from '../add-job/add-job.component';
+import { EditJobComponent } from '../edit-job/edit-job.component';
 
 @Component({
   selector: 'app-ads',
@@ -39,5 +40,24 @@ export class AdsComponent implements OnInit {
       width: '250px',
       height: '500px',
     });
+  }
+  public openEditModal(jobAd: any): void {
+    console.log(jobAd);
+    const dialogRef = this.dialog.open(EditJobComponent, {
+      width: '250px',
+      height: '500px',
+    });
+  }
+  public deleteAd(id: number): void {
+    const object = {
+      id,
+    };
+    this.jobAdsService.deleteJobAd(object);
+    }
+
+  public openDialog(id: number): void {
+    if (confirm('Are you sure you want to delete this job ad!')) {
+      this.deleteAd(id);
+    }
   }
 }

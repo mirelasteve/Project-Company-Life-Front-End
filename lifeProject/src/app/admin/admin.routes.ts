@@ -6,6 +6,7 @@ import { AdminComponent } from './admin.component';
 import { AdsComponent } from './ads/ads.component';
 import { ApplicationsComponent } from './applications/applications.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { EditJobComponent } from './edit-job/edit-job.component';
 import { LinksComponent } from './links/links.component';
 import { UsersComponent } from './users/users.component';
 
@@ -19,4 +20,5 @@ export const ROUTES: Routes = [
     { path: 'addJobs', component: AddJobComponent },
     { path: 'addLinks', component: AddLinkComponent },
     { path: 'addContacts', component: AddContactsComponent },
+    { path: 'editJobs', component: EditJobComponent },
   ];

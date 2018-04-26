@@ -25,4 +25,7 @@ export class RequesterService {
   public put(resource: string, body: any, headers?: HttpHeaders): Observable<any>  {
       return this.http.put(this.REQUEST_DOMAIN + resource, body, { headers });
   }
+  public delete(resource: string, httpOptions: any): Observable<any>  {
+    return this.http.delete(resource, httpOptions);
+}
 }

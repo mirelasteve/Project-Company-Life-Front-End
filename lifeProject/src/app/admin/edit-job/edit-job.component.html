@@ -1,0 +1,38 @@
+<div class="edit-job">
+  <title>Create job</title>
+  <form #form="ngForm" (ngSubmit)="logForm(form.value)">
+    <div class="form">
+      <mat-form-field>
+        <input name="title" matInput placeholder="Title" minlength="4" [(ngModel)]="test" >
+        <mat-hint align="end">Minimum length 4 symbols</mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field>
+        <textarea name="description" matInput matTextareaAutosize matAutosizeMinRows="1" placeholder="Description" ngModel></textarea>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field>
+        <mat-select name="jobTypeId" placeholder="Category" ngModel>
+          <mat-option *ngFor="let cat of categories " value={{cat.value}}>
+            {{cat.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field>
+        <mat-select name="status" placeholder="Status" ngModel>
+          <mat-option *ngFor="let opt of options " value={{opt.value}}>
+            {{opt.status}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <button mat-raised-button class="submit-btn">Save</button>
+      <button mat-raised-button class="close-btn" (click)="close()">Close</button>
+    </div>
+  </form>
+</div>
