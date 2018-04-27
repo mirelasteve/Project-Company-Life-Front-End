@@ -9,9 +9,10 @@ import { AdminNavModule } from './admin-nav/admin-nav.module';
 import { AdminComponent } from './admin.component';
 import { AdminRoutingModule } from './admin.routing.module';
 import { AdsComponent } from './ads/ads.component';
+import { EditJobComponent } from './ads/edit-job/edit-job.component';
 import { ApplicationsComponent } from './applications/applications.component';
 import { ContactsComponent } from './contacts/contacts.component';
-import { EditJobComponent } from './edit-job/edit-job.component';
+import { EditLinksComponent } from './links/edit-links/edit-links.component';
 import { LinksComponent } from './links/links.component';
 import { UsersComponent } from './users/users.component';
 
@@ -34,6 +35,7 @@ import { UsersComponent } from './users/users.component';
    AddLinkComponent,
    AddContactsComponent,
    EditJobComponent,
+   EditLinksComponent,
   ],
   exports: [
     AdminComponent,
@@ -46,6 +48,7 @@ import { UsersComponent } from './users/users.component';
     AddLinkComponent,
     AddContactsComponent,
     EditJobComponent,
+    EditLinksComponent,
   ],
 })
 export class AdminModule { }

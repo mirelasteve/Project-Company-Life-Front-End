@@ -2,8 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LinksService } from '../../core/admin/links.service';
+import { TransferJobAdsService } from '../../core/transfer-data/transfer-data.service';
 import { ILinks } from '../../models/links';
 import { AddLinkComponent } from '../add-link/add-link.component';
+import { EditLinksComponent } from './edit-links/edit-links.component';
 
 @Component({
   selector: 'app-links',
@@ -17,7 +19,8 @@ export class LinksComponent implements OnInit {
   private displayedColumns = ['id', 'name', 'link', 'iconLink', 'type', 'createdAt', 'edit', 'delete'];
   private dataSource: MatTableDataSource<ILinks>;
 
-  constructor(public dialog: MatDialog, private readonly linksService: LinksService) {}
+  constructor(public dialog: MatDialog, private readonly linksService: LinksService,
+              private transferJobAdsService: TransferJobAdsService) {}
 
   public ngOnInit(): void {
     this.linksService.getAllLinks().subscribe((data) => {
@@ -28,6 +31,13 @@ export class LinksComponent implements OnInit {
     }
   public openCreateModal(): void {
       const dialogRef = this.dialog.open(AddLinkComponent, {
+        width: '250px',
+        height: '500px',
+      });
+    }
+  public openEditModal(links: object ): void {
+    this.transferJobAdsService.insertData(links);
+    const dialogRef = this.dialog.open(EditLinksComponent, {
         width: '250px',
         height: '500px',
       });

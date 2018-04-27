@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
-import { JobAdsService } from '../../core/admin/job-ads.service';
-import { TransferJobAdsService } from '../../core/transfer-data/transfer-data.service';
-import { IJobAds } from '../../models/job-ads';
-import { AddJobComponent } from '../add-job/add-job.component';
+import { JobAdsService } from '../../../core/admin/job-ads.service';
+import { TransferJobAdsService } from '../../../core/transfer-data/transfer-data.service';
+import { IJobAds } from '../../../models/job-ads';
+import { AddJobComponent } from '../../add-job/add-job.component';
 
 @Component({
   selector: 'app-edit-job',
