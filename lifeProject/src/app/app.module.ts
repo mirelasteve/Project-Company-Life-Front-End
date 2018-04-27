@@ -13,8 +13,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
 import { AppConfig } from './config/app.config';
 import { CoreModule } from './core/core.module';
-
-
+import { TransferJobAdsService } from './core/transfer-data/transfer-data.service';
 
 export function tokenGetter(): string {
   return localStorage.getItem('access_token');
@@ -38,13 +37,14 @@ export function tokenGetter(): string {
       config: {
         tokenGetter: tokenGetter,
         whitelistedDomains: ['localhost:8000'],
-        blacklistedRoutes: []
-      }
+        blacklistedRoutes: [],
+      },
     }),
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [AppConfig, {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
-              ],
+              TransferJobAdsService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

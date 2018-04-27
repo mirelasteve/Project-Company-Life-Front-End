@@ -2,6 +2,7 @@ import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { JobAdsService } from '../../core/admin/job-ads.service';
+import { TransferJobAdsService } from '../../core/transfer-data/transfer-data.service';
 import { IJobAds } from '../../models/job-ads';
 import { AddJobComponent } from '../add-job/add-job.component';
 import { EditJobComponent } from '../edit-job/edit-job.component';
@@ -19,7 +20,9 @@ export class AdsComponent implements OnInit {
   private displayedColumns = ['id', 'title', 'createdAt', 'view', 'edit', 'delete'];
   private dataSource: MatTableDataSource<IJobAds>;
 
-  constructor(public dialog: MatDialog, private readonly jobAdsService: JobAdsService) {}
+  constructor(public dialog: MatDialog, private readonly jobAdsService: JobAdsService,
+              private transferJobAdsService: TransferJobAdsService) {
+              }
 
   public ngOnInit(): void {
     this.jobAdsService.getAllJobAds().subscribe((data) => {
@@ -41,8 +44,8 @@ export class AdsComponent implements OnInit {
       height: '500px',
     });
   }
-  public openEditModal(jobAd: any): void {
-    console.log(jobAd);
+  public openEditModal(jobAd: object): void {
+    this.transferJobAdsService.insertData(jobAd);
     const dialogRef = this.dialog.open(EditJobComponent, {
       width: '250px',
       height: '500px',
