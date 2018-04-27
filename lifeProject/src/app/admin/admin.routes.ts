@@ -4,9 +4,10 @@ import { AddJobComponent } from './add-job/add-job.component';
 import { AddLinkComponent } from './add-link/add-link.component';
 import { AdminComponent } from './admin.component';
 import { AdsComponent } from './ads/ads.component';
+import { EditJobComponent } from './ads/edit-job/edit-job.component';
 import { ApplicationsComponent } from './applications/applications.component';
 import { ContactsComponent } from './contacts/contacts.component';
-import { EditJobComponent } from './edit-job/edit-job.component';
+import { EditLinksComponent } from './links/edit-links/edit-links.component';
 import { LinksComponent } from './links/links.component';
 import { UsersComponent } from './users/users.component';
 
@@ -21,4 +22,5 @@ export const ROUTES: Routes = [
     { path: 'addLinks', component: AddLinkComponent },
     { path: 'addContacts', component: AddContactsComponent },
     { path: 'editJobs', component: EditJobComponent },
+    { path: 'editLinks', component: EditLinksComponent },
   ];

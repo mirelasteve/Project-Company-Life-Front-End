@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { RequesterService } from '../requester/requester.service';
 
 @Injectable()
-export class UsersService {
+export class RegisterUsersService {
 
   constructor(private readonly requester: RequesterService) { }
   public registerUser(data: object): Subscription {

@@ -1,4 +1,4 @@
-import {  HttpClientModule } from '@angular/common/http';
+import {  HttpClient, HttpClientModule } from '@angular/common/http';
 import { Inject, Input, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ViewChild } from '@angular/core/src/metadata/di';
 import { FormsModule, Validator } from '@angular/forms';
@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app.routing.module';
 import { AppConfig } from './config/app.config';
 import { CoreModule } from './core/core.module';
 import { TransferJobAdsService } from './core/transfer-data/transfer-data.service';
+
 
 export function tokenGetter(): string {
   return localStorage.getItem('access_token');

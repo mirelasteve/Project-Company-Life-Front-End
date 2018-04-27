@@ -1,4 +1,4 @@
-import { UsersService } from './../../../core/users/users.service';
+
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormsModule,  NgModel } from '@angular/forms';
@@ -8,6 +8,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute } from '@angular/router';
+import { RegisterUsersService } from '../../../core/users/users.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -42,7 +43,7 @@ export class RegistrationComponent {
   public email: string;
   public password: string;
   constructor(public dialogRef: MatDialogRef<RegistrationComponent>, private http: HttpClient,
-              private activatedRoute: ActivatedRoute, private userService: UsersService ) {
+              private activatedRoute: ActivatedRoute, private userService: RegisterUsersService ) {
     // dialogRef.disableClose = true;
    }
   public noClick(): void {
@@ -54,10 +55,11 @@ export class RegistrationComponent {
       console.log(
         {email: this.email,
          password: this.password,
-         isAdmin: 'no' }
+         isAdmin: 'no' },
     );
       this.userService.registerUser({email: this.email,
-                                     password: this.password,isAdmin:'no'});
+                                     password: this.password,
+                                     isAdmin: null});
 
     });
   }

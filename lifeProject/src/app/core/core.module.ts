@@ -9,7 +9,9 @@ import { CreateApplicationService } from './job-application/create-application.s
 import { JobDetailsService } from './job-details/job-details.service';
 import { RequesterService } from './requester/requester.service';
 import { TransferJobAdsService } from './transfer-data/transfer-data.service';
-import { UsersService } from './users/users.service';
+import { UsersService } from './admin/users.service';
+import { RegisterUsersService } from './users/users.service';
+
 
 @NgModule({
   providers: [
@@ -23,6 +25,7 @@ import { UsersService } from './users/users.service';
     CreateApplicationService,
     TransferJobAdsService,
     UsersService,
+    RegisterUsersService,
   ],
 })
 export class CoreModule { }
