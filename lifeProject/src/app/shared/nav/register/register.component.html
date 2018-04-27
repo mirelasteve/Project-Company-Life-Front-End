@@ -3,16 +3,15 @@
         <p>Your username:</p>
         <mat-form-field>
 
-            <input matInput placeholder="john@john.com">
+            <input matInput placeholder="john@john.com" name="email" id="email" [(ngModel)]="email">
         </mat-form-field>
         <p>Your password:</p>
         <mat-form-field>
 
-            <input matInput placeholder="password">
+            <input matInput placeholder="password" name="password" id="password" [(ngModel)]="password">
         </mat-form-field>
         <p>Repeat password:</p>
         <mat-form-field>
-
             <input matInput placeholder="repeat password">
         </mat-form-field>
         <br>
