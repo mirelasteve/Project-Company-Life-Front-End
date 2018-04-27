@@ -33,4 +33,7 @@ export class CareersService {
   public getAll(): Observable<object> {
     return this.requester.get('/api/jobads');
    }
+  public getTypes(): Observable<object> {
+    return this.requester.get('/api/jobtypes');
+   }
 }

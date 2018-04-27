@@ -12,6 +12,7 @@ import { RegisterComponent, RegistrationComponent } from './register/register.co
     CommonModule,
     RouterModule,
     AngularMaterialModule,
+    FormsModule,
   ],
   declarations: [
     NavComponent,

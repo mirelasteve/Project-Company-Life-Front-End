@@ -4,12 +4,12 @@ import { ContactsService } from './admin/contacts.service';
 import { JobAdsService } from './admin/job-ads.service';
 import { JobApplicationsService } from './admin/job-applications.service';
 import { LinksService } from './admin/links.service';
-import { UsersService } from './admin/users.service';
 import { CareersService } from './careers/careers.service';
 import { CreateApplicationService } from './job-application/create-application.service';
 import { JobDetailsService } from './job-details/job-details.service';
 import { RequesterService } from './requester/requester.service';
 import { TransferJobAdsService } from './transfer-data/transfer-data.service';
+import { UsersService } from './users/users.service';
 
 @NgModule({
   providers: [
@@ -19,10 +19,10 @@ import { TransferJobAdsService } from './transfer-data/transfer-data.service';
     JobApplicationsService,
     LinksService,
     ContactsService,
-    UsersService,
     JobDetailsService,
     CreateApplicationService,
     TransferJobAdsService,
+    UsersService,
   ],
 })
 export class CoreModule { }
