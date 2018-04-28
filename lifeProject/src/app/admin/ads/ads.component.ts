@@ -18,7 +18,7 @@ export class AdsComponent implements OnInit {
   @ViewChild(MatPaginator) public paginator: MatPaginator;
   @ViewChild(MatSort) public sort: MatSort;
 
-  private displayedColumns = ['id', 'title', 'createdAt', 'view', 'edit', 'delete'];
+  private displayedColumns = ['id', 'title', 'createdAt', 'view', 'edit', 'delete', 'job-applications'];
   private dataSource: MatTableDataSource<IJobAds>;
 
   constructor(public dialog: MatDialog, private readonly jobAdsService: JobAdsService,
