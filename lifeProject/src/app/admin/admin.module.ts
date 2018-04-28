@@ -15,6 +15,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { EditLinksComponent } from './links/edit-links/edit-links.component';
 import { LinksComponent } from './links/links.component';
 import { UsersComponent } from './users/users.component';
+import { EditContactDetailsComponent } from './contacts/edit-contact-details/edit-contact-details.component';
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import { UsersComponent } from './users/users.component';
    AddContactsComponent,
    EditJobComponent,
    EditLinksComponent,
+   EditContactDetailsComponent,
   ],
   exports: [
     AdminComponent,

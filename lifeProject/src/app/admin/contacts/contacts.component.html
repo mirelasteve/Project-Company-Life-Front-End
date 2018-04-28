@@ -32,12 +32,12 @@
       </ng-container>
 
       <ng-container matColumnDef="edit">
-          <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
-          <mat-cell *matCellDef="let row"> <button>Edit</button> </mat-cell>
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let row"> <button (click)="openEditModal(row)">Edit</button> </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="delete">
-            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let row"> <button (click)="openDialog(row.id)">Delete</button> </mat-cell>
           </ng-container>
 

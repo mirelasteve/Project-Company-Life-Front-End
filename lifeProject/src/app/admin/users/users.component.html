@@ -27,7 +27,7 @@
 
       <ng-container matColumnDef="numberOfJobApplications">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Number of job applications </mat-header-cell>
-          <mat-cell *matCellDef="let row">  </mat-cell>        
+          <mat-cell *matCellDef="let row"> {{row.numberOfJobApplications}} </mat-cell>        
         </ng-container>
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
