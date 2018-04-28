@@ -8,11 +8,11 @@
         <p>Your password:</p>
         <mat-form-field>
 
-            <input matInput placeholder="password" name="password" id="password" [(ngModel)]="password">
+            <input matInput placeholder="password" name="password" id="password" [(ngModel)]="password" type="password">
         </mat-form-field>
         <p>Repeat password:</p>
         <mat-form-field>
-            <input matInput placeholder="repeat password">
+            <input matInput placeholder="repeat password" type="password">
         </mat-form-field>
         <br>
         <button mat-raised-button color="primary" type="submit" (click)="reg()">Register</button>
