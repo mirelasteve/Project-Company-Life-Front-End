@@ -25,6 +25,19 @@ export class JobAdsService {
       },
     );
   }
+
+  public updateJobAds(body: object): Subscription {
+    return this.requester.put('http://localhost:3001/api/jobads', body)
+    .subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (err) => {
+        console.log(err);
+      },
+    );
+  }
+
   public deleteJobAd(body: any): Subscription {
     const httpOptions = {
       headers: new HttpHeaders ({ 'Content-Type': 'application/json' }), body };

@@ -1,47 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
+import { ContactsService } from '../../../core/admin/contacts.service';
 import { LinksService } from '../../../core/admin/links.service';
 import { TransferJobAdsService } from '../../../core/transfer-data/transfer-data.service';
 
 @Component({
-  selector: 'app-edit-links',
-  templateUrl: './edit-links.component.html',
-  styleUrls: ['./edit-links.component.scss'],
+  selector: 'app-edit-contact-details',
+  templateUrl: './edit-contact-details.component.html',
+  styleUrls: ['./edit-contact-details.component.scss']
 })
-export class EditLinksComponent implements OnInit {
-  public data: any;
-  public checked: boolean = false;
-  public options: any[];
-  private title = new FormControl();
- // tslint:disable-next-line:no-empty
-  constructor(public dialogRef: MatDialogRef<EditLinksComponent>,
-              private transferJobAdsService: TransferJobAdsService,
-              private linksService: LinksService ) {
-    this.options = [
-  {value: 'action', status: 'action'},
-  {value: 'social', status: 'social'},
-];
-}
-  public close(): void {
-  this.dialogRef.close();
-}
+export class EditContactDetailsComponent implements OnInit {
 
-  // tslint:disable-next-line:no-empty
+  public data: any;
+  private title = new FormControl();
+
+  constructor(public dialogRef: MatDialogRef<EditContactDetailsComponent>,
+              private transferJobAdsService: TransferJobAdsService,
+              private contactsService: ContactsService ) {
+}
   public ngOnInit(): void {
     this.data = this.transferJobAdsService.transferredObject;
   }
-
+  public close(): void {
+    this.dialogRef.close();
+  }
   public logForm(value: any): void {
     value.id = this.data.id;
     if (value.checked) {
       delete value.checked;
-      value.hidden = 'yes';
+      value.isMapAddress = 'yes';
     } else {
-      value.hidden = null;
+      value.isMapAddress = null;
       delete value.checked;
     }
     console.log(value);
-    this.linksService.updateLinks(value);
+    this.contactsService.updateContactDetails(value);
   }
 }

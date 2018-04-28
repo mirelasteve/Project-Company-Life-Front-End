@@ -4,6 +4,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ContactsService } from '../../core/admin/contacts.service';
 import { IContactDetails } from '../../models/contact-details';
 import { AddContactsComponent } from '../add-contacts/add-contacts.component';
+import { EditContactDetailsComponent } from './edit-contact-details/edit-contact-details.component';
+import { TransferJobAdsService } from '../../core/transfer-data/transfer-data.service';
 
 @Component({
   selector: 'app-contacts',
@@ -19,7 +21,8 @@ export class ContactsComponent implements OnInit {
 
   private dataSource: MatTableDataSource<IContactDetails>;
 
-  constructor(public dialog: MatDialog, private readonly contactsService: ContactsService) {}
+  constructor(public dialog: MatDialog, private readonly contactsService: ContactsService,
+              private transferJobAdsService: TransferJobAdsService) {}
 
   public ngOnInit(): void {
     this.contactsService.getAllContactDetails().subscribe((data) => {
@@ -30,6 +33,13 @@ export class ContactsComponent implements OnInit {
     }
   public openCreateModal(): void {
       const dialogRef = this.dialog.open(AddContactsComponent, {
+        width: '250px',
+        height: '500px',
+      });
+    }
+  public openEditModal(contacts: object): void {
+    this.transferJobAdsService.insertData(contacts);
+    const dialogRef = this.dialog.open(EditContactDetailsComponent, {
         width: '250px',
         height: '500px',
       });

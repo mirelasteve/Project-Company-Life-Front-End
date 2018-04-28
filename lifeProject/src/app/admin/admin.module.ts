@@ -12,6 +12,7 @@ import { AdsComponent } from './ads/ads.component';
 import { EditJobComponent } from './ads/edit-job/edit-job.component';
 import { ApplicationsComponent } from './applications/applications.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { EditContactDetailsComponent } from './contacts/edit-contact-details/edit-contact-details.component';
 import { EditLinksComponent } from './links/edit-links/edit-links.component';
 import { LinksComponent } from './links/links.component';
 import { UsersComponent } from './users/users.component';
@@ -36,6 +37,7 @@ import { UsersComponent } from './users/users.component';
    AddContactsComponent,
    EditJobComponent,
    EditLinksComponent,
+   EditContactDetailsComponent,
   ],
   exports: [
     AdminComponent,

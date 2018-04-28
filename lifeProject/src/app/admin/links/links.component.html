@@ -4,7 +4,7 @@
   <button class="create" mat-raised-button (click)="openCreateModal()">Create</button>
   <div class="table-container mat-elevation-z8">
 
-    <mat-table [dataSource]="dataSource" matSort>
+    <mat-table #table [dataSource]="dataSource" matSort>
 
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
@@ -16,7 +16,7 @@
         <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="link">
+      <ng-container matColumnDef="linkTarget">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Link </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.linkTarget}} </mat-cell>
       </ng-container>
@@ -38,12 +38,12 @@
      </ng-container>
 
      <ng-container matColumnDef="edit">
-        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let row"> <button (click)="openEditModal(row)">Edit</button> </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="delete">
-          <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
           <mat-cell *matCellDef="let row"> <button (click)="openDialog(row.id)">Delete</button> </mat-cell>
         </ng-container>
 

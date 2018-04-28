@@ -1,9 +1,9 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { ILinks } from '../../models/links';
 import { RequesterService } from '../requester/requester.service';
-import { HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class LinksService {
@@ -25,6 +25,19 @@ export class LinksService {
       },
     );
   }
+
+  public updateLinks(body: object): Subscription {
+    return this.requester.put('http://localhost:3001/api/links', body)
+    .subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (err) => {
+        console.log(err);
+      },
+    );
+  }
+
   public deleteLinks(body: object): Subscription {
     const httpOptions = {
       headers: new HttpHeaders ({ 'Content-Type': 'application/json' }), body };

@@ -27,6 +27,19 @@ export class ContactsService {
       },
     );
   }
+
+  public updateContactDetails(body: object): Subscription {
+    return this.requester.put('http://localhost:3001/api/contactdetails', body)
+    .subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (err) => {
+        console.log(err);
+      },
+    );
+  }
+
   public deleteContactDetails(body: object): Subscription {
     const httpOptions = {
       headers: new HttpHeaders ({ 'Content-Type': 'application/json' }), body };

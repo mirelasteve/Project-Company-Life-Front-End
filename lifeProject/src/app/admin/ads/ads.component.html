@@ -25,18 +25,23 @@
       </ng-container>
 
       <ng-container matColumnDef="view">
-          <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
           <mat-cell *matCellDef="let row"> <button routerLink="/careers/jobs/{{row.id}}">View</button> </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="edit">
-            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let row"> <button (click)="openEditModal(row)">Edit</button> </mat-cell>
           </ng-container>
 
           <ng-container matColumnDef="delete">
-              <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+              <mat-header-cell *matHeaderCellDef></mat-header-cell>
               <mat-cell *matCellDef="let row"> <button (click)="openDialog(row.id)">Delete</button> </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="job-applications">
+              <mat-header-cell *matHeaderCellDef></mat-header-cell>
+              <mat-cell *matCellDef="let row"> <button routerLink="/admin/applications/{{row.id}}">View job applications</button> </mat-cell>
             </ng-container>
       
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

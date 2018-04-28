@@ -14,7 +14,7 @@
     </div>
     <div class="form">
       <mat-form-field>
-        <mat-select name="jobTypeId" placeholder="Category" [(ngModel)]="data.jobTypeId">
+        <mat-select name="jobTypeId" placeholder="Category" [(ngModel)]="data.type">
           <mat-option *ngFor="let cat of categories " [value]="cat.value">
             {{cat.viewValue}}
           </mat-option>

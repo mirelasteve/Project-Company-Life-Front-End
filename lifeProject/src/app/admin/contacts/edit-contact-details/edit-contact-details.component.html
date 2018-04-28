@@ -1,0 +1,24 @@
+<div class="edit-contacts">
+  <title>Create link</title>
+  <form #form="ngForm" (ngSubmit)="logForm(form.value)" class='editLinksModal'>
+    <div class="form">
+      <mat-form-field>
+        <input name="name" matInput placeholder="Name" minlength="2" [(ngModel)]="data.name">
+        <mat-hint align="end">Minimum length 2 symbols</mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field>
+          <input name="value" matInput placeholder="Value" [(ngModel)]="data.value">
+      </mat-form-field>
+    </div>
+    <div class="form">
+        <mat-checkbox class="example-margin" [(ngModel)]="checked" name="checked">Is map address?</mat-checkbox>
+    </div>
+    <div class="form">
+      <button mat-raised-button class="submit-btn">Save</button>
+      <button mat-raised-button class="close-btn" (click)="close()">Close</button>
+    </div>
+  </form>
+</div>
+

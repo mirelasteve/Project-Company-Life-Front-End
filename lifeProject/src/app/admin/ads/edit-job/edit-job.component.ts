@@ -5,6 +5,7 @@ import { JobAdsService } from '../../../core/admin/job-ads.service';
 import { TransferJobAdsService } from '../../../core/transfer-data/transfer-data.service';
 import { IJobAds } from '../../../models/job-ads';
 import { AddJobComponent } from '../../add-job/add-job.component';
+import { JobApplicationsService } from '../../../core/admin/job-applications.service';
 
 @Component({
   selector: 'app-edit-job',
@@ -12,16 +13,19 @@ import { AddJobComponent } from '../../add-job/add-job.component';
   styleUrls: ['./edit-job.component.scss'],
 })
 export class EditJobComponent implements OnInit {
-  public data: object;
+  public data: any;
   // tslint:disable-next-line:no-empty
   public categories: any[];
   public options: any[];
+  public jobApplication: any = {};
+  public id: number;
   private textLength: number = 4;
   private test: string = 'value';
   private title = new FormControl ('', [Validators.required, Validators.minLength( this.textLength )]);
 
   constructor(public dialogRef: MatDialogRef<AddJobComponent>, private jobAdsService: JobAdsService,
-              private transferJobAdsService: TransferJobAdsService) {
+              private transferJobAdsService: TransferJobAdsService,
+              private jobApplicationsService: JobApplicationsService) {
 
               this.categories = [
   { value: '1', viewValue: 'IT' },
@@ -38,12 +42,20 @@ export class EditJobComponent implements OnInit {
  // tslint:disable-next-line:no-empty
   public ngOnInit(): void {
     this.data = this.transferJobAdsService.transferredObject;
+    const category = this.categories.filter((x) => +(x.value) === this.data.jobTypeId);
+    this.data.type = category[0].viewValue;
   }
 
   public logForm(value: IJobAds): void {
+   if (isNaN(value.jobTypeId)) {
+     value.jobTypeId = this.data.jobTypeId;
+   }
+   value.id = this.data.id;
    value.jobTypeId = +value.jobTypeId;
-   console.log(value);
-   this.jobAdsService.createJobAds(value);
+   this.jobAdsService.updateJobAds(value);
+   this.jobApplication.title = value.title;
+   this.id = value.id;
+   this.jobApplicationsService.updateJobApplication(this.jobApplication, this.id);
 }
 
   public close(): void {
