@@ -11,6 +11,8 @@ import { RequesterService } from './requester/requester.service';
 import { TransferJobAdsService } from './transfer-data/transfer-data.service';
 import { UsersService } from './admin/users.service';
 import { RegisterUsersService } from './users/users.service';
+import { LoginService } from './login/login.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { RegisterUsersService } from './users/users.service';
     TransferJobAdsService,
     UsersService,
     RegisterUsersService,
+    LoginService,
+
   ],
 })
 export class CoreModule { }

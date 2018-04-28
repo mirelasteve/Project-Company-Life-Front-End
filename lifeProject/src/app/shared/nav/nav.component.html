@@ -9,12 +9,18 @@
             <div class="col-sm-7 col-md-7 col-lg-7">
 
             </div>
-            <div class="col-sm-2 col-md-2 col-lg-2 col-xs-12">
-                <a (click)="openDialog()">Login</a>
-                <a (click)="openRegister()">Register</a>
+            <div *ngIf="name; else loginBoard" class="col-sm-2 col-md-2 col-lg-2 col-xs-12">
+                Hello, {{name}}
+                <a (click)="logout()">Logout</a>
             </div>
+            <ng-template #loginBoard>
+                <div class="col-sm-2 col-md-2 col-lg-2 col-xs-12">
+                    <a (click)="openDialog()">Login</a>
+                    <a (click)="openRegister()">Register</a>
+                </div>
+            </ng-template>
+
         </div>
     </div>
 </mat-toolbar>
 <hr>
-

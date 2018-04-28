@@ -1,11 +1,12 @@
 <div class='loginDialog'>
     <mat-form-field>
         Enter your username:
-        <input matInput name='username'>
+        <input matInput name='username' [(ngModel)]='username'>
     </mat-form-field>
     <mat-form-field>
         Enter your password:
-        <input matInput name='password'>
+        <input matInput name='password' [(ngModel)]='password'>
     </mat-form-field>
+    <button mat-raised-button color="primary" (click)="login()">Enter</button>
     <button mat-raised-button color="accent" (click)="onNoClick()">Enter</button>
 </div>

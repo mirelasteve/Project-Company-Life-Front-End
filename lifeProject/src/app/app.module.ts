@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app.routing.module';
 import { AppConfig } from './config/app.config';
 import { CoreModule } from './core/core.module';
 import { TransferJobAdsService } from './core/transfer-data/transfer-data.service';
+import { ToastrModule } from 'ngx-toastr';
 
 
 export function tokenGetter(): string {
@@ -31,7 +32,7 @@ export function tokenGetter(): string {
     FormsModule,
     HttpModule,
     HttpClientModule,
-
+    ToastrModule.forRoot(),
     NoopAnimationsModule,
     MDBBootstrapModule.forRoot(),
     JwtModule.forRoot({
