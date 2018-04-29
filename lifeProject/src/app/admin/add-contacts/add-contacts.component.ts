@@ -24,6 +24,7 @@ export class AddContactsComponent implements OnInit {
     }
     console.log(value);
     this.contactsService.createContactDetails(value);
+    window.location.reload();
   }
   public close(): void {
   this.dialogRef.close();

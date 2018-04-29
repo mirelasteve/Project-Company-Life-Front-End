@@ -8,7 +8,7 @@ import { TransferJobAdsService } from '../../../core/transfer-data/transfer-data
 @Component({
   selector: 'app-edit-contact-details',
   templateUrl: './edit-contact-details.component.html',
-  styleUrls: ['./edit-contact-details.component.scss']
+  styleUrls: ['./edit-contact-details.component.scss'],
 })
 export class EditContactDetailsComponent implements OnInit {
 
@@ -34,7 +34,7 @@ export class EditContactDetailsComponent implements OnInit {
       value.isMapAddress = null;
       delete value.checked;
     }
-    console.log(value);
     this.contactsService.updateContactDetails(value);
+    window.location.reload();
   }
 }

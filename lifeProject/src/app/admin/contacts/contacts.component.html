@@ -2,7 +2,10 @@
     <app-admin-nav></app-admin-nav>
     <h3 class="table-container">Contact details</h3>
     <button class="create" mat-raised-button (click)="openCreateModal()">Create</button>
-  <div class="table-container mat-elevation-z8">
+    <div *ngIf="noContactDetails" class="table-container">
+        <h2>No data available</h2>
+      </div>
+  <div *ngIf="!noContactDetails" class="table-container mat-elevation-z8">
 
     <mat-table [dataSource]="dataSource" matSort>
       
