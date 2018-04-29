@@ -56,6 +56,7 @@ export class EditJobComponent implements OnInit {
    this.jobApplication.title = value.title;
    this.id = value.id;
    this.jobApplicationsService.updateJobApplication(this.jobApplication, this.id);
+   window.location.reload();
 }
 
   public close(): void {

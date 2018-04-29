@@ -15,7 +15,7 @@ export class ApplicationsComponent implements OnInit {
   @ViewChild(MatPaginator) public paginator: MatPaginator;
   @ViewChild(MatSort) public sort: MatSort;
 
-  private displayedColumns = ['id', 'name', 'comment', 'createdAt', 'cv', 'cl'];
+  private displayedColumns = ['id', 'name', 'email', 'comment', 'createdAt', 'cv', 'cl'];
   private dataSource: MatTableDataSource<IJobApplications>;
 
   constructor(public dialog: MatDialog, private readonly jobAdsService: JobApplicationsService,

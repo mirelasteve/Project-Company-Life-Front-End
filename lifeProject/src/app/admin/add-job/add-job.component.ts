@@ -34,6 +34,7 @@ export class AddJobComponent  {
    value.jobTypeId = +value.jobTypeId;
    console.log(value);
    this.jobAdsService.createJobAds(value);
+   window.location.reload();
 }
 
  public close(): void {

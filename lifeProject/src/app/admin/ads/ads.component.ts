@@ -20,6 +20,7 @@ export class AdsComponent implements OnInit {
 
   private displayedColumns = ['id', 'title', 'createdAt', 'view', 'edit', 'delete', 'job-applications'];
   private dataSource: MatTableDataSource<IJobAds>;
+  private noJobAds: boolean;
 
   constructor(public dialog: MatDialog, private readonly jobAdsService: JobAdsService,
               private transferJobAdsService: TransferJobAdsService) {
@@ -27,9 +28,13 @@ export class AdsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.jobAdsService.getAllJobAds().subscribe((data) => {
+      if (data.length === 0) {
+        this.noJobAds = true;
+      } else {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      }
     });
     }
 
@@ -62,6 +67,7 @@ export class AdsComponent implements OnInit {
   public openDialog(id: number): void {
     if (confirm('Are you sure you want to delete this job ad!')) {
       this.deleteAd(id);
+      window.location.reload();
     }
   }
 }
