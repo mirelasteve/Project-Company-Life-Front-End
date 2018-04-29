@@ -1,9 +1,13 @@
 <div class="basic-container">
     <app-admin-nav></app-admin-nav>
     <h3 class="table-container">Users</h3>
-  <div class="table-container mat-elevation-z8">
-      
-    <mat-table [dataSource]="dataSource" matSort>
+    <div *ngIf="noUsers" class="table-container">
+        <h2>No data available</h2>
+      </div>
+  <div *ngIf="!noUsers" class="table-container mat-elevation-z8">
+
+        
+    <mat-table  [dataSource]="dataSource" matSort>
 
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>

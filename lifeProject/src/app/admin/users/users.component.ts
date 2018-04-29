@@ -13,6 +13,7 @@ export class UsersComponent implements OnInit {
   @ViewChild(MatPaginator) public paginator: MatPaginator;
   @ViewChild(MatSort) public sort: MatSort;
   private displayedColumns = ['id', 'email', 'createdAt', 'role', 'numberOfJobApplications'];
+  private noUsers: boolean;
 
   private dataSource: MatTableDataSource<IUsers>;
   private allJobApplications: any;
@@ -32,8 +33,10 @@ export class UsersComponent implements OnInit {
         }
       });
     });
-
     this.usersService.getAllUsers().subscribe((data) => {
+      if (data.length === 0) {
+        this.noUsers = true;
+      } else {
       const usersData = data.map((element) => {
         element.numberOfJobApplications = this.jobApplications[element.id];
         if (typeof element.numberOfJobApplications === 'undefined') {
@@ -45,5 +48,6 @@ export class UsersComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
-    }
   }
+}
+}
