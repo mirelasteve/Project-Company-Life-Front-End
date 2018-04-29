@@ -55,7 +55,7 @@ export class DialogComponent {
                                { observe: 'response', responseType: 'json' })
                                .subscribe((x: HttpResponse<{token: string}>) => {
         console.log(x);
-        localStorage.setItem('access_token', x.token);
+        localStorage.setItem('access_token', x.body.token);
         localStorage.setItem('user_name', this.username);
         this.toastr.success(` registered!`);
         this.navComponent.ngOnInit();

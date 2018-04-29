@@ -31,7 +31,8 @@ export class LinksComponent implements OnInit {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-    });
+    }
+  });
     }
   public openCreateModal(): void {
       const dialogRef = this.dialog.open(AddLinkComponent, {
