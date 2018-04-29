@@ -2,7 +2,10 @@
   <app-admin-nav></app-admin-nav>
   <h3 class="table-container">Links</h3>
   <button class="create" mat-raised-button (click)="openCreateModal()">Create</button>
-  <div class="table-container mat-elevation-z8">
+  <div *ngIf="noLinks" class="table-container">
+      <h2>No data available</h2>
+    </div>
+  <div *ngIf="!noLinks" class="table-container mat-elevation-z8">
 
     <mat-table #table [dataSource]="dataSource" matSort>
 

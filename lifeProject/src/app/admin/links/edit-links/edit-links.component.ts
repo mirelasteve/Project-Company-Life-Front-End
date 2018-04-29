@@ -43,5 +43,6 @@ export class EditLinksComponent implements OnInit {
     }
     console.log(value);
     this.linksService.updateLinks(value);
+    window.location.reload();
   }
 }

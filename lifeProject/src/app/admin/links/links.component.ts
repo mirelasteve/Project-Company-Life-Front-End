@@ -18,12 +18,16 @@ export class LinksComponent implements OnInit {
 
   private displayedColumns = ['id', 'name', 'linkTarget', 'iconLink', 'type', 'createdAt', 'edit', 'delete'];
   private dataSource: MatTableDataSource<ILinks>;
+  private noLinks: boolean;
 
   constructor(public dialog: MatDialog, private readonly linksService: LinksService,
               private transferJobAdsService: TransferJobAdsService) {}
 
   public ngOnInit(): void {
     this.linksService.getAllLinks().subscribe((data) => {
+      if (data.length === 0) {
+        this.noLinks = true;
+      } else {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -52,6 +56,7 @@ export class LinksComponent implements OnInit {
   public openDialog(id: number): void {
       if (confirm('Are you sure you want to delete this link!')) {
         this.deleteAd(id);
+        window.location.reload();
       }
     }
 
