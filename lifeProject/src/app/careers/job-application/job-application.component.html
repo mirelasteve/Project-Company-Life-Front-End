@@ -1,23 +1,33 @@
 <div class="job-application">
-    <h2>{{title}}</h2>
-    <mat-form-field>
-        <input matInput placeholder="Your first name" id="firstName" [(ngModel)]="firstName">
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput placeholder="Your last name" id="lastName" [(ngModel)]="lastName">
-    </mat-form-field>
+  <h2>{{title}}</h2>
+  <form #form="ngForm" (ngSubmit)="logForm(form.value)">
+    <fieldset>
+      <input placeholder="Your first name" name="firstName" ngModel>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your last name" name="lastName" ngModel>
+    </fieldset>
 
-    <mat-form-field class="example-full-width">
-        <textarea matInput placeholder="Comment" id="comment" [(ngModel)]="comment"></textarea>
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput placeholder="Upload your CV" id="cv" [(ngModel)]="cv">
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput placeholder="Upload your Cover Letter" id="cl" [(ngModel)]="cl">
-    </mat-form-field>
-    <p><button (click)="submitApp()" class="btn-primary btn-lg">Send</button></p>
-
-
-
+    <fieldset class="example-full-width">
+      <textarea placeholder="Comment" name="comment" ngModel></textarea>
+    </fieldset>
+    <fieldset>
+            <label for="singleFile">Upload file</label>
+<input id="singleFile" type="file" [fileUploadInputFor]= "fileUploadQueue"/>
+<br>
+ 
+<mat-file-upload-queue #fileUploadQueue
+    [fileAlias]="'file'"
+    [httpUrl]="'http://localhost:3001/api/jobapplications'">
+ 
+    <mat-file-upload [file]="file" [id]="i" *ngFor="let file of fileUploadQueue.files; let i = index"></mat-file-upload>
+</mat-file-upload-queue>
+    </fieldset>
+    <fieldset>
+      <input type="file" ng2FileSelect [uploader]="uploader" />
+    </fieldset>
+    <p>
+      <button class="btn-primary btn-lg">Send</button>
+    </p>
+  </form>
 </div>
