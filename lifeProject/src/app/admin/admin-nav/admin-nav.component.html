@@ -1,12 +1,17 @@
 <mat-toolbar class="toolbar" color="">
-    <a class="nav-bar" [routerLink]="['/admin']" routerLinkActive="active">Administration</a>
-    <div class="container">
-        <a class="nav-bar" [routerLink]="['/admin', 'users']" routerLinkActive="active">Users</a>
-        <a class="nav-bar" [routerLink]="['/admin', 'ads']" routerLinkActive="active">Job Ads</a>
-        <a class="nav-bar" [routerLink]="['/admin', 'links']" routerLinkActive="active">Links</a>
-        <a class="nav-bar" [routerLink]="['/admin', 'contacts']" routerLinkActive="active">Contact Details</a>
-    </div>
-    <button routerLink='/home'>Home</button>
-    <button routerLink='/careers'>Careers</button>
-    <button routerLink='/contacts'>Contacts</button>
+  <a class="nav-bar" [routerLink]="['/admin']" routerLinkActive="active">Administration</a>
+  <div class="container">
+    <a class="nav-bar" [routerLink]="['/admin', 'users']" routerLinkActive="active">Users</a>
+    <a class="nav-bar" [routerLink]="['/admin', 'ads']" routerLinkActive="active">Job Ads</a>
+    <a class="nav-bar" [routerLink]="['/admin', 'links']" routerLinkActive="active">Links</a>
+    <a class="nav-bar" [routerLink]="['/admin', 'contacts']" routerLinkActive="active">Contact Details</a>
+  </div>
+</mat-toolbar>
+<mat-toolbar>
+  <a class="nav-bar" [routerLink]="['/home']" routerLinkActive="active">Go to main page</a>
+  <div class="container">
+    <a class="nav-bar" [routerLink]="['/home']">Home</a>
+    <a class="nav-bar" [routerLink]="['/careers']">Careers</a>
+    <a class="nav-bar" [routerLink]="['/contacts']">Contacts</a>
+  </div>
 </mat-toolbar>
