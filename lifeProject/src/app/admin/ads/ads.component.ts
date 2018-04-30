@@ -7,7 +7,6 @@ import { IJobAds } from '../../models/job-ads';
 import { AddJobComponent } from '../add-job/add-job.component';
 import { EditJobComponent } from './edit-job/edit-job.component';
 
-
 @Component({
   selector: 'app-ads',
   templateUrl: './ads.component.html',

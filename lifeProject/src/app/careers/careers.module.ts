@@ -8,8 +8,9 @@ import { CareersComponent } from './careers.component';
 import { CareersRoutingModule } from './careers.routing.module';
 import { JobApplicationComponent } from './job-application/job-application.component';
 import { JobDetailsComponent } from './job-details/job-details.component';
-
+import { MatFileUploadModule } from 'angular-material-fileupload';
 import { HttpModule } from '@angular/http';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { HttpModule } from '@angular/http';
     FormsModule,
     SharedModule,
     ReactiveFormsModule,
-
+    FileUploadModule,
+    MatFileUploadModule,
   ],
   declarations: [
     CareersComponent,

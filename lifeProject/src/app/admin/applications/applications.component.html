@@ -1,7 +1,10 @@
 <div class="basic-container">
     <app-admin-nav></app-admin-nav>
-    <h3 class="table-container">Job applications for {{jobTitle}}</h3>
-  <div class="table-container mat-elevation-z8">
+    <div *ngIf="noApplications" class="table-container">
+      <h2>No data available for the selected job ad!</h2>
+    </div>
+    <h3 *ngIf="!noApplications" class="table-container">Job applications for {{jobTitle}}</h3>
+  <div *ngIf="!noApplications" class="table-container mat-elevation-z8">
 
     <mat-table [dataSource]="dataSource" matSort>
 
@@ -33,14 +36,14 @@
       <ng-container matColumnDef="cv">
           <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
           <mat-cell *matCellDef="let row"> 
-            <button>Download CV</button>
+            <button><a href={{row.cv}} download>Download CV</a></button>
           </mat-cell>        
         </ng-container>
 
         <ng-container matColumnDef="cl">
             <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
             <mat-cell *matCellDef="let row"> 
-              <button>Download CL</button>
+              <button><a [href]="" download>Download CV</a></button>
             </mat-cell>        
           </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
