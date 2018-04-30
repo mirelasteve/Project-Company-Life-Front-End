@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { LoginService } from '../../../core/login/login.service';
 import { NavComponent } from '../nav.component';
@@ -38,13 +38,13 @@ export class LoginModalComponent {
 export class DialogComponent {
   public username;
   public password;
-  public navComponent: NavComponent;
   constructor(public dialogRef: MatDialogRef<DialogComponent>,
               // public navComponent: NavComponent,
               private http: HttpClient,
               private activatedRoute: ActivatedRoute,
               private loginService: LoginService,
-              private toastr: ToastrService) { }
+              private toastr: ToastrService,
+              private router: Router) { }
   private login(): void {
     this.dialogRef.close();
     this.dialogRef.afterClosed().subscribe((result) => {
@@ -54,11 +54,11 @@ export class DialogComponent {
       this.loginService.login( {email: this.username, password: this.password },
                                { observe: 'response', responseType: 'json' })
                                .subscribe((x: HttpResponse<{token: string}>) => {
-        console.log(x);
-        localStorage.setItem('access_token', x.body.token);
+
+        localStorage.setItem('access_token', x.token);
         localStorage.setItem('user_name', this.username);
         this.toastr.success(` registered!`);
-        this.navComponent.ngOnInit();
+        // this.navComponent.ngOnInit();
 
                       },
                                           (err: HttpErrorResponse) => {
@@ -69,6 +69,11 @@ export class DialogComponent {
         });
 
     });
+
+
+  }
+  private reload(){
+    // location.replace('/');
   }
   private onNoClick(): void {
     this.dialogRef.close();

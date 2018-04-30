@@ -1,12 +1,15 @@
 <div class='loginDialog'>
     <mat-form-field>
-        Enter your username:
-        <input matInput name='username' [(ngModel)]='username'>
+        <label for="username">Enter your username:</label>
+        <input matInput name='username' [(ngModel)]='username' required>
     </mat-form-field>
     <mat-form-field>
         Enter your password:
-        <input matInput name='password' [(ngModel)]='password'>
+        <input matInput name='password' [(ngModel)]='password' type='password' required>
     </mat-form-field>
-    <button mat-raised-button color="primary" (click)="login()">Enter</button>
-    <button mat-raised-button color="accent" (click)="onNoClick()">Enter</button>
+    <div>
+        <button mat-raised-button color="primary" (click)="login()" routerLink="/careers">Enter</button>
+        <button mat-raised-button color="accent" (click)="onNoClick()">Cancel</button>
+    </div>
+
 </div>

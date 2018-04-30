@@ -60,20 +60,26 @@ export class CareersComponent implements OnInit {
          });
      }
   public getType():void{
-      if(this.selected){
+    console.log(this.selected);
+    if(this.selected){
       this.careersService.getTypes().subscribe((type) => {
-        this.careers =  type;
+      console.log(type);
         Object.values(type).map((obj) =>
         {
-          if(obj.name === this.selected) {
-            console.log(obj.id);
-            this.careers = new MatTableDataSource(this.careers);
-            this.careers.filter = obj.id.toString();
-          }
+          console.log(obj);
+          this.careers.filter = obj.id.toString();
+          this.ngOnInit();
+          // if(obj.name === this.selected) {
+          //   console.log(obj.id);
+          //   this.careers = new MatTableDataSource(this.careers);
+          //   this.careers.filter = obj.id.toString();
+          // }
           });
         });
       }
-      else{return this.ngOnInit();}
+    else {
+        return this.ngOnInit();
+      }
 
 
 }
