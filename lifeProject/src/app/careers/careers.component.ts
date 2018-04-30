@@ -26,13 +26,7 @@ export class CareersComponent implements OnInit {
   public dataSource: MatTableDataSource<any>;
   public selected: any;
   public filter: any;
-  private types = [
-    'IT',
-    'Sales',
-    'Marketing',
-    'Operations',
-    'Other',
-  ];
+  private types : any;
   private value: string = 'Clear me';
   private displayedColumns = ['title', 'id'];
 
@@ -43,8 +37,13 @@ export class CareersComponent implements OnInit {
   public ngOnInit(): void {
    this.careersService.getAll().subscribe( (data) => {
       this.careers =  data;
+      console.log(this.careers);
          });
-   }
+   this.careersService.getTypes().subscribe((type)=> {
+    this.types =type;
+  //  console.log(this.types);
+   });
+  }
   public ngAfterViewInit(): void {
     this.careersService.getAll().subscribe( (data) => {
       this.careers =  data;
@@ -58,24 +57,16 @@ export class CareersComponent implements OnInit {
       this.careers.sort = this.sort;
       this.careers.paginator = this.paginator;
          });
+
      }
-  public getType():void{
-    console.log(this.selected);
-    if(this.selected){
-      this.careersService.getTypes().subscribe((type) => {
-      console.log(type);
-        Object.values(type).map((obj) =>
-        {
-          console.log(obj);
-          this.careers.filter = obj.id.toString();
-          this.ngOnInit();
-          // if(obj.name === this.selected) {
-          //   console.log(obj.id);
-          //   this.careers = new MatTableDataSource(this.careers);
-          //   this.careers.filter = obj.id.toString();
-          // }
-          });
-        });
+  public getType(): void {
+    if(this.selected) {
+      console.log(this.selected);
+      this.careersService.getAll().subscribe( (data) => {
+        this.careers =  data;
+        // this.careers = new MatTableDataSource(this.careers);
+        this.careers.filter = this.selected;
+         });
       }
     else {
         return this.ngOnInit();
