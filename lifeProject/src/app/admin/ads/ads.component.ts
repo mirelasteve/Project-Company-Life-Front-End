@@ -7,7 +7,6 @@ import { IJobAds } from '../../models/job-ads';
 import { AddJobComponent } from '../add-job/add-job.component';
 import { EditJobComponent } from './edit-job/edit-job.component';
 
-
 @Component({
   selector: 'app-ads',
   templateUrl: './ads.component.html',
@@ -21,6 +20,7 @@ export class AdsComponent implements OnInit {
   private displayedColumns = ['id', 'title', 'createdAt', 'view', 'edit', 'delete', 'job-applications'];
   private dataSource: MatTableDataSource<IJobAds>;
   private noJobAds: boolean;
+  private test: any;
 
   constructor(public dialog: MatDialog, private readonly jobAdsService: JobAdsService,
               private transferJobAdsService: TransferJobAdsService) {

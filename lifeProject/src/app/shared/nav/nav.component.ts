@@ -22,8 +22,9 @@ import { RegistrationComponent } from './register/register.component';
       this.loginService.isAuthenticated();
       this.name = localStorage.user_name;
       const decoded = this.loginService.giveDecoded();
+      if (decoded) {
       this.isAdmin = decoded.admin;
-
+      }
   }
 
    private openDialog(): void {
@@ -33,6 +34,7 @@ import { RegistrationComponent } from './register/register.component';
       height: '300px',
     });
     dialogRef.afterClosed().subscribe((result) => {
+      window.location.reload();
       console.log('The dialog was closed');
          });
   }
@@ -47,8 +49,8 @@ import { RegistrationComponent } from './register/register.component';
       console.log('The dialog was closed');
          });
   }
-   private logout(){
+   private logout(): void {
     this.loginService.logout();
-    this.ngOnInit();
+    window.location.reload();
   }
 }
