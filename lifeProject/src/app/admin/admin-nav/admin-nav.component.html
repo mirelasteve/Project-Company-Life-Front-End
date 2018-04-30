@@ -1,9 +1,12 @@
 <mat-toolbar class="toolbar" color="">
-        <a class="nav-bar" [routerLink]="['/admin']" routerLinkActive="active">Administration</a> 
-    <div class="container">  
-                <a class="nav-bar" [routerLink]="['/admin', 'users']" routerLinkActive="active">Users</a>
-                <a class="nav-bar" [routerLink]="['/admin', 'ads']" routerLinkActive="active">Job Ads</a>
-                <a class="nav-bar" [routerLink]="['/admin', 'links']" routerLinkActive="active">Links</a>
-                <a class="nav-bar" [routerLink]="['/admin', 'contacts']" routerLinkActive="active">Contact Details</a>
-        </div>
+    <a class="nav-bar" [routerLink]="['/admin']" routerLinkActive="active">Administration</a>
+    <div class="container">
+        <a class="nav-bar" [routerLink]="['/admin', 'users']" routerLinkActive="active">Users</a>
+        <a class="nav-bar" [routerLink]="['/admin', 'ads']" routerLinkActive="active">Job Ads</a>
+        <a class="nav-bar" [routerLink]="['/admin', 'links']" routerLinkActive="active">Links</a>
+        <a class="nav-bar" [routerLink]="['/admin', 'contacts']" routerLinkActive="active">Contact Details</a>
+    </div>
+    <button routerLink='/home'>Home</button>
+    <button routerLink='/careers'>Careers</button>
+    <button routerLink='/contacts'>Contacts</button>
 </mat-toolbar>

@@ -1,6 +1,6 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { ToastrService } from 'ngx-toastr';
 import 'rxjs/add/operator/map';
@@ -19,17 +19,24 @@ export class LoginService {
               private jwtService: JwtHelperService) { }
  // tslint:disable-next-line:ban-types
   // tslint:disable-next-line:typedef
+
   public login(user: User, options?: HttpOptions): Observable<Object> {
   return this.requester.post('http://localhost:3001/api/login', user);
  }
   public isAuthenticated(): boolean {
    const token = this.jwtService.tokenGetter();
-   console.log(localStorage);
+  //  console.log(localStorage);
    const decoded = this.jwtService.decodeToken(token);
+  //  console.log(decoded);
+
    return !!token && !this.jwtService.isTokenExpired(token) && decoded.iss === this.appConfig.jwt_issuer;
 }
- public logout(): void {
+  public logout(): void {
    localStorage.removeItem('access_token');
    localStorage.removeItem('user_name');
+ }
+  public giveDecoded(): any {
+    const token = this.jwtService.tokenGetter();
+    return this.jwtService.decodeToken(token);
  }
 }
