@@ -20,6 +20,7 @@ export class AdsComponent implements OnInit {
   private displayedColumns = ['id', 'title', 'createdAt', 'view', 'edit', 'delete', 'job-applications'];
   private dataSource: MatTableDataSource<IJobAds>;
   private noJobAds: boolean;
+  private test: any;
 
   constructor(public dialog: MatDialog, private readonly jobAdsService: JobAdsService,
               private transferJobAdsService: TransferJobAdsService) {

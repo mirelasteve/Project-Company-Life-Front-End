@@ -57,7 +57,6 @@ export class DialogComponent {
 
         localStorage.setItem('access_token', x.token);
         localStorage.setItem('user_name', this.username);
-        this.toastr.success(` registered!`);
         // this.navComponent.ngOnInit();
 
                       },
