@@ -14,11 +14,9 @@
             </ng-container>
             <ng-container matColumnDef="id">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>
-                    id
+                    Type
                 </mat-header-cell>
-                <mat-cell *matCellDef="let element">
-                    {{element.jobTypeId}}
-                </mat-cell>
+                <mat-cell *matCellDef="let element"><span>{{element.jobTypeId}}</span></mat-cell>
             </ng-container>
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
@@ -34,7 +32,7 @@
             <mat-form-field>
                 <mat-select placeholder="Job type " id="selected" [(ngModel)]="selected" (change)="getType()">
                     <mat-option>All</mat-option>
-                    <mat-option *ngFor="let type of types " value={{type}}>{{type}}</mat-option>
+                    <mat-option *ngFor="let type of types " value={{type.id}}>{{type.name}}</mat-option>
                 </mat-select>
             </mat-form-field>
             <mat-form-field>
