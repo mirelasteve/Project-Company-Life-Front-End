@@ -6,6 +6,8 @@ import { JobAdsService } from './admin/job-ads.service';
 import { JobApplicationsService } from './admin/job-applications.service';
 import { LinksService } from './admin/links.service';
 import { UsersService } from './admin/users.service';
+import { AdminAuthGuardService } from './auth-guard/admin-auth-guard.service';
+import { UsersAuthGuardService } from './auth-guard/users-auth-guard.service';
 import { CareersService } from './careers/careers.service';
 import { ContactDetailsService } from './contacts/contacts.service';
 import { CreateApplicationService } from './job-application/create-application.service';
@@ -30,6 +32,8 @@ import { RegisterUsersService } from './users/users.service';
     RegisterUsersService,
     LoginService,
     ContactDetailsService,
+    UsersAuthGuardService,
+    AdminAuthGuardService,
   ],
 })
 export class CoreModule { }

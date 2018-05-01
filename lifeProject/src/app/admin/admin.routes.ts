@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { AdminAuthGuardService } from '../core/auth-guard/admin-auth-guard.service';
 import { AddContactsComponent } from './add-contacts/add-contacts.component';
 import { AddJobComponent } from './add-job/add-job.component';
 import { AddLinkComponent } from './add-link/add-link.component';
@@ -13,16 +14,16 @@ import { LinksComponent } from './links/links.component';
 import { UsersComponent } from './users/users.component';
 
 export const ROUTES: Routes = [
-    { path: '', component: AdminComponent },
-    { path: 'users', component: UsersComponent },
-    { path: 'ads', component: AdsComponent },
-    { path: 'applications/:id', component: ApplicationsComponent },
-    { path: 'links', component: LinksComponent },
-    { path: 'contacts', component: ContactsComponent },
-    { path: 'addJobs', component: AddJobComponent },
-    { path: 'addLinks', component: AddLinkComponent },
-    { path: 'addContacts', component: AddContactsComponent },
-    { path: 'editJobs', component: EditJobComponent },
-    { path: 'editLinks', component: EditLinksComponent },
-    { path: 'editContacts', component: EditContactDetailsComponent },
+    { path: '', component: AdminComponent, canActivate: [AdminAuthGuardService] },
+    { path: 'users', component: UsersComponent, canActivate: [AdminAuthGuardService] },
+    { path: 'ads', component: AdsComponent, canActivate: [AdminAuthGuardService] },
+    { path: 'applications/:id', component: ApplicationsComponent, canActivate: [AdminAuthGuardService] },
+    { path: 'links', component: LinksComponent, canActivate: [AdminAuthGuardService] },
+    { path: 'contacts', component: ContactsComponent, canActivate: [AdminAuthGuardService] },
+    { path: 'addJobs', component: AddJobComponent, canActivate: [AdminAuthGuardService] },
+    { path: 'addLinks', component: AddLinkComponent, canActivate: [AdminAuthGuardService] },
+    { path: 'addContacts', component: AddContactsComponent, canActivate: [AdminAuthGuardService] },
+    { path: 'editJobs', component: EditJobComponent, canActivate: [AdminAuthGuardService] },
+    { path: 'editLinks', component: EditLinksComponent, canActivate: [AdminAuthGuardService] },
+    { path: 'editContacts', component: EditContactDetailsComponent, canActivate: [AdminAuthGuardService] },
   ];

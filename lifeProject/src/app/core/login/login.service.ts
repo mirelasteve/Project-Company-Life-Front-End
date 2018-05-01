@@ -27,10 +27,29 @@ export class LoginService {
    const token = this.jwtService.tokenGetter();
   //  console.log(localStorage);
    const decoded = this.jwtService.decodeToken(token);
-  //  console.log(decoded);
+  //  console.log(decoded.admin);
 
    return !!token && !this.jwtService.isTokenExpired(token) && decoded.iss === this.appConfig.jwt_issuer;
 }
+
+  public isUser(): boolean {
+    let isLogged = false;
+    const token = localStorage.getItem('access_token');
+    if (token) {
+      isLogged = true;
+    }
+    return isLogged;
+  }
+
+  public isAdmin(): boolean {
+      const token = localStorage.getItem('access_token');
+      let isAdmin = false;
+      const decoded = this.jwtService.decodeToken(token);
+      if (decoded && decoded.admin) {
+        isAdmin = true;
+      }
+      return isAdmin;
+  }
   public logout(): void {
    localStorage.removeItem('access_token');
    localStorage.removeItem('user_name');

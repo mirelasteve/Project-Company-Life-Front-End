@@ -56,9 +56,9 @@ export class DialogComponent   {
     );
       this.loginService.login( {email: this.username, password: this.password },
                                { observe: 'response', responseType: 'json' })
-                               .subscribe((x: HttpResponse<{token: string}>) => {
+                               .subscribe((x: {token: string}) => {
 
-        localStorage.setItem('access_token', x.body.token);
+        localStorage.setItem('access_token', x.token);
         localStorage.setItem('user_name', this.username);
         // this.navComponent.ngOnInit();
 
@@ -72,9 +72,6 @@ export class DialogComponent   {
 
     });
 
-  }
-  private reload() {
-    // location.replace('/');
   }
   private onNoClick(): void {
     this.dialogRef.close();
