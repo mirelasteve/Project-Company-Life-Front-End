@@ -1,8 +1,6 @@
 // Variable
-$usa-image-path: '../../assets/images/background-home-page.jpg';
 .parallax {
     position: relative;
-    background-image: url($usa-image-path);
     opacity: 0.5;
     background-attachment: scroll;
     background-position: center;
@@ -10,7 +8,6 @@ $usa-image-path: '../../assets/images/background-home-page.jpg';
     background-size: cover;
     height: 27em;
     width: 80%;
-    // margin-top: 1%;
     margin-left: 10%;
 }
 
@@ -35,6 +32,10 @@ h5 {
     background-color: rgb(7, 7, 1) !important;
 }
 
+.action-buttons {
+    margin: 1%;
+}
+
 .fieldActiveButtons button:hover {
     // box-shadow: 5px 5px 5px 5px rgb(128, 128, 0) !important;
     color: rgb(240, 240, 9);
@@ -48,6 +49,7 @@ h5 {
 .socialButtons a {
     padding: 1.5em;
     text-align: center;
+    display: inline-block;
 }
 
 .socialButtons a:hover {
