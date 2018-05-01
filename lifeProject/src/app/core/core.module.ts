@@ -12,6 +12,7 @@ import { CareersService } from './careers/careers.service';
 import { ContactDetailsService } from './contacts/contacts.service';
 import { CreateApplicationService } from './job-application/create-application.service';
 import { JobDetailsService } from './job-details/job-details.service';
+import { MainPageLinksService } from './links/links.service';
 import { LoginService } from './login/login.service';
 import { RequesterService } from './requester/requester.service';
 import { TransferJobAdsService } from './transfer-data/transfer-data.service';
@@ -34,6 +35,7 @@ import { RegisterUsersService } from './users/users.service';
     ContactDetailsService,
     UsersAuthGuardService,
     AdminAuthGuardService,
+    MainPageLinksService,
   ],
 })
 export class CoreModule { }
