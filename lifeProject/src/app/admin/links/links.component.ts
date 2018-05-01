@@ -16,7 +16,7 @@ export class LinksComponent implements OnInit {
   @ViewChild(MatPaginator) public paginator: MatPaginator;
   @ViewChild(MatSort) public sort: MatSort;
 
-  private displayedColumns = ['id', 'name', 'linkTarget', 'iconLink', 'type', 'createdAt', 'edit', 'delete'];
+  private displayedColumns = ['id', 'name', 'linkTarget', 'iconLink', 'type', 'hidden', 'createdAt', 'edit', 'delete'];
   private dataSource: MatTableDataSource<ILinks>;
   private noLinks: boolean;
 
