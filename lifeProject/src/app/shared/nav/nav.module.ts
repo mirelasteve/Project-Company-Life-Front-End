@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { DialogComponent, LoginModalComponent } from './login-modal/login-modal.component';
@@ -13,6 +14,7 @@ import { RegisterComponent, RegistrationComponent } from './register/register.co
     RouterModule,
     AngularMaterialModule,
     FormsModule,
+
   ],
   declarations: [
     NavComponent,

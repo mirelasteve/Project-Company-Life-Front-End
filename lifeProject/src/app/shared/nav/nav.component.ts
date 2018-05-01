@@ -34,7 +34,7 @@ import { RegistrationComponent } from './register/register.component';
       height: '300px',
     });
     dialogRef.afterClosed().subscribe((result) => {
-      window.location.reload();
+      // window.location.reload();
       console.log('The dialog was closed');
          });
   }

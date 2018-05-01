@@ -1,6 +1,7 @@
 
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
+import { EmailValidator, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -35,10 +36,12 @@ export class LoginModalComponent {
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.html',
+  styleUrls: ['./login-modal.component.scss'],
 })
 export class DialogComponent   {
   public username;
   public password;
+  public isValidData;
   constructor( public dialogRef: MatDialogRef<DialogComponent>,
               // public navComponent: NavComponent,
                private http: HttpClient,
@@ -48,6 +51,30 @@ export class DialogComponent   {
                private router: Router) {
 
  }
+  public isValidEmail(name: string): boolean {
+    const result = name
+    // tslint:disable-next-line:max-line-length
+    .match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/g);
+    if (result) {
+      return true;
+    } else {
+      return false;
+    }
+}
+  public isValidPassword(pass: string): boolean {
+    if(pass.length > 7) {
+              return true;
+  }    else {
+              return false;
+  }
+}
+//   public invalidData(): boolean {
+//     if (this.isValidData) {
+//       return true;
+//     } else {
+//       return false;
+//     }
+// }
   private login(): void {
     this.dialogRef.close();
     this.dialogRef.afterClosed().subscribe((result) => {
@@ -57,13 +84,16 @@ export class DialogComponent   {
       this.loginService.login( {email: this.username, password: this.password },
                                { observe: 'response', responseType: 'json' })
                                .subscribe((x: {token: string}) => {
-
+        console.log(x.token);
         localStorage.setItem('access_token', x.token);
         localStorage.setItem('user_name', this.username);
+
         // this.navComponent.ngOnInit();
 
                       },
                                           (err: HttpErrorResponse) => {
+                                            this.isValidData = false;
+                                            alert(`Ooops \n Wrong data!\n Please register ot check your details!`);
           // tslint:disable-next-line:no-magic-numbers
           if (err.status === 302) {
             this.toastr.error(err.error.err);
@@ -73,6 +103,8 @@ export class DialogComponent   {
     });
 
   }
+
+
   private onNoClick(): void {
     this.dialogRef.close();
   }

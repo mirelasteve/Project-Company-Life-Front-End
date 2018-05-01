@@ -21,7 +21,7 @@ export class LoginService {
   // tslint:disable-next-line:typedef
 
   public login(user: User, options?: HttpOptions): Observable<Object> {
-  return this.requester.post('http://localhost:3001/api/login', user);
+      return this.requester.post('http://localhost:3001/api/login', user);
  }
   public isAuthenticated(): boolean {
    const token = this.jwtService.tokenGetter();

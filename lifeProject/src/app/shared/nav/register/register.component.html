@@ -12,10 +12,13 @@
         </mat-form-field>
         <p>Repeat password:</p>
         <mat-form-field>
-            <input matInput placeholder="repeat password" type="password">
+            <input matInput placeholder="repeat password" type="password" id="repeatPassword" [(ngModel)]="repeatPassword" name="repeatPassword">
         </mat-form-field>
         <br>
-        <button mat-raised-button color="primary" type="submit" (click)="reg()">Register</button>
+        <div *ngIf="!isValidEmail(email)" class="errorEmail"> Your email is invalid</div>
+        <div *ngIf="!isValidPassword(password)" class="errorEmail"> Your password is too short. Min 8 symbols. One big letter, one number and one special symbol</div>
+        <div *ngIf="!areSame()" class="errorEmail"> The passwords are different </div>
+        <button *ngIf="isValidEmail(email) && isValidPassword(password) && areSame()" mat-raised-button color="primary" type="submit" (click)="reg()">Register</button>
         <button mat-raised-button color="accent" (click)="noClick()">Close</button>
     </form>
 </div>
