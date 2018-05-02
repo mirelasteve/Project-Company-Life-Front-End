@@ -95,22 +95,21 @@ export class RegistrationComponent {
     );
       this.userService.registerUser({email: this.email,
                                      password: this.password,
-                                     isAdmin: null});
+                                     isAdmin: null}).add(()=>{
+                                      this.loginService.login( {email: this.email,
+                                        password: this.password},
+                                                                { observe: 'response', responseType: 'json' })
+                                                                      .subscribe((x: {token: string}) => {
+                                                console.log(x.token);
+                                                localStorage.setItem('access_token', x.token);
+                                                localStorage.setItem('user_name', this.email);
 
-      this.userService.checkForUser('');
-      // console.log(check);
+                                               // this.navComponent.ngOnInit();
 
-      this.loginService.login( {email: this.email,
-        password: this.password},
-                               { observe: 'response', responseType: 'json' })
-                                      .subscribe((x: {token: string}) => {
-                // console.log(x.token);
-                localStorage.setItem('access_token', x.token);
-                localStorage.setItem('user_name', this.email);
+                                                             });
+                                     })
 
-               // this.navComponent.ngOnInit();
 
-                             });
 
     });
   }

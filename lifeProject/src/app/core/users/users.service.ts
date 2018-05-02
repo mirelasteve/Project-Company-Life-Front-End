@@ -25,7 +25,7 @@ export class RegisterUsersService {
   public getAllUsers(): Observable<any> {
     return this.requester.get('/api/users');
    }
-  public checkForUser(email) {
+  public checkForUser(email:string) {
         this.getAllUsers()
      .subscribe((data) =>
     data.forEach((obj) => {

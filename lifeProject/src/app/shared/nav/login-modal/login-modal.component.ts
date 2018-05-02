@@ -68,13 +68,7 @@ export class DialogComponent   {
               return false;
   }
 }
-//   public invalidData(): boolean {
-//     if (this.isValidData) {
-//       return true;
-//     } else {
-//       return false;
-//     }
-// }
+
   private login(): void {
     this.dialogRef.close();
     this.dialogRef.afterClosed().subscribe((result) => {
@@ -84,9 +78,11 @@ export class DialogComponent   {
       this.loginService.login( {email: this.username, password: this.password },
                                { observe: 'response', responseType: 'json' })
                                .subscribe((x: {token: string}) => {
-        console.log(x.token);
+                                 console.log(localStorage);
+        // console.log(x.token);
         localStorage.setItem('access_token', x.token);
         localStorage.setItem('user_name', this.username);
+        // console.log(localStorage);
 
         // this.navComponent.ngOnInit();
 
