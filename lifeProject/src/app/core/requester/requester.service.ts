@@ -20,6 +20,10 @@ export class RequesterService {
     });
   }
 
+  public postFiles (resource: string, body: any): Observable<any>  {
+    return this.http.post(resource, body);
+}
+
   public put(resource: string, body: any, headers?: HttpHeaders): Observable<any>  {
       return this.http.put(resource, body, {
         headers: new HttpHeaders().set('Content-type', 'application/json'),

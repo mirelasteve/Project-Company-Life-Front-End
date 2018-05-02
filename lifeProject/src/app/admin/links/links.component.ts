@@ -57,7 +57,9 @@ export class LinksComponent implements OnInit {
   public openDialog(id: number): void {
       if (confirm('Are you sure you want to delete this link!')) {
         this.deleteAd(id);
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+        });
       }
     }
 
