@@ -55,7 +55,7 @@ export class LoginService {
    localStorage.removeItem('user_name');
  }
   public giveDecoded(): any {
-    const token = this.jwtService.tokenGetter();
+    const token = localStorage.getItem('access_token');
     return this.jwtService.decodeToken(token);
  }
 }

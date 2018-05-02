@@ -21,6 +21,5 @@ export class JobDetailsComponent implements OnInit {
       // console.log(data);
          });
     this.urlId = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log(this.urlId);
   }
   }

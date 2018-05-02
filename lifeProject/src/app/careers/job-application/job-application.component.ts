@@ -4,6 +4,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ActivatedRoute } from '@angular/router';
 import { FileDropDirective, FileSelectDirective, FileUploader } from 'ng2-file-upload/ng2-file-upload';
+import { LoginService } from '../../core/login/login.service';
 import { CreateApplicationService } from './../../core/job-application/create-application.service';
 
 const URL = 'C:/Users/ACER/Desktop/frond-end-company-life-storage';
@@ -14,39 +15,39 @@ const URL = 'C:/Users/ACER/Desktop/frond-end-company-life-storage';
   styleUrls: ['./job-application.component.scss'],
 })
 export class JobApplicationComponent implements OnInit {
-  // public uploader: FileUploader = new FileUploader({url: URL});
-  public values: string;
   public title: any;
-  public urlId: any;
-  public firstName: string;
-  public lastName: string;
-  public comment: string;
-  public userId: number ;
-  public cv: string;
-  public cl: string;
-  public email: string | 'email@abv.bg';
-  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private createService: CreateApplicationService) {
+  public jobId: any;
+  public selectedCV: any = null;
+  public selectedCoverLetter: any = null;
+  public userId: any;
+  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private createService: CreateApplicationService, 
+              private loginService: LoginService) {
     this.title = this.activatedRoute.snapshot.paramMap.get('title');
+    this.jobId = this.activatedRoute.snapshot.paramMap.get('id');
    }
 
   // tslint:disable-next-line:no-empty
   public ngOnInit(): void {
-    // console.log(this.uploader.options.url)
-    
+    this.userId = this.loginService.giveDecoded().id;
+  }
+
+  public onSelectedCV(event: any): void {
+    this.selectedCV = event.target.files[0];
+  }
+  public onSelectedCoverLetter(event: any): void {
+    this.selectedCoverLetter = event.target.files[0];
   }
   public logForm(value: any): void {
-    console.log(value);
-    this.createService.createApplication(value);
+    const formData = new FormData();
+    formData.append('userId', this.userId);
+    formData.append('title', this.title);
+    formData.append('firstName', value.firstName);
+    formData.append('lastName', value.lastName);
+    formData.append('comment', value.comment);
+    formData.append('cv', this.selectedCV);
+    formData.append('coverLetter', this.selectedCoverLetter);
+    formData.append('email', value.email);
+    formData.append('jobId', this.jobId);
+    this.createService.createApplication(formData);
  }
-//   public submitApp(): void {
-//     // this.createService.createApplication({
-//       userId: 5,
-//       title: this.activatedRoute.snapshot.paramMap.get('title'),
-//       firstName: this.firstName,
-//       lastName: this.lastName,
-//       comment: this.comment,
-//       email: 'email@abv.bg',
-//       jobId: this.activatedRoute.snapshot.paramMap.get('id')
-//     // });
-//     }
 }
