@@ -67,7 +67,9 @@ export class AdsComponent implements OnInit {
   public openDialog(id: number): void {
     if (confirm('Are you sure you want to delete this job ad!')) {
       this.deleteAd(id);
-      window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
+      });
     }
   }
 }

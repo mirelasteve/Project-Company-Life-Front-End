@@ -35,6 +35,8 @@ export class EditContactDetailsComponent implements OnInit {
       delete value.checked;
     }
     this.contactsService.updateContactDetails(value);
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    });
   }
 }
