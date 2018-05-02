@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SafeResourceUrl, DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import { environment } from '../../../../environment.variables';
 import { MainPageLinksService } from '../core/links/links.service';
 import { ILinks } from '../models/links';

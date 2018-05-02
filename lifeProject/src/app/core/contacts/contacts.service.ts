@@ -12,5 +12,7 @@ export class ContactDetailsService {
   public getAllContactDetails(): Observable<IContactDetails[]> {
     return this.requester.get('/api/contactdetails');
    }
-
+  public getMapAddress(): Observable<IContactDetails[]> {
+    return this.requester.get('/api/contactdetails/map');
+   }
 }
