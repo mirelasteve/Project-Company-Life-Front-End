@@ -9,12 +9,13 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
 import { AppConfig } from './config/app.config';
 import { CoreModule } from './core/core.module';
 import { TransferJobAdsService } from './core/transfer-data/transfer-data.service';
-import { ToastrModule } from 'ngx-toastr';
 
 export function tokenGetter(): string {
   return localStorage.getItem('access_token');
@@ -29,6 +30,8 @@ export function tokenGetter(): string {
     BrowserModule,
     CoreModule,
     FormsModule,
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot() ,
     HttpModule,
     HttpClientModule,
     ToastrModule.forRoot(),

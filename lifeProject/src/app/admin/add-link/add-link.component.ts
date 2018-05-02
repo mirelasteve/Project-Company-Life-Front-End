@@ -28,7 +28,10 @@ export class AddLinkComponent implements OnInit {
   }
   console.log(value);
   this.linksService.createLinks(value);
-  window.location.reload();
+  setTimeout(()=>{
+    window.location.reload();
+  });
+  // window.location.reload();
 }
   public close(): void {
   this.dialogRef.close();

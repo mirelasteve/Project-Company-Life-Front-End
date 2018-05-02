@@ -1,17 +1,26 @@
-.edit-job {
-    height: 100%;
-    width: 100%;
+.title-edit-job {
+    border-bottom: 3px solid green;
+    margin-top: -18px;
+    background-color: rgba(0, 128, 0, 0.2);
+    font-size: 15px;
 }
 
 .form {
-    width: 50%;
-    margin: 0 auto;
+    color: black !important;
+    width: 750px;
+    font-size: 14px !important;
+    text-align: left !important;
+}
+
+.form mat-form-field {
+    color: black !important;
+    width: 600px;
 }
 
 .submit-btn {
-    background-color: green;
+    background-color: rgba(151, 151, 250, 06);
 }
 
 .close-btn {
-    background-color: red;
+    background-color: rgba(252, 238, 47, 0.6);
 }

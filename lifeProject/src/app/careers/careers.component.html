@@ -1,9 +1,8 @@
 <app-nav></app-nav>
 
 <div class="mat-app-background basic-container">
-
     <div class="ads-container">
-        <mat-table [dataSource]="careers" matSort>
+        <mat-table [dataSource]="careers" #table matSort>
             <ng-container matColumnDef="title">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>
                     Open Positions
@@ -12,11 +11,13 @@
                     <a [routerLink]="['/careers/jobs/',element.id]" routerLinkActive="active">{{element.title}}</a>
                 </mat-cell>
             </ng-container>
-            <ng-container matColumnDef="id">
+            <ng-container matColumnDef="jobTypeId">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>
-                    Type
+                    id
                 </mat-header-cell>
-                <mat-cell *matCellDef="let element"><span>{{element.jobTypeId}}</span></mat-cell>
+                <mat-cell *matCellDef="let element" class="job-title">
+                    {{element.jobTypeId}}
+                </mat-cell>
             </ng-container>
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
@@ -30,7 +31,7 @@
                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter ">
             </mat-form-field>
             <mat-form-field>
-                <mat-select placeholder="Job type " id="selected" [(ngModel)]="selected" (change)="getType()">
+                <mat-select input placeholder="Job type " id="selected" name="selected" [(ngModel)]="selected" (change)="getType()">
                     <mat-option>All</mat-option>
                     <mat-option *ngFor="let type of types " value={{type.id}}>{{type.name}}</mat-option>
                 </mat-select>

@@ -36,7 +36,7 @@ export class LinksComponent implements OnInit {
     }
   public openCreateModal(): void {
       const dialogRef = this.dialog.open(AddLinkComponent, {
-        width: '250px',
+        width: '550px',
         height: '500px',
       });
     }

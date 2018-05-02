@@ -1,38 +1,43 @@
+<div class="title-add-job">Create job add</div>
 <div class="create-job">
-  <title>Create job</title>
-  <form #form="ngForm" (ngSubmit)="logForm(form.value)" class='createJobModal'>
-    <div class="form">
-      <mat-form-field>
-        <input name="title" matInput placeholder="Title" minlength="4" ngModel>
-        <mat-hint align="end">Minimum length 4 symbols</mat-hint>
-      </mat-form-field>
-    </div>
-    <div class="form">
-      <mat-form-field>
-        <textarea name="description" matInput matTextareaAutosize matAutosizeMinRows="1" placeholder="Description" ngModel></textarea>
-      </mat-form-field>
-    </div>
-    <div class="form">
-      <mat-form-field>
-        <mat-select name="jobTypeId" placeholder="Category" ngModel>
-          <mat-option *ngFor="let cat of categories " value={{cat.value}}>
-            {{cat.viewValue}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div class="form">
-      <mat-form-field>
-        <mat-select name="status" placeholder="Status" ngModel>
-          <mat-option *ngFor="let opt of options " value={{opt.value}}>
-            {{opt.status}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div class="form">
-      <button mat-raised-button class="submit-btn">Create</button>
-      <button mat-raised-button class="close-btn" (click)="close()">Close</button>
-    </div>
-  </form>
+    <form #form="ngForm" (ngSubmit)="logForm(form.value)" class='createJobModal'>
+        <div class="form">
+            <mat-form-field>
+                <input name="title" matInput placeholder="Title" maxlength="256" minlength="4" ngModel (keyup)="isValidTitle(form.value)" required>
+                <mat-hint align="end" style="color:crimson" *ngIf="form.value.title.length < 4">Too short, needs min 4 symbols </mat-hint>
+                <mat-hint align="end" style="color:crimson" *ngIf="form.value.title.length > 256">Too long, no more than 256 symbols </mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="form">
+            <mat-form-field>
+                <textarea [froalaEditor] name="description" matInput matTextareaAutosize matAutosizeMinRows="1" placeholder="Description" ngModel></textarea>
+                <mat-hint align="end" style="color:crimson" *ngIf="form.value.description.length < 4"> Too short</mat-hint>
+                <mat-hint align="end" style="color:crimson" *ngIf="form.value.description.length > 16384"> Too long</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="form">
+            <mat-form-field>
+                <mat-select name="jobTypeId" placeholder="Category" ngModel>
+                    <mat-option *ngFor="let cat of categories " value={{cat.value}}>
+                        {{cat.viewValue}}
+                    </mat-option>
+                </mat-select>
+                <mat-hint align="end" style="color:crimson" *ngIf="form.value.jobTypeId.length < 1"> You should select</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="form">
+            <mat-form-field>
+                <mat-select name="status" placeholder="Status" ngModel>
+                    <mat-option *ngFor="let opt of options " value={{opt.value}}>
+                        {{opt.status}}
+                    </mat-option>
+                </mat-select>
+                <mat-hint align="end" style="color:crimson" *ngIf="form.value.status.length < 1"> You should select</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="form">
+            <button *ngIf="form.value.status.length && form.value.jobTypeId && form.value.title.length >4 && form.value.title.length < 256 && form.value.description.length > 4 && form.value.description.length < 16384" mat-raised-button class="submit-btn btn-primary">Create</button>
+            <button mat-raised-button class="close-btn btn-warning" (click)="close()">Close</button>
+        </div>
+    </form>
 </div>

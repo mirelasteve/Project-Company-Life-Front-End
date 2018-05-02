@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
+import "froala-editor/js/froala_editor.pkgd.min.js";
 import { JobAdsService } from '../../../core/admin/job-ads.service';
+import { JobApplicationsService } from '../../../core/admin/job-applications.service';
 import { TransferJobAdsService } from '../../../core/transfer-data/transfer-data.service';
 import { IJobAds } from '../../../models/job-ads';
 import { AddJobComponent } from '../../add-job/add-job.component';
-import { JobApplicationsService } from '../../../core/admin/job-applications.service';
 
 @Component({
   selector: 'app-edit-job',
@@ -55,8 +56,14 @@ export class EditJobComponent implements OnInit {
    this.jobAdsService.updateJobAds(value);
    this.jobApplication.title = value.title;
    this.id = value.id;
+   this.dialogRef.close();
+   this.dialogRef.afterClosed().subscribe(() => {
    this.jobApplicationsService.updateJobApplication(this.jobApplication, this.id);
-   window.location.reload();
+   setTimeout(() => {
+    window.location.reload();
+    });
+   });
+
 }
 
   public close(): void {

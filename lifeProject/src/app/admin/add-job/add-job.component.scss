@@ -1,17 +1,41 @@
+//  {
+//     height: 100%;
+//     width: 100%;
+// }
 .create-job {
-    height: 100%;
-    width: 100%;
+    width: 700px;
 }
 
 .form {
-    width: 50%;
-    margin: 0 auto;
+    color: black !important;
+    width: 750px;
+    font-size: 13px !important;
+}
+
+.form mat-form-field {
+    color: black !important;
+    width: 800px;
 }
 
 .submit-btn {
-    background-color: green;
+    background-color: rgba(151, 151, 250, 06);
 }
 
 .close-btn {
-    background-color: red;
+    background-color: rgba(252, 238, 47, 0.6);
 }
+
+.title-add-job {
+    border-bottom: 3px solid green;
+    margin-top: -15px;
+    background-color: rgba(0, 128, 0, 0.2);
+}
+
+// mat-dialog-container .create-job {
+//     height: 400px !important;
+//     width: 700px !important;
+//     // margin-top: -150px !important;
+//     border: 4px solid rgb(206, 240, 114);
+//     font-family: 'Trebuchet MS';
+//     box-shadow: 0 11px 15px -7px rgba(206, 240, 114, 0.5)!important;
+// }

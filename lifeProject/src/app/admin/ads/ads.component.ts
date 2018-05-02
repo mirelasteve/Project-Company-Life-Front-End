@@ -46,28 +46,33 @@ export class AdsComponent implements OnInit {
   }
   public openCreateModal(): void {
     const dialogRef = this.dialog.open(AddJobComponent, {
-      width: '250px',
+      width: '900px',
       height: '500px',
     });
   }
   public openEditModal(jobAd: object): void {
     this.transferJobAdsService.insertData(jobAd);
     const dialogRef = this.dialog.open(EditJobComponent, {
-      width: '250px',
-      height: '500px',
-    });
+      width: '800px',
+      height: '550px',
+          });
   }
   public deleteAd(id: number): void {
     const object = {
       id,
     };
     this.jobAdsService.deleteJobAd(object);
+
     }
 
   public openDialog(id: number): void {
     if (confirm('Are you sure you want to delete this job ad!')) {
       this.deleteAd(id);
-      window.location.reload();
+              setTimeout(() => {
+          window.location.reload();
+          });
+
+      // window.location.reload();
     }
   }
 }

@@ -1,8 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { JobAdsService } from '../../core/admin/job-ads.service';
 import { IJobAds } from '../../models/job-ads';
+import "froala-editor/js/froala_editor.pkgd.min.js";
 
 @Component({
   selector: 'app-add-job',
@@ -12,8 +14,9 @@ import { IJobAds } from '../../models/job-ads';
 export class AddJobComponent  {
  public categories: any[];
  public options: any[];
- private textLength: number = 4;
- private title = new FormControl ('', [Validators.required, Validators.minLength( this.textLength )]);
+ private minLength: number = 4;
+ private maxLength: number = 256;
+ private title = new FormControl ('', [Validators.required, Validators.minLength( this.minLength ), Validators.maxLength(this.maxLength)]);
 
  // tslint:disable-next-line:no-empty
  constructor(public dialogRef: MatDialogRef<AddJobComponent>, private jobAdsService: JobAdsService ) {
@@ -30,23 +33,32 @@ export class AddJobComponent  {
 ];
 }
 
+ public isValidTitle(form) {
+  console.log(form);
+  console.log(form.title);
+}
  public logForm(value: IJobAds): void {
    value.jobTypeId = +value.jobTypeId;
-   console.log(value);
+   this.dialogRef.close();
+   this.dialogRef.afterClosed().subscribe(() => {
    this.jobAdsService.createJobAds(value);
-   window.location.reload();
+   setTimeout(() => {
+    window.location.reload();
+    });
+   });
+
 }
 
  public close(): void {
   this.dialogRef.close();
 }
 
- public minLengthError(num: number ): string {
-   if (num < this.textLength ) {
-    return ('Title is under 4 symbols');
-   }
+//  public minLengthError(num: number ): string {
+//    if (num < this.textLength ) {
+//     return ('Title is under 4 symbols');
+//    }
 
-}
+// }
 
  public onNoClick(): void {
   this.dialogRef.close();

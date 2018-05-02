@@ -28,7 +28,7 @@ export class CareersComponent implements OnInit {
   public filter: any;
   private types : any;
   private value: string = 'Clear me';
-  private displayedColumns = ['title', 'id'];
+  private displayedColumns = ['title', 'jobTypeId'];
 
   @ViewChild(MatPaginator) private paginator: MatPaginator;
   @ViewChild(MatSort) private sort: MatSort;
@@ -36,11 +36,15 @@ export class CareersComponent implements OnInit {
   // tslint:disable-next-line:no-empty
   public ngOnInit(): void {
    this.careersService.getAll().subscribe( (data) => {
-      this.careers =  data;
-      console.log(this.careers);
+      //      Object.values(data).forEach((obj) => {
+      //   obj.id = obj.id.toString();
+      //   console.log(obj.id);
+      // });
+           this.careers =  data;
+          //  this.careers = new MatTableDataSource(this.careers);
          });
-   this.careersService.getTypes().subscribe((type)=> {
-    this.types =type;
+   this.careersService.getTypes().subscribe((type) => {
+    this.types = type;
   //  console.log(this.types);
    });
   }
@@ -50,7 +54,7 @@ export class CareersComponent implements OnInit {
       this.careers.map( (key)=> {
         if(key.jobTypeId) {
          key.jobTypeId = key.jobTypeId.toLocaleString();
-          console.log(typeof key.jobTypeId);
+         console.log(typeof key.jobTypeId);
         }
       } );
       this.careers = new MatTableDataSource(this.careers);
@@ -60,30 +64,31 @@ export class CareersComponent implements OnInit {
 
      }
   public getType(): void {
-    if(this.selected) {
-      console.log(this.selected);
+    if (this.selected) {
+      console.log(this.selected, typeof this.selected);
       this.careersService.getAll().subscribe( (data) => {
         this.careers =  data;
-        // this.careers = new MatTableDataSource(this.careers);
+        this.careers = new MatTableDataSource(this.careers);
         this.careers.filter = this.selected;
          });
-      }
-    else {
+      } else {
         return this.ngOnInit();
       }
-
-
 }
+  public applyFilter(filterValue: string): void {
+        // console.log(filterValue, typeof filterValue);
+        // this.careersService.getAll().subscribe( (data) => {
+          // Object.values(data).forEach((obj) => {
+          //     obj.id = obj.id.toString();
+          //               });
+          // this.careers =  data;
+          // this.careers = new MatTableDataSource(this.careers);
+          let filterVal;
+          filterVal = filterValue.trim(); // Remove whitespace
+          filterVal = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+          this.careers.filter = filterVal;
 
-  public applyFilter(filterValue: string) {
-        this.careersService.getAll().subscribe( (data) => {
-        this.careers =  data;
-        this.careers = new MatTableDataSource(this.careers);
-        let filterVal;
-        filterVal = filterValue.trim(); // Remove whitespace
-        filterVal = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-        this.careers.filter = filterVal;
-         });
+        //  });
 
   }
 

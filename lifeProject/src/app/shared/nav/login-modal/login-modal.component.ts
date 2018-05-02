@@ -82,6 +82,9 @@ export class DialogComponent   {
         // console.log(x.token);
         localStorage.setItem('access_token', x.token);
         localStorage.setItem('user_name', this.username);
+        setTimeout(() => {
+          window.location.reload();
+        });
         // console.log(localStorage);
 
         // this.navComponent.ngOnInit();

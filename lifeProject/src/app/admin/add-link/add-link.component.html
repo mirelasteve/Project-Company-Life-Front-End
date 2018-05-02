@@ -1,38 +1,40 @@
+<div class="title-add-link">Create link</div>
 <div class="create-link">
-    <title>Create link</title>
+
     <form #form="ngForm" (ngSubmit)="logForm(form.value)" class='createLinkModal'>
-      <div class="form">
-        <mat-form-field>
-          <input name="name" matInput placeholder="Name" minlength="3" ngModel>
-          <mat-hint align="end">Minimum length 3 symbols</mat-hint>
-        </mat-form-field>
-      </div>
-      <div class="form">
-        <mat-form-field>
-            <input name="linkTarget" matInput placeholder="Link target" ngModel>
-        </mat-form-field>
-      </div>
-      <div class="form">
-          <mat-form-field>
-              <input name="iconLink" matInput placeholder="Icon link" ngModel>
-          </mat-form-field>
+        <div class="form">
+            <mat-form-field>
+                <input name="name" matInput placeholder="Name" minlength="3" ngModel>
+                <mat-hint align="end" style="color:crimson" *ngIf="form.value.name.length < 3">Too short, needs min 4 symbols </mat-hint>
+                <mat-hint align="end" style="color:crimson" *ngIf="form.value.name.length > 128">Too long, no more than 256 symbols </mat-hint>
+            </mat-form-field>
         </div>
-      <div class="form">
-        <mat-form-field>
-          <mat-select name="type" placeholder="Type" ngModel>
-            <mat-option *ngFor="let opt of options " value={{opt.value}}>
-              {{opt.status}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div class="form">
-          <mat-checkbox class="example-margin" [(ngModel)]="checked" name="checked">Hidden?</mat-checkbox>
-      </div>
-      <div class="form">
-        <button mat-raised-button class="submit-btn">Create</button>
-        <button mat-raised-button class="close-btn" (click)="close()">Close</button>
-      </div>
+        <div class="form">
+            <mat-form-field>
+                <input name="linkTarget" matInput placeholder="Link target" ngModel>
+                <mat-hint align="end" style="color:crimson" *ngIf="form.value.linkTarget.length < 1">Too short</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="form">
+            <mat-form-field>
+                <input name="iconLink" matInput placeholder="Icon link" ngModel>
+            </mat-form-field>
+        </div>
+        <div class="form">
+            <mat-form-field>
+                <mat-select name="type" placeholder="Type" ngModel>
+                    <mat-option *ngFor="let opt of options " value={{opt.value}}>
+                        {{opt.status}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="form">
+            <mat-checkbox class="example-margin" [(ngModel)]="checked" name="checked">Hidden?</mat-checkbox>
+        </div>
+        <div class="form">
+            <button mat-raised-button class="submit-btn btn-primary" *ngIf="form.value.type && form.value.iconLink && form.value.name.length > 3 && form.value.name.length < 128 && form.value.linkTarget.length > 1">Create</button>
+            <button mat-raised-button class="close-btn btn-warning" (click)="close()">Close</button>
+        </div>
     </form>
-  </div>
-  
+</div>
