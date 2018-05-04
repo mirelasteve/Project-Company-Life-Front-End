@@ -3,15 +3,26 @@
     width: 100%;
 }
 
+.createContactsModal {
+    font-size: 14px;
+}
+
 .form {
     width: 50%;
     margin: 0 auto;
 }
 
 .submit-btn {
-    background-color: green;
+    background-color: rgba(151, 151, 250, 0.6);
 }
 
 .close-btn {
-    background-color: red;
+    background-color: rgba(252, 238, 47, 0.6);
+}
+
+.title-add-link {
+    border-bottom: 3px solid green;
+    margin-top: -15px;
+    background-color: rgba(0, 128, 0, 0.2);
+    font-size: 14px;
 }

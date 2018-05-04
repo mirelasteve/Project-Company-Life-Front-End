@@ -1,6 +1,15 @@
 .registrationForm {
-    height: 250px;
-    margin-top: -35px !important;
+    font-size: 15px;
+    align-items: center;
+    text-align: center;
+}
+
+.reg-modal {
+    background-color: rgb(247, 221, 173);
+}
+
+.enterData {
+    margin-top: 4%;
 }
 
 .registrationForm mat-form-field {

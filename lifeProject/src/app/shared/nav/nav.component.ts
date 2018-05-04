@@ -30,8 +30,8 @@ import { RegistrationComponent } from './register/register.component';
    private openDialog(): void {
     console.log('clicked');
     const dialogRef = this.dialog.open(DialogComponent, {
-      width: '250px',
-      height: '300px',
+      width: '450px',
+      height: '350px',
     });
     dialogRef.afterClosed().subscribe((result) => {
       // window.location.reload();
@@ -42,7 +42,7 @@ import { RegistrationComponent } from './register/register.component';
    private openRegister(): void {
     console.log('clicked');
     const dialogRef = this.dialog.open(RegistrationComponent, {
-      height: '150px',
+      height: '500px',
       width: '350px',
     });
     dialogRef.afterClosed().subscribe((result) => {

@@ -41,8 +41,8 @@ export class ContactsComponent implements OnInit {
     }
   public openCreateModal(): void {
       const dialogRef = this.dialog.open(AddContactsComponent, {
-        width: '250px',
-        height: '500px',
+        width: '300px',
+        height: '400px',
       });
     }
   public openEditModal(contacts: object): void {

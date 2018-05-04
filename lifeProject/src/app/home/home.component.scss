@@ -6,9 +6,9 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 27em;
-    width: 80%;
-    margin-left: 10%;
+    height: 30em;
+    width: 70%;
+    margin-left: 15%;
 }
 
 h5 {
@@ -16,53 +16,115 @@ h5 {
 }
 
 .fieldActiveButtons {
-    position: absolute;
-    margin-bottom: 3%;
-    bottom: 6%;
-    left: 2%;
+    display: inline;
 }
 
 .fieldActiveButtons button {
+    margin-left: 6%;
+    margin-top: 5%;
+    background-color: orange;
+}
+
+.fieldActiveButtons button a {
     // width: 3em;
     height: 3em;
-    border: 2px solid rgba(9, 1, 10, 0.3);
-    font-size: 1em;
-    color: rgb(228, 228, 95);
-    text-shadow: 1px 1px rgba(250, 250, 55, 0.2);
-    background-color: rgb(7, 7, 1) !important;
+    font-size: 12px;
+    color: rgb(0, 0, 0) !important;
+    // background-color: rgb(7, 7, 1) !important;
 }
 
-.action-buttons {
-    margin: 1%;
+.fieldActiveButtons button a:hover {
+    // width: 3em;
+    height: 3em;
+    font-size: 12px;
+    color: orangered;
+    // background-color: rgb(7, 7, 1) !important;
 }
 
+// .action-buttons button a {
+//     margin: 10%;
+// }
 .fieldActiveButtons button:hover {
     // box-shadow: 5px 5px 5px 5px rgb(128, 128, 0) !important;
     color: rgb(240, 240, 9);
-}
-
-.socialButtons {
-    background-color: transparent;
-    text-align: left;
-}
-
-.socialButtons a {
-    padding: 1.5em;
-    text-align: center;
-    display: inline-block;
-}
-
-.socialButtons a:hover {
-    background-color: rgb(9, 9, 71);
+    font-size: 14px;
 }
 
 .footer {
-    margin-left: 10%;
-    position: absolute;
+    margin-top: 1%;
+    margin-bottom: 5%;
 }
 
-textarea {
-    position: relative;
+.footer span {
+    margin-left: 15%;
+}
+
+ul {
+    margin-left: 10%;
+}
+
+ul li {
+    list-style-type: none;
+    background-color: transparent;
+    text-align: left;
+    display: inline;
+    padding: 3.5em;
+}
+
+ul li a {
+    font-size: 16px;
+}
+
+.socialButtons a:hover {
+    background-color: rgb(32, 32, 238);
+}
+
+.footer textarea {
+    margin-left: 15%;
     width: 35em;
-    height: 10em;
+    height: 27em;
+    word-spacing: 0.5em;
+    font-family: 'Trebuchet MS';
+    font-size: 15px;
+    color: black;
+    background-color: oldlace;
+}
+
+iframe {
+    width: 440px !important;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+#facebook {
+    width: 450px;
+}
+
+#magnifying-glass {
+    font-size: 15em;
+    /* This controls the size. */
+    display: inline-block;
+    margin-top: 5%;
+    margin-left: 25%;
+    width: 0.8em;
+    height: 0.8em;
+    border: 0.1em solid rgb(37, 46, 3);
+    position: relative;
+    border-radius: 0.35em;
+}
+
+#magnifying-glass::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: -0.45em;
+    bottom: -0.1em;
+    border-width: 0;
+    background: rgb(37, 46, 3);
+    width: 0.55em;
+    height: 0.11em;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
 }

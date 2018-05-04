@@ -25,8 +25,8 @@ export class RegisterComponent  {
   private openRegister(): void {
     console.log('clicked');
     const dialogRef = this.dialog.open(RegistrationComponent, {
-      height: '100px',
-      width: '4000px',
+      height: '400px',
+      width: '400px',
     });
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');

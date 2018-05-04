@@ -37,13 +37,13 @@ export class LinksComponent implements OnInit {
   public openCreateModal(): void {
       const dialogRef = this.dialog.open(AddLinkComponent, {
         width: '550px',
-        height: '500px',
+        height: '400px',
       });
     }
   public openEditModal(links: object ): void {
     this.transferJobAdsService.insertData(links);
     const dialogRef = this.dialog.open(EditLinksComponent, {
-        width: '250px',
+        width: '350px',
         height: '500px',
       });
     }

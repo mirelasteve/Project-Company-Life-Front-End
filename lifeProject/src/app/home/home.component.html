@@ -1,22 +1,24 @@
 <div class="page-container">
     <app-nav></app-nav>
     <div [style.background-image]="homePageBackgroundImage" class="parallax">
-        <div class="fieldActiveButtons">
-            <span *ngFor="let actionLink of actionLinks" class="action-buttons">
-        <button mat-raised-button>
-          <a [href]="actionLink.linkTarget">{{actionLink.name}}</a>
+        <div class="fieldActiveButtons" *ngFor="let actionLink of actionLinks">
+            <button mat-raised-button class="btn-md btn btn-warning">
+          <a  [href]="actionLink.linkTarget">{{actionLink.name}}</a>
         </button>
-      </span>
         </div>
+        <div id="magnifying-glass"></div>
     </div>
+
     <div class="footer">
-        <div class="socialButtons">
-            <h5>Follow us:</h5>
-            <a *ngFor="let socialLink of socialLinks" target="_blank" [href]="socialLink.linkTarget" [class]="socialLink.iconLink"></a>
+        <div>
+            <span class="h4">Follow us:</span>
+            <ul class="socialButtons">
+                <li *ngFor="let socialLink of socialLinks"><button class="btn-elegant-blue btn-md btn"><a target="_blank" [href]="socialLink.linkTarget" [class]="socialLink.iconLink"></a></button></li>
+            </ul>
         </div>
         <textarea>
       {{homePageText}}
-    </textarea>
-        <iframe [src]="facebookLatestPosts" width="340" height="450" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+       </textarea>
+        <iframe [src]="facebookLatestPosts" height="400px" width="400px" style="border:none;overflow:hidden" scrolling="yes" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
     </div>
 </div>

@@ -1,6 +1,5 @@
 <div class="title-add-link">Create link</div>
 <div class="create-link">
-
     <form #form="ngForm" (ngSubmit)="logForm(form.value)" class='createLinkModal'>
         <div class="form">
             <mat-form-field>
@@ -17,7 +16,11 @@
         </div>
         <div class="form">
             <mat-form-field>
-                <input name="iconLink" matInput placeholder="Icon link" ngModel>
+                <mat-select name="iconLink" ngModel>
+                    <mat-option *ngFor="let icon of icons " value={{icon.name}}>
+                        <i class={{icon.iconLink}}> {{icon.name}}</i>
+                    </mat-option>
+                </mat-select>
             </mat-form-field>
         </div>
         <div class="form">
@@ -33,7 +36,7 @@
             <mat-checkbox class="example-margin" [(ngModel)]="checked" name="checked">Hidden?</mat-checkbox>
         </div>
         <div class="form">
-            <button mat-raised-button class="submit-btn btn-primary" *ngIf="form.value.type && form.value.iconLink && form.value.name.length > 3 && form.value.name.length < 128 && form.value.linkTarget.length > 1">Create</button>
+            <button mat-raised-button class="submit-btn btn-primary" *ngIf="form.value.type && form.value.iconLink&&form.value.name.length > 3 && form.value.name.length < 128 && form.value.linkTarget.length > 1">Create</button>
             <button mat-raised-button class="close-btn btn-warning" (click)="close()">Close</button>
         </div>
     </form>

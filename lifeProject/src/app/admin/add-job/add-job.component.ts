@@ -44,13 +44,9 @@ export class AddJobComponent  {
    this.jobAdsService.createJobAds(value);
    setTimeout(() => {
     window.location.reload();
-<<<<<<< HEAD
     });
    });
 
-=======
-  });
->>>>>>> b94a06b0fbf5d6be7be54c91a97c5e85030bdff9
 }
 
  public close(): void {

@@ -1,20 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+body {
+    background-color: rgba(255, 215, 0, 0.2);
+}
+
 mat-dialog-container {
     // margin-top: -150px !important;
     margin-top: 2%;
     border: 4px solid rgba(206, 240, 114, 0.1);
-    background-color: rgb(205, 245, 127) !important;
-    color: black !important;
+    // background-color: rgb(205, 245, 127) !important;
+    // color: black !important;
     text-align: center;
     align-content: center;
     font-family: 'Trebuchet MS';
-    box-shadow: 0 11px 15px -7px rgb(200, 240, 120)!important;
+    // box-shadow: 0 11px 15px -7px rgb(200, 240, 120)!important;
 }
 
 mat-dialog-container:hover {
-    background-color: rgb(198, 241, 111) !important;
+    background-color: oldlace !important;
     color: black !important;
 }
 

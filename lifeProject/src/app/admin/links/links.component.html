@@ -1,65 +1,65 @@
 <div class="basic-container">
-  <app-admin-nav></app-admin-nav>
-  <h3 class="table-container">Links</h3>
-  <button class="create" mat-raised-button (click)="openCreateModal()">Create</button>
-  <div *ngIf="noLinks" class="table-container">
-      <h2>No data available</h2>
+    <app-admin-nav></app-admin-nav>
+    <h3 class="table-container">Links</h3>
+    <button class="create" mat-raised-button (click)="openCreateModal()">Create</button>
+    <div *ngIf="noLinks" class="table-container">
+        <h2>No data available</h2>
     </div>
-  <div *ngIf="!noLinks" class="table-container mat-elevation-z8">
+    <div *ngIf="!noLinks" class="table-container mat-elevation-z8">
 
-    <mat-table #table [dataSource]="dataSource" matSort>
+        <mat-table #table [dataSource]="dataSource" matSort>
 
-      <ng-container matColumnDef="id">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
-      </ng-container>
+            <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+            </ng-container>
 
-      <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
-      </ng-container>
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+            </ng-container>
 
-      <ng-container matColumnDef="linkTarget">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Link </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.linkTarget}} </mat-cell>
-      </ng-container>
+            <ng-container matColumnDef="linkTarget">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Link </mat-header-cell>
+                <mat-cell *matCellDef="let row"> <a href={{row.linkTarget}}><abbr title={{row.linkTarget}}> link</abbr></a> </mat-cell>
+            </ng-container>
 
-      <ng-container matColumnDef="iconLink">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Icon Link </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.iconLink}} </mat-cell>
-        
-      </ng-container>
+            <ng-container matColumnDef="iconLink">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Icon Link </mat-header-cell>
+                <mat-cell *matCellDef="let row"><i class={{row.iconLink}}></i> </mat-cell>
 
-      <ng-container matColumnDef="type">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Type </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.type}} </mat-cell>
-      </ng-container>
+            </ng-container>
 
-      <ng-container matColumnDef="hidden">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Hidden? </mat-header-cell>
-          <mat-cell *matCellDef="let row"> {{row.hidden}} </mat-cell>
-        </ng-container>
+            <ng-container matColumnDef="type">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Type </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.type}} </mat-cell>
+            </ng-container>
 
-      <ng-container matColumnDef="createdAt">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Created At </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.createdAt}} </mat-cell>
-     </ng-container>
+            <ng-container matColumnDef="hidden">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Hidden? </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.hidden}} </mat-cell>
+            </ng-container>
 
-     <ng-container matColumnDef="edit">
-        <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let row"> <button (click)="openEditModal(row)">Edit</button> </mat-cell>
-      </ng-container>
+            <ng-container matColumnDef="createdAt">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Created At </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.createdAt}} </mat-cell>
+            </ng-container>
 
-      <ng-container matColumnDef="delete">
-          <mat-header-cell *matHeaderCellDef></mat-header-cell>
-          <mat-cell *matCellDef="let row"> <button (click)="openDialog(row.id)">Delete</button> </mat-cell>
-        </ng-container>
+            <ng-container matColumnDef="edit">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell *matCellDef="let row"> <button (click)="openEditModal(row)">Edit</button> </mat-cell>
+            </ng-container>
 
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;">
-      </mat-row>
-    </mat-table>
+            <ng-container matColumnDef="delete">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell *matCellDef="let row"> <button (click)="openDialog(row.id)">Delete</button> </mat-cell>
+            </ng-container>
 
-    <mat-paginator [pageSizeOptions]="[10]"></mat-paginator>
-  </div>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;">
+            </mat-row>
+        </mat-table>
+
+        <mat-paginator [pageSizeOptions]="[10]"></mat-paginator>
+    </div>
 </div>

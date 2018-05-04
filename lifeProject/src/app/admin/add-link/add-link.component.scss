@@ -2,25 +2,31 @@
     border-bottom: 3px solid green;
     margin-top: -15px;
     background-color: rgba(0, 128, 0, 0.2);
+    font-size: 14px;
 }
 
 .create-link {
-    width: 500px;
+    width: 300px;
+    align-content: center;
+    align-items: center;
+    text-align: center !important;
 }
 
 .form {
     color: black !important;
-    width: 450px;
-    font-size: 13px !important;
+    width: 30px;
+    font-size: 14px !important;
+    text-align: center !important;
 }
 
 .form mat-form-field {
     color: black !important;
-    width: 800px;
+    width: 300px;
+    text-align: center !important;
 }
 
 .submit-btn {
-    background-color: rgba(151, 151, 250, 06);
+    background-color: rgba(151, 151, 250, 0.6);
 }
 
 .close-btn {

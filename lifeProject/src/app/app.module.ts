@@ -8,6 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { ToastrModule } from 'ngx-toastr';
@@ -34,6 +35,7 @@ export function tokenGetter(): string {
     FroalaViewModule.forRoot() ,
     HttpModule,
     HttpClientModule,
+    NgbModule.forRoot(),
     ToastrModule.forRoot(),
     NoopAnimationsModule,
     MDBBootstrapModule.forRoot(),

@@ -1,4 +1,4 @@
-<mat-toolbar class="toolbar" color="">
+<mat-toolbar class="navbar navbar-expand-lg navbar-dark black" color="">
     <div class="container">
         <div class="row">
             <div class="col-sm-2 col-md-2 col-lg-2">
@@ -11,6 +11,7 @@
             <div class="col-sm-2 col-md-2 col-lg-2">
 
                 <div *ngIf="name; else loginBoard" class="col-sm-2 col-md-2 col-lg-2 col-xs-12">
+                    <div class="col-sm-2 col-md-2 col-lg-2"></div>
                     Hello, {{name}}
                     <a (click)="logout()" routerLink="/home">Logout</a>
                 </div>

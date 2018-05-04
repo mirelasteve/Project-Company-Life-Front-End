@@ -1,19 +1,23 @@
 <div class='registrationForm'>
     <form>
-        <p>Your username:</p>
-        <mat-form-field>
+        <div class="modal-header reg-modal">
+            <h3 class="modal-title ">Registration</h3>
+        </div>
+        <div class="enterData">
+            <p>Your username:</p>
+            <mat-form-field>
+                <input matInput placeholder="john@john.com" name="email" id="email" [(ngModel)]="email">
+            </mat-form-field>
+            <p>Your password:</p>
+            <mat-form-field>
 
-            <input matInput placeholder="john@john.com" name="email" id="email" [(ngModel)]="email">
-        </mat-form-field>
-        <p>Your password:</p>
-        <mat-form-field>
-
-            <input matInput placeholder="password" name="password" id="password" [(ngModel)]="password" type="password">
-        </mat-form-field>
-        <p>Repeat password:</p>
-        <mat-form-field>
-            <input matInput placeholder="repeat password" type="password" id="repeatPassword" [(ngModel)]="repeatPassword" name="repeatPassword">
-        </mat-form-field>
+                <input matInput placeholder="password" name="password" id="password" [(ngModel)]="password" type="password">
+            </mat-form-field>
+            <p>Repeat password:</p>
+            <mat-form-field>
+                <input matInput placeholder="repeat password" type="password" id="repeatPassword" [(ngModel)]="repeatPassword" name="repeatPassword">
+            </mat-form-field>
+        </div>
         <br>
         <div *ngIf="!isValidEmail(email)" class="errorEmail"> Your email is invalid</div>
         <div *ngIf="!isValidPassword(password)" class="errorEmail"> Your password is too short. Min 8 symbols. One big letter, one number and one special symbol</div>
