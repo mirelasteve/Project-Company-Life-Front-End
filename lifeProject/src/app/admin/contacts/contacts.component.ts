@@ -42,14 +42,14 @@ export class ContactsComponent implements OnInit {
   public openCreateModal(): void {
       const dialogRef = this.dialog.open(AddContactsComponent, {
         width: '300px',
-        height: '400px',
+        height: '300px',
       });
     }
   public openEditModal(contacts: object): void {
     this.transferJobAdsService.insertData(contacts);
     const dialogRef = this.dialog.open(EditContactDetailsComponent, {
-        width: '250px',
-        height: '500px',
+        width: '350px',
+        height: '200px',
       });
     }
   public deleteAd(id: number): void {
@@ -62,11 +62,11 @@ export class ContactsComponent implements OnInit {
   public openDialog(id: number): void {
       if (confirm('Are you sure you want to delete this link!')) {
         this.deleteAd(id);
-        setTimeout(() => {
+
           setTimeout(() => {
             window.location.reload();
           });
-        });
+
       }
     }
   }

@@ -3,7 +3,7 @@
     <div [style.background-image]="homePageBackgroundImage" class="parallax">
         <div class="fieldActiveButtons" *ngFor="let actionLink of actionLinks">
             <button mat-raised-button class="btn-md btn btn-warning">
-          <a  [href]="actionLink.linkTarget">{{actionLink.name}}</a>
+          <a  [href]=actionLink.linkTarget>{{actionLink.name}}</a>
         </button>
         </div>
         <div id="magnifying-glass"></div>

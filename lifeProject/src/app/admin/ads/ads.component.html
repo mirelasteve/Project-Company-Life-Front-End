@@ -1,57 +1,57 @@
 <div class="basic-container">
-  <app-admin-nav></app-admin-nav>
-  <h3 class="table-container">Job Ads</h3>
-  <button class="create" mat-raised-button (click)="openCreateModal()">Create</button>
-  <div *ngIf="noJobAds" class="table-container">
-      <h2>No data available</h2>
+    <app-admin-nav></app-admin-nav>
+    <h3 class="table-container">Job Ads</h3>
+    <button class="create" mat-raised-button (click)="openCreateModal()">Create</button>
+    <div *ngIf="noJobAds" class="table-container">
+        <h2>No data available</h2>
     </div>
-  <div *ngIf="!noJobAds" class="table-container mat-elevation-z8">
+    <div *ngIf="!noJobAds" class="table-container mat-elevation-z8">
 
-    <mat-table [dataSource]="dataSource" matSort>
+        <mat-table [dataSource]="dataSource" matSort>
 
-      <!-- ID Column -->
-      <ng-container matColumnDef="id">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
-      </ng-container>
+            <!-- ID Column -->
+            <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+            </ng-container>
 
-      <!-- Progress Column -->
-      <ng-container matColumnDef="title">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Job Title </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
-      </ng-container>
+            <!-- Progress Column -->
+            <ng-container matColumnDef="title">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Job Title </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
+            </ng-container>
 
-      <!-- Name Column -->
-      <ng-container matColumnDef="createdAt">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Created At </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.createdAt}} </mat-cell>
-      </ng-container>
+            <!-- Name Column -->
+            <ng-container matColumnDef="createdAt">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Created At </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.createdAt | date}} </mat-cell>
+            </ng-container>
 
-      <ng-container matColumnDef="view">
-          <mat-header-cell *matHeaderCellDef></mat-header-cell>
-          <mat-cell *matCellDef="let row"> <button routerLink="/careers/jobs/{{row.id}}">View</button> </mat-cell>
-        </ng-container>
+            <ng-container matColumnDef="view">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell *matCellDef="let row"> <button routerLink="/careers/jobs/{{row.id}}">View</button> </mat-cell>
+            </ng-container>
 
-        <ng-container matColumnDef="edit">
-            <mat-header-cell *matHeaderCellDef></mat-header-cell>
-            <mat-cell *matCellDef="let row"> <button (click)="openEditModal(row)">Edit</button> </mat-cell>
-          </ng-container>
+            <ng-container matColumnDef="edit">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell *matCellDef="let row"> <button (click)="openEditModal(row)">Edit</button> </mat-cell>
+            </ng-container>
 
-          <ng-container matColumnDef="delete">
-              <mat-header-cell *matHeaderCellDef></mat-header-cell>
-              <mat-cell *matCellDef="let row"> <button (click)="openDialog(row.id)">Delete</button> </mat-cell>
+            <ng-container matColumnDef="delete">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell *matCellDef="let row"> <button (click)="openDialog(row.id)">Delete</button> </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="job-applications">
-              <mat-header-cell *matHeaderCellDef></mat-header-cell>
-              <mat-cell *matCellDef="let row"> <button routerLink="/admin/applications/{{row.id}}">View job applications</button> </mat-cell>
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell *matCellDef="let row"> <button routerLink="/admin/applications/{{row.id}}">View job applications</button> </mat-cell>
             </ng-container>
-      
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;">
-      </mat-row>
-    </mat-table>
 
-    <mat-paginator [pageSizeOptions]="[10]"></mat-paginator>
-  </div>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;">
+            </mat-row>
+        </mat-table>
+
+        <mat-paginator [pageSizeOptions]="[10]"></mat-paginator>
+    </div>
 </div>

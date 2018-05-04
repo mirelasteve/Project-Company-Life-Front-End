@@ -4,19 +4,22 @@
         <div class="form">
             <mat-form-field>
                 <input name="name" matInput placeholder="Name" minlength="2" ngModel>
-                <mat-hint align="end">Minimum length 2 symbols</mat-hint>
+                <mat-hint align="end" style="color:crimson" *ngIf="form.value.name.length < 2">Too short, needs min 2 symbols </mat-hint>
+                <mat-hint align="end" style="color:crimson" *ngIf="form.value.name.length > 128">Too long, no more than 128 symbols </mat-hint>
             </mat-form-field>
         </div>
         <div class="form">
             <mat-form-field>
                 <input name="value" matInput placeholder="Value" ngModel>
+                <mat-hint align="end" style="color:crimson" *ngIf="form.value.value.length < 2">Too short, needs min 2 symbols </mat-hint>
+                <mat-hint align="end" style="color:crimson" *ngIf="form.value.value.length > 1024">Too long, no more than 1024 symbols </mat-hint>
             </mat-form-field>
         </div>
         <div class="form">
             <mat-checkbox class="example-margin" [(ngModel)]="checked" name="checked">Is map address?</mat-checkbox>
         </div>
         <div class="form">
-            <button mat-raised-button class="submit-btn">Create</button>
+            <button mat-raised-button *ngIf="form.value.name.length > 2 && form.value.name.length < 128 && form.value.value.length > 2 && form.value.value.length < 1024 " class="submit-btn">Create</button>
             <button mat-raised-button class="close-btn" (click)="close()">Close</button>
         </div>
     </form>
