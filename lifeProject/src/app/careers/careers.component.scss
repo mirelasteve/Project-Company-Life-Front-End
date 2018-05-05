@@ -10,19 +10,20 @@
     margin-left: 15%;
     padding: 0.35%;
     width: 50%;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
 }
 
 .filter-options {
     position: absolute;
+    font-size: 15px;
     margin-top: 2%;
     margin-right: 4%;
     padding: 0.35%;
     height: 20em;
     width: 20%;
-    top:0;
-    right:0;
+    top: 0;
+    right: 0;
 }
 
 div .items {
@@ -33,8 +34,8 @@ div .items {
 }
 
 div .job-title-header {
-  text-align: left;
-  font-size: 2em;
-  font-style: bold;
-  color: black;
+    text-align: left;
+    font-size: 2em;
+    font-style: bold;
+    color: black;
 }

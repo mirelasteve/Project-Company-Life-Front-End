@@ -1,27 +1,24 @@
 # LifeProject
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
-## Development server
+## Introduction
+The purpose of this project is rather straightforward - create a web application that can serve as a marketing site for a company. The website should contain the following functionality:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+    A configurable landing page.
+    A section with job ads.
+    The ability for users to apply for a job ad.
+    An interface for managing all applications by the system administrators.
+    A configurable about/contacts page.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## How to start
+git clone https://github.com/mvelyov/Project-Company-Life-Front-End
+npm install
+ng serve
+Navigate to `http://localhost:4200/`
+In another folder
+git clone https://github.com/mvelyov/Project-Company-Life-Back-End
+npm install
+create database company-life
+npm run migrate
+npm run seed
+npm start

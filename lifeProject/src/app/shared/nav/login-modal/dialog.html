@@ -4,7 +4,7 @@
     </div>
     <mat-form-field>
         <label for="username">Enter your username:</label>
-        <input matInput type='email' name='username' ngModel [email]="true" [(ngModel)]='username' (keyup)="isValidEmail(username)" required>
+        <input matInput type='email' name='username' ngModel [email]="true" [(ngModel)]='username' (keyup)="isValidEmail(username)" (keyup.enter)="login()" required>
     </mat-form-field>
     <div>
         <mat-form-field>

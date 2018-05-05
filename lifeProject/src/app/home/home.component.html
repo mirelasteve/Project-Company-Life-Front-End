@@ -2,9 +2,9 @@
     <app-nav></app-nav>
     <div [style.background-image]="homePageBackgroundImage" class="parallax">
         <div class="fieldActiveButtons" *ngFor="let actionLink of actionLinks">
-            <button mat-raised-button class="btn-md btn btn-warning">
-          <a  [href]=actionLink.linkTarget>{{actionLink.name}}</a>
-        </button>
+
+            <button class="btn-elegant-blue btn-md btn" [routerLink]=actionLink.linkTarget routerLinkActive="active">{{actionLink.name}}</button>
+
         </div>
         <div id="magnifying-glass"></div>
     </div>
@@ -13,7 +13,13 @@
         <div>
             <span class="h4">Follow us:</span>
             <ul class="socialButtons">
-                <li *ngFor="let socialLink of socialLinks"><button class="btn-elegant-blue btn-md btn"><a target="_blank" [href]="socialLink.linkTarget" [class]="socialLink.iconLink"></a></button></li>
+                <li *ngFor="let socialLink of socialLinks">
+                    <!-- <button class="btn-elegant-blue btn-md btn" [routerLink]=socialLink.linkTarget routerLinkActive="active">1</button> -->
+                    <button class="btn-elegant-blue btn-md btn">
+                    <a target="_blank" [href]=socialLink.linkTarget [class]=socialLink.iconLink></a>
+                  </button>
+                </li>
+
             </ul>
         </div>
         <textarea>

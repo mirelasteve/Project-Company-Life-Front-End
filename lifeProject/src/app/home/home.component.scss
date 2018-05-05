@@ -20,32 +20,29 @@ h5 {
 }
 
 .fieldActiveButtons button {
-    margin-left: 6%;
-    margin-top: 5%;
-    background-color: orange;
-}
-
-.fieldActiveButtons button a {
-    // width: 3em;
+    margin-left: 5%;
+    margin-top: 4%;
     height: 3em;
     font-size: 12px;
-    color: rgb(0, 0, 0) !important;
-    // background-color: rgb(7, 7, 1) !important;
+    // color: black;
+    background-color: rgb(250, 136, 6);
 }
 
-.fieldActiveButtons button a:hover {
-    // width: 3em;
-    height: 3em;
-    font-size: 12px;
-    color: orangered;
-    // background-color: rgb(7, 7, 1) !important;
-}
-
-// .action-buttons button a {
-//     margin: 10%;
+// .fieldActiveButtons button a {
+//     // width: 3em;
+//     height: 3em;
+//     font-size: 12px;
+//     color: rgb(0, 0, 0) !important;
+//     // background-color: rgb(7, 7, 1) !important;
 // }
 .fieldActiveButtons button:hover {
-    // box-shadow: 5px 5px 5px 5px rgb(128, 128, 0) !important;
+    // width: 3em;
+    height: 4em;
+    font-size: 13px;
+    background-color: orangered;
+}
+
+.fieldActiveButtons button:hover {
     color: rgb(240, 240, 9);
     font-size: 14px;
 }
@@ -68,15 +65,11 @@ ul li {
     background-color: transparent;
     text-align: left;
     display: inline;
-    padding: 3.5em;
+    padding: 2.5em;
 }
 
 ul li a {
     font-size: 16px;
-}
-
-.socialButtons a:hover {
-    background-color: rgb(32, 32, 238);
 }
 
 .footer textarea {
@@ -108,7 +101,7 @@ iframe {
     margin-left: 25%;
     width: 0.8em;
     height: 0.8em;
-    border: 0.1em solid rgb(37, 46, 3);
+    border: 0.1em solid rgb(99, 85, 4);
     position: relative;
     border-radius: 0.35em;
 }
@@ -120,7 +113,7 @@ iframe {
     right: -0.45em;
     bottom: -0.1em;
     border-width: 0;
-    background: rgb(37, 46, 3);
+    background: rgb(99, 85, 4);
     width: 0.55em;
     height: 0.11em;
     -webkit-transform: rotate(45deg);
