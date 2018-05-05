@@ -13,7 +13,9 @@ import 'rxjs/add/operator/startWith';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { CareersService } from '../core/careers/careers.service';
+import { IJobAds } from '../models/job-ads';
 import { ICareers } from './../models/careers.model';
+
 @Component({
   selector: 'app-careers',
   templateUrl: './careers.component.html',
@@ -22,74 +24,43 @@ import { ICareers } from './../models/careers.model';
 export class CareersComponent implements OnInit {
   @Input()
   public careers: any;
-    // tslint:disable-next-line:variable-name
-  public dataSource: MatTableDataSource<any>;
+  public noJobAds: boolean;
+  public dataSource: MatTableDataSource<IJobAds>;
   public selected: any;
-  public filter: any;
-  private types : any;
+  public filteredTable: any;
+  public title: string;
+  private types: any;
   private value: string = 'Clear me';
-  private displayedColumns = ['title', 'jobTypeId'];
+  private displayedColumns = ['title'];
 
   @ViewChild(MatPaginator) private paginator: MatPaginator;
   @ViewChild(MatSort) private sort: MatSort;
-  constructor(private careersService: CareersService, private http: HttpClient) { }
-  // tslint:disable-next-line:no-empty
+  constructor(private careersService: CareersService) { }
+
   public ngOnInit(): void {
-   this.careersService.getAll().subscribe( (data) => {
-      //      Object.values(data).forEach((obj) => {
-      //   obj.id = obj.id.toString();
-      //   console.log(obj.id);
-      // });
-           this.careers =  data;
-          //  this.careers = new MatTableDataSource(this.careers);
-         });
-   this.careersService.getTypes().subscribe((type) => {
-    this.types = type;
-  //  console.log(this.types);
-   });
-  }
-  public ngAfterViewInit(): void {
     this.careersService.getAll().subscribe( (data) => {
-      this.careers =  data;
-      this.careers.map( (key)=> {
-        if(key.jobTypeId) {
-         key.jobTypeId = key.jobTypeId.toLocaleString();
-         console.log(typeof key.jobTypeId);
-        }
-      } );
-      this.careers = new MatTableDataSource(this.careers);
-      this.careers.sort = this.sort;
-      this.careers.paginator = this.paginator;
-         });
-
-     }
-  public getType(): void {
-    if (this.selected) {
-      console.log(this.selected, typeof this.selected);
-      this.careersService.getAll().subscribe( (data) => {
-        this.careers =  data;
-        this.careers = new MatTableDataSource(this.careers);
-        this.careers.filter = this.selected;
-         });
+      if (data.length === 0) {
+        this.noJobAds = true;
       } else {
-        return this.ngOnInit();
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
       }
-}
-  public applyFilter(filterValue: string): void {
-        // console.log(filterValue, typeof filterValue);
-        // this.careersService.getAll().subscribe( (data) => {
-          // Object.values(data).forEach((obj) => {
-          //     obj.id = obj.id.toString();
-          //               });
-          // this.careers =  data;
-          // this.careers = new MatTableDataSource(this.careers);
-          let filterVal;
-          filterVal = filterValue.trim(); // Remove whitespace
-          filterVal = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-          this.careers.filter = filterVal;
-
-        //  });
-
+    });
+    this.careersService.getTypes().subscribe((data) => {
+    this.types = data;
+});
   }
 
+  public logForm(value: any): void {
+      this.filteredTable = this.careersService.filterData(value, this.dataSource);
+      this.dataSource = new MatTableDataSource(this.filteredTable);
+      this.dataSource.paginator = this.careers;
+      this.dataSource.sort = this.sort;
+  }
+  public reset(): void {
+    setTimeout(() => {
+      window.location.reload();
+      });
+  }
 }
