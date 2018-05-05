@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MatTableDataSource } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { IJobAds } from '../../models/job-ads';
 import { RequesterService } from '../requester/requester.service';
@@ -13,10 +14,13 @@ export class CareersService {
   public getAll(): Observable<IJobAds[]> {
     return this.requester.get('/api/jobads');
    }
+  public getOpenPositions(): Observable<IJobAds[]> {
+    return this.requester.get('/api/jobads/open');
+   }
   public getTypes(): Observable<object> {
     return this.requester.get('/api/jobtypes');
    }
-  public filterData(value: any, dataSource: any): any {
+  public filterData(value: any, dataSource: MatTableDataSource<IJobAds>): any {
     if (value.title) {
       this.filteredTable = dataSource.data.filter((job) => {
         if (job.title.includes(value.title)) {
@@ -35,15 +39,17 @@ export class CareersService {
     }
     if (value.createdAt) {
     const jobCreatedAt = value.createdAt;
-    let date = value.createdAt.getMonth() + 1;
+    let monthArg = value.createdAt.getMonth() + 1;
     const dateArr = jobCreatedAt.toString().split(' ');
     const monthsCounter = 10;
-    if (date < monthsCounter) {
-      date = `0${date}`;
+    if (monthArg < monthsCounter) {
+      monthArg = `0${monthArg}`;
     } else {
-      date = `${date}`;
+      monthArg = `${monthArg}`;
     }
-    const dateFormat = `${dateArr[3]}-${date}-${dateArr[2]}`;
+    const yearArg = 3;
+    const dateArg = 2;
+    const dateFormat = `${dateArr[yearArg]}-${monthArg}-${dateArr[dateArg]}`;
     value.createdAt = dateFormat;
     this.filteredTable = this.filteredTable.filter((job) => {
         if (job.createdAt > value.createdAt) {
