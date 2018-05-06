@@ -1,12 +1,21 @@
 .job-application {
-    width: 400px;
+    width: 500px;
     margin-left: 450px;
     margin-top: 50px;
     background-color: rgb(224, 243, 170);
-    border: 1px solid rgb(45, 59, 5);
-    font-size: 15px;
+    font-size: 14px;
+}
+
+.job-application mat-form-field {
+    width: 400px;
+    margin-left: 10px;
+}
+
+.job-application input {
+    margin-left: 10px;
 }
 
 .job-application h2 {
+    margin-top: 2px;
     text-align: center;
 }
