@@ -1,3 +1,5 @@
+import { SafeResourceUrl } from "@angular/platform-browser";
+
 export interface IJobApplications {
     id: number;
     userId: number;
@@ -7,7 +9,7 @@ export interface IJobApplications {
     lastName: string;
     email: string;
     comment: string;
-    cv: string;
+    cv: SafeResourceUrl;
     coverLetter: string;
     createdAt: Date;
     updatedAt: Date;

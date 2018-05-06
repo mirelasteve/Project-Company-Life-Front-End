@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { JobApplicationsService } from '../../core/admin/job-applications.service';
 import { IJobApplications } from '../../models/job-applications';
@@ -10,18 +11,19 @@ import { IJobApplications } from '../../models/job-applications';
   styleUrls: ['./applications.component.scss'],
 })
 export class ApplicationsComponent implements OnInit {
-  public jobTitle: string;
-  public id: string;
-  // public cvLink: string;
   @ViewChild(MatPaginator) public paginator: MatPaginator;
   @ViewChild(MatSort) public sort: MatSort;
-
+  private jobTitle: string;
+  private id: string;
+  private pathToStorage: string = '../../../../storage/';
+  // private pathToStorage: string = 'C:/Users/ACER/Desktop/front-end-company-life/storage/';
+  // private pathToStorage: string = 'http://localhost:4200/storage/';
   private displayedColumns = ['id', 'name', 'email', 'comment', 'createdAt', 'cv', 'cl'];
   private dataSource: MatTableDataSource<IJobApplications>;
   private noApplications: boolean;
 
   constructor(public dialog: MatDialog, private readonly jobAdsService: JobApplicationsService,
-              private activatedRoute: ActivatedRoute) {}
+              private activatedRoute: ActivatedRoute, private sanitizer: DomSanitizer) {}
 
   public ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
@@ -30,7 +32,12 @@ export class ApplicationsComponent implements OnInit {
         this.noApplications = true;
       } else {
       this.noApplications = false;
-      this.dataSource = new MatTableDataSource(data);
+      const jobApplications = data.map((jobApp) => {
+        jobApp.cv = this.sanitizer.bypassSecurityTrustResourceUrl(this.pathToStorage + jobApp.cv);
+        return jobApp;
+      });
+      console.log(jobApplications);
+      this.dataSource = new MatTableDataSource(jobApplications);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
       this.jobTitle = this.dataSource.data[0].title;

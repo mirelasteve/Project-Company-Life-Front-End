@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 import { IJobAds } from '../../models/job-ads';
+import { IJobTypes } from '../../models/job-types';
 import { RequesterService } from '../requester/requester.service';
 
 @Injectable()
@@ -17,7 +18,7 @@ export class CareersService {
   public getOpenPositions(): Observable<IJobAds[]> {
     return this.requester.get('/api/jobads/open');
    }
-  public getTypes(): Observable<object> {
+  public getTypes(): Observable<IJobTypes[]> {
     return this.requester.get('/api/jobtypes');
    }
   public filterData(value: any, dataSource: MatTableDataSource<IJobAds>): any {

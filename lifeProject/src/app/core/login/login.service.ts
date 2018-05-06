@@ -20,7 +20,7 @@ export class LoginService {
  // tslint:disable-next-line:ban-types
   // tslint:disable-next-line:typedef
 
-  public login(user: User, options?: HttpOptions): Observable<Object> {
+  public login(user: User, options?: HttpOptions): Observable<object> {
       return this.requester.post('http://localhost:3001/api/login', user);
  }
   public isAuthenticated(): boolean {

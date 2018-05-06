@@ -4,7 +4,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { LinksService } from '../../core/admin/links.service';
 import { TransferJobAdsService } from '../../core/transfer-data/transfer-data.service';
 import { ILinks } from '../../models/links';
-import { AddLinkComponent } from '../add-link/add-link.component';
+import { AddLinkComponent } from './add-link/add-link.component';
 import { EditLinksComponent } from './edit-links/edit-links.component';
 
 @Component({

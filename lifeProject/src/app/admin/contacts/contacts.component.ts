@@ -4,7 +4,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ContactsService } from '../../core/admin/contacts.service';
 import { TransferJobAdsService } from '../../core/transfer-data/transfer-data.service';
 import { IContactDetails } from '../../models/contact-details';
-import { AddContactsComponent } from '../add-contacts/add-contacts.component';
+import { AddContactsComponent } from './add-contacts/add-contacts.component';
 import { EditContactDetailsComponent } from './edit-contact-details/edit-contact-details.component';
 
 @Component({

@@ -4,7 +4,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { JobAdsService } from '../../core/admin/job-ads.service';
 import { TransferJobAdsService } from '../../core/transfer-data/transfer-data.service';
 import { IJobAds } from '../../models/job-ads';
-import { AddJobComponent } from '../add-job/add-job.component';
+import { AddJobComponent } from './add-job/add-job.component';
 import { EditJobComponent } from './edit-job/edit-job.component';
 
 @Component({

@@ -36,14 +36,14 @@
             <ng-container matColumnDef="cv">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
                 <mat-cell *matCellDef="let row">
-                    <button><a href={{row.cv}} download>Download CV</a></button>
+                    <a [href]="row.cv" download>Download CV</a>
                 </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="cl">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
                 <mat-cell *matCellDef="let row">
-                    <button><a [href]="" download>Download CV</a></button>
+                    <button><a [href]="" download>Download CL</a></button>
                 </mat-cell>
             </ng-container>
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
