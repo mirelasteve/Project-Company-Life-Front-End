@@ -18,6 +18,7 @@ export class RegisterUsersService {
         console.log(res);
       },
       (err) => {
+        alert("This user is already register!")
         console.log(err);
       },
     );
