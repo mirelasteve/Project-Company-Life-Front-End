@@ -62,7 +62,12 @@ export class DialogComponent   {
     }
 }
   public isValidPassword(pass: string): boolean {
-    if(pass.length > 7) {
+    const validMinLength = 7;
+    const validMaxLength = 255;
+    const passMatch = pass;
+    console.log(pass, passMatch);
+    const result = passMatch.match(/(?=.*\d)(?=.*[A-Z])(?=.*\W).{8,8}/g);
+    if (pass.length > validMinLength && pass.length < validMaxLength && result) {
               return true;
   }    else {
               return false;

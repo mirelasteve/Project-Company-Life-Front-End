@@ -1,25 +1,33 @@
 <app-nav></app-nav>
 <div class="job-application">
-  <h2>{{title}}</h2>
-  <form #form="ngForm" (ngSubmit)="logForm(form.value)" method="post" enctype="multipart/form-data">
-    <mat-form-field>
-      <input matInput placeholder="Your first name" name="firstName" ngModel>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Your last name" name="lastName" ngModel>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Your email" name="email" ngModel>
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Comment" name="comment" ngModel></textarea>
-    </mat-form-field>
-
-      <input type="file" (change)="onSelectedCV($event)"/>
-      <br>
-      <input type="file" (change)="onSelectedCoverLetter($event)"/>
-    <p>
-      <button class="btn-primary btn-lg" type="submit">Send</button>
-    </p>
-  </form>
+    <h2>{{title}}</h2>
+    <form #form="ngForm" (ngSubmit)="logForm(form.value)">
+        <mat-form-field>
+            <input matInput placeholder="Your first name" name="firstName" ngModel>
+            <!-- <mat-hint align="end" style="color:crimson" *ngIf="form.value.firstName.length < 3">Too short, needs min 3 symbols </mat-hint> -->
+            <!-- <mat-hint align="end" style="color:crimson" *ngIf="form.value.firstName.length > 100">Too long, needs max 100 symbols </mat-hint> -->
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Your last name" name="lastName" ngModel>
+            <!-- <mat-hint align="end" style="color:crimson" *ngIf="form.value.lastName.length < 3">Too short, needs min 3 symbols </mat-hint> -->
+            <!-- <mat-hint align="end" style="color:crimson" *ngIf="form.value.lastName.length > 100">Too long, needs max 100 symbols </mat-hint> -->
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Your email" name="email" ngModel>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Comment" name="comment" ngModel></textarea>
+            <!-- <mat-hint align="end" style="color:crimson" *ngIf="form.value.lastName.length > 1024">Your comment is longer than 1024 symbols</mat-hint> -->
+        </mat-form-field>
+        <input type="file" (change)="onSelectedCV($event)" />
+        <!-- <mat-hint align="end" style="color:crimson" *ngIf="selectedCV==null">You should upload file </mat-hint> -->
+        <!-- <mat-hint align="end" style="color:crimson" *ngIf="selectedCV.size>16000">Your size is bigger than 16MB </mat-hint> -->
+        <!-- <mat-hint align="end" style="color:crimson" *ngIf=!acceptedFormat()>Accepted files are pfd,doc and docx</mat-hint> -->
+        <br>
+        <input type="file" (change)="onSelectedCoverLetter($event)" />
+        <p>
+            <button mat-raised-button color="primary" type="submit">Send</button>
+        </p>
+        <!-- *ngIf=" acceptedFormat()&& selectedCV.name && form.value.firstName.length > 2 && form.value.firstName.length <100 &&selectedCV.size<16000&& form.value.lastName.length > 3 &&form.value.lastName.length < 100 && form.value.lastName.length < 1024" -->
+    </form>
 </div>

@@ -33,10 +33,16 @@ export class JobApplicationComponent implements OnInit {
   }
 
   public onSelectedCV(event: any): void {
-    this.selectedCV = event.target.files[0];
+       this.selectedCV = event.target.files[0];
+       console.log(this.selectedCV);
   }
   public onSelectedCoverLetter(event: any): void {
     this.selectedCoverLetter = event.target.files[0];
+  }
+  public acceptedFormat(): boolean {
+    const acceptedTypes=['pdf','doc','docx'];
+    const result = acceptedTypes.some((format)=> this.selectedCV.name.includes(format));
+    return result;
   }
   public logForm(value: any): void {
 

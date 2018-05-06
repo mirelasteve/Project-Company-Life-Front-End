@@ -12,7 +12,7 @@
             <input matInput name='password' [(ngModel)]='password' type='password' required>
         </mat-form-field>
         <div *ngIf="!isValidEmail(username)" class="errorEmail"> Your email is invalid</div>
-        <div *ngIf="!isValidPassword(password)" class="errorEmail"> Your password is too short. Min 8 symbols</div>
+        <div *ngIf="!isValidPassword(password)" class="errorEmail"> Your password is too short. Min 8 symbols. One big letter, one number and one special symbol</div>
         <div *ngIf="isValidData" class="errorEmail"> This email is not found</div>
     </div>
     <div>
