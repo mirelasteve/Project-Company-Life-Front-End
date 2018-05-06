@@ -7,6 +7,6 @@ import { JobDetailsComponent } from './job-details/job-details.component';
 
 export const ROUTES: Routes = [
     { path: '', component: CareersComponent },
-    { path: 'jobs/:id', component: JobDetailsComponent, canActivate: [UsersAuthGuardService] },
+    { path: 'jobs/:id', component: JobDetailsComponent},
     { path: 'jobs/:id/job-application/:title', component: JobApplicationComponent, canActivate: [UsersAuthGuardService]},
   ];

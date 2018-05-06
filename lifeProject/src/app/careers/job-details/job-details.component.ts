@@ -1,10 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { HttpModule } from '@angular/http';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { CareersService } from '../../core/careers/careers.service';
 import { JobDetailsService } from '../../core/job-details/job-details.service';
+import { LoginService } from '../../core/login/login.service';
 
 @Component({
   selector: 'app-job-details',
@@ -12,14 +11,17 @@ import { JobDetailsService } from '../../core/job-details/job-details.service';
   styleUrls: ['./job-details.component.scss'],
 })
 export class JobDetailsComponent implements OnInit {
-  public jobs: any;
-  public urlId: string;
-  constructor(private jobDetailService: JobDetailsService, private http: HttpClient, private activatedRoute: ActivatedRoute) {}
+  private jobs: any;
+  private urlId: string;
+  private isAdmin: boolean;
+  constructor(private jobDetailService: JobDetailsService, private activatedRoute: ActivatedRoute,
+              private loginService: LoginService) {}
+
   public ngOnInit(): void {
     this.jobDetailService.getAll().subscribe( (data) => {
       this.jobs =  data;
-      // console.log(data);
          });
     this.urlId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.isAdmin = this.loginService.isAdmin();
   }
   }

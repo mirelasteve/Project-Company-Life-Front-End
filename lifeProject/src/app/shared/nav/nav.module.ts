@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import 'froala-editor/js/froala_editor.pkgd.min.js';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { DialogComponent, LoginModalComponent } from './login-modal/login-modal.component';
 import { NavComponent } from './nav.component';

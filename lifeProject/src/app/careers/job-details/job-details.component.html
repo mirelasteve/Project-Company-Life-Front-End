@@ -6,17 +6,17 @@
             <div class="job-ad-info">
                 <div class="job-title">
                     <h1>{{data.title}}</h1>
-                    <h6>{{data.createdAt}}</h6>
+                    <h6>Created: {{data.createdAt | date}}</h6>
                     <div class="job-description">
                         <p> {{data.description}}</p>
                     </div>
-
                 </div>
             </div>
             <div class="apply-button">
                 <button routerLink="/careers/jobs/{{data.id}}/job-application/{{data.title}}" class="apply" mat-raised-button>Apply</button>
                 <br>
-                <button routerLink="/admin/applications/{{data.id}}" class="apply" mat-raised-button>Show all applications</button>
+                <br>
+                <button *ngIf="isAdmin" routerLink="/admin/applications/{{data.id}}" class="apply" mat-raised-button>Show all applications</button>
             </div>
         </div>
     </div>
