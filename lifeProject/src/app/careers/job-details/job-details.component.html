@@ -13,10 +13,13 @@
                 </div>
             </div>
             <div class="apply-button">
-                <button routerLink="/careers/jobs/{{data.id}}/job-application/{{data.title}}" class="apply" mat-raised-button>Apply</button>
+                <button *ngIf="isUser; else notUserBlock" routerLink="/careers/jobs/{{data.id}}/job-application/{{data.title}}" class="apply btn-primary" mat-raised-button>Apply</button>
+                <ng-template #notUserBlock> <button (click)="reg()" class="apply btn-primary" mat-raised-button>Apply</button>
+                </ng-template>
                 <br>
+
                 <br>
-                <button *ngIf="isAdmin" routerLink="/admin/applications/{{data.id}}" class="apply" mat-raised-button>Show all applications</button>
+                <button *ngIf="isAdmin" routerLink="/admin/applications/{{data.id}}" class="apply btn-info" mat-raised-button>Show all applications</button>
             </div>
         </div>
     </div>

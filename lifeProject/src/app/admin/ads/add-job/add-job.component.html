@@ -18,8 +18,8 @@
         <div class="form">
             <mat-form-field>
                 <mat-select name="jobTypeId" placeholder="Category" ngModel>
-                    <mat-option *ngFor="let cat of categories " value={{cat.id}}>
-                        {{cat.name}}
+                    <mat-option *ngFor="let cat of categories " value={{cat.value}}>
+                        {{cat.viewValue}}
                     </mat-option>
                 </mat-select>
                 <mat-hint align="end" style="color:crimson" *ngIf="form.value.jobTypeId.length < 1"> You should select</mat-hint>

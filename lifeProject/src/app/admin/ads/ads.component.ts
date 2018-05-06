@@ -6,7 +6,8 @@ import { TransferJobAdsService } from '../../core/transfer-data/transfer-data.se
 import { IJobAds } from '../../models/job-ads';
 import { AddJobComponent } from './add-job/add-job.component';
 import { EditJobComponent } from './edit-job/edit-job.component';
-
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import "froala-editor/js/froala_editor.pkgd.min.js";
 @Component({
   selector: 'app-ads',
   templateUrl: './ads.component.html',

@@ -15,6 +15,40 @@
                     <a [routerLink]="['/careers/jobs/',element.id]" routerLinkActive="active">{{element.title}}</a>
                 </mat-cell>
             </ng-container>
+            <ng-container matColumnDef="description">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    Description
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="job-title">
+                    {{element.description | slice:0:35}} ...
+                </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    Status:
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="job-title">
+                    {{element.status}}
+                </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="addType">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    Type:
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="job-title">
+                    <span *ngFor="let typeAd of types">
+                   <span *ngIf="element.jobTypeId===typeAd.id">{{typeAd.name}}</span>
+                    </span>
+                </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="createdAt">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                    Created at:
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element" class="job-title">
+                    {{element.createdAt | date}}
+                </mat-cell>
+            </ng-container>
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
