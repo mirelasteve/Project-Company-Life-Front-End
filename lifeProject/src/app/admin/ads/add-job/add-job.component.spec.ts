@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { AddJobComponent } from './add-job.component';
 
 describe('AddJobComponent', () => {

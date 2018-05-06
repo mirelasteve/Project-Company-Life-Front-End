@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
-import 'froala-editor/js/froala_editor.pkgd.min.js';
+import "froala-editor/js/froala_editor.pkgd.min.js";
 import { JobAdsService } from '../../../core/admin/job-ads.service';
 import { CareersService } from '../../../core/careers/careers.service';
 import { IJobAds } from '../../../models/job-ads';
@@ -14,7 +14,7 @@ import { IJobTypes } from '../../../models/job-types';
   styleUrls: ['./add-job.component.scss'],
 })
 export class AddJobComponent  {
- public categories: IJobTypes[];
+ public categories: any[];
  public options: any[];
  private minLength: number = 4;
  private maxLength: number = 256;

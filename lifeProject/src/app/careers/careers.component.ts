@@ -20,7 +20,7 @@ export class CareersComponent implements OnInit {
   private filteredTable: IJobAds[];
   private title: string;
   private types: object;
-  private displayedColumns = ['title'];
+  private displayedColumns = ['title', 'description', 'status', 'createdAt', 'addType'];
   private isAdmin: boolean;
 
   @ViewChild(MatPaginator) private paginator: MatPaginator;
@@ -29,7 +29,8 @@ export class CareersComponent implements OnInit {
 
   public ngOnInit(): void {
     this.getData();
-  }
+
+}
 
   private getData(): void {
     this.isAdmin = this.loginService.isAdmin();
@@ -57,6 +58,7 @@ export class CareersComponent implements OnInit {
     }
     this.careersService.getTypes().subscribe((data) => {
     this.types = data;
+    console.log(this.types);
 });
   }
 

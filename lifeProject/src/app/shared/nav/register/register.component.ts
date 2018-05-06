@@ -22,7 +22,7 @@ export class RegisterComponent  {
   //   throw new Error('Method not implemented.');
   // }
 
-  private openRegister(): void {
+  public openRegister(): void {
     console.log('clicked');
     const dialogRef = this.dialog.open(RegistrationComponent, {
       height: '400px',
