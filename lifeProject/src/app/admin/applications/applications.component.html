@@ -41,9 +41,9 @@
             </ng-container>
 
             <ng-container matColumnDef="cl">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
                 <mat-cell *matCellDef="let row">
-                    <button><a [href]="" download>Download CL</a></button>
+                    <a [href]="row.coverLetter" download>Download CL</a>
                 </mat-cell>
             </ng-container>
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

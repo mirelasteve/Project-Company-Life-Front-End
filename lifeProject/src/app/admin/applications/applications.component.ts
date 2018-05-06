@@ -34,6 +34,7 @@ export class ApplicationsComponent implements OnInit {
       this.noApplications = false;
       const jobApplications = data.map((jobApp) => {
         jobApp.cv = this.sanitizer.bypassSecurityTrustResourceUrl(this.pathToStorage + jobApp.cv);
+        jobApp.coverLetter = this.sanitizer.bypassSecurityTrustResourceUrl(this.pathToStorage + jobApp.coverLetter);
         return jobApp;
       });
       console.log(jobApplications);

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
-import "froala-editor/js/froala_editor.pkgd.min.js";
+import 'froala-editor/js/froala_editor.pkgd.min.js';
 import { JobAdsService } from '../../../core/admin/job-ads.service';
 import { JobApplicationsService } from '../../../core/admin/job-applications.service';
+import { CareersService } from '../../../core/careers/careers.service';
 import { TransferJobAdsService } from '../../../core/transfer-data/transfer-data.service';
 import { IJobAds } from '../../../models/job-ads';
 import { AddJobComponent } from '../add-job/add-job.component';
@@ -26,7 +27,8 @@ export class EditJobComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<AddJobComponent>, private jobAdsService: JobAdsService,
               private transferJobAdsService: TransferJobAdsService,
-              private jobApplicationsService: JobApplicationsService) {
+              private jobApplicationsService: JobApplicationsService,
+              private careersService: CareersService) {
 
               this.categories = [
   { value: '1', viewValue: 'IT' },
