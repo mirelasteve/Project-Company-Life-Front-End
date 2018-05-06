@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
-import { ContactsService } from '../../core/admin/contacts.service';
+import { ContactsService } from '../../../core/admin/contacts.service';
 
 @Component({
   selector: 'app-add-contacts',
@@ -12,7 +12,6 @@ export class AddContactsComponent implements OnInit {
 
   public checked: boolean = false;
   private title = new FormControl();
- // tslint:disable-next-line:no-empty
   constructor(public dialogRef: MatDialogRef<AddContactsComponent>, private contactsService: ContactsService ) {
 }
   public logForm(value: any): void {
@@ -27,7 +26,6 @@ export class AddContactsComponent implements OnInit {
     setTimeout( () => {
       window.location.reload();
     });
-    // window.location.reload();
   }
   public close(): void {
   this.dialogRef.close();
