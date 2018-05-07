@@ -24,10 +24,8 @@ export class LoginService {
       return this.requester.post('http://localhost:3001/api/login', user);
  }
   public isAuthenticated(): boolean {
-   const token = this.jwtService.tokenGetter();
-  //  console.log(localStorage);
+   const token = localStorage.getItem('access_token');
    const decoded = this.jwtService.decodeToken(token);
-  //  console.log(decoded.admin);
 
    return !!token && !this.jwtService.isTokenExpired(token) && decoded.iss === this.appConfig.jwt_issuer;
 }

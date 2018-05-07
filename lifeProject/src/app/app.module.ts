@@ -16,17 +16,13 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
 import { AppConfig } from './config/app.config';
+import { config } from './config/config.jwt';
 import { CoreModule } from './core/core.module';
 import { TransferJobAdsService } from './core/transfer-data/transfer-data.service';
-
-export const tokenGetter = (): string => {
-  return localStorage.getItem('access_token');
-};
 
 @NgModule({
   declarations: [
     AppComponent,
-
   ],
   imports: [
     AppRoutingModule,
@@ -42,11 +38,7 @@ export const tokenGetter = (): string => {
     NoopAnimationsModule,
     MDBBootstrapModule.forRoot(),
     JwtModule.forRoot({
-      config: {
-        tokenGetter,
-        whitelistedDomains: ['localhost:8000'],
-        blacklistedRoutes: [],
-      },
+      config,
     }),
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
@@ -54,5 +46,8 @@ export const tokenGetter = (): string => {
               TransferJobAdsService,
   ],
   bootstrap: [AppComponent],
+  exports: [
+    JwtModule,
+  ],
 })
 export class AppModule { }
