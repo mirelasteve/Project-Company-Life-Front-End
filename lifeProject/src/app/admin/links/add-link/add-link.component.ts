@@ -11,9 +11,9 @@ import { LinksService } from '../../../core/admin/links.service';
   styleUrls: ['./add-link.component.scss'],
 })
 export class AddLinkComponent implements OnInit {
-  public checked: boolean = false;
-  public options: any[];
-  public icons: any[];
+  private checked: boolean = false;
+  private options: any[];
+  private icons: any[];
   private title = new FormControl();
 
   constructor(public dialogRef: MatDialogRef<AddLinkComponent>, private linksService: LinksService ) {
@@ -35,7 +35,6 @@ export class AddLinkComponent implements OnInit {
   } else {
     delete value.checked;
   }
-  console.log(value);
   this.linksService.createLinks(value);
   setTimeout(() => {
     window.location.reload();

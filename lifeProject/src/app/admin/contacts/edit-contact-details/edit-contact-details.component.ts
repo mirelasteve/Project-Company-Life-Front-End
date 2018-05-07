@@ -12,7 +12,7 @@ import { TransferJobAdsService } from '../../../core/transfer-data/transfer-data
 })
 export class EditContactDetailsComponent implements OnInit {
 
-  public data: any;
+  private data: any;
   private title = new FormControl();
 
   constructor(public dialogRef: MatDialogRef<EditContactDetailsComponent>,

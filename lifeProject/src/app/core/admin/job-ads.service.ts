@@ -1,9 +1,9 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { IJobAds } from '../../models/job-ads';
 import { RequesterService } from '../requester/requester.service';
-import { HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class JobAdsService {

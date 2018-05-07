@@ -8,7 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import 'froala-editor/js/froala_editor.pkgd.min.js';
@@ -19,9 +19,10 @@ import { AppConfig } from './config/app.config';
 import { CoreModule } from './core/core.module';
 import { TransferJobAdsService } from './core/transfer-data/transfer-data.service';
 
-export function tokenGetter(): string {
+export const tokenGetter = (): string => {
   return localStorage.getItem('access_token');
-}
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,7 @@ export function tokenGetter(): string {
     MDBBootstrapModule.forRoot(),
     JwtModule.forRoot({
       config: {
-        tokenGetter: tokenGetter,
+        tokenGetter,
         whitelistedDomains: ['localhost:8000'],
         blacklistedRoutes: [],
       },

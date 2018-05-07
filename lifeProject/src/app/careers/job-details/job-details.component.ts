@@ -30,7 +30,7 @@ export class JobDetailsComponent implements OnInit {
 
     this.isAdmin = this.loginService.isAdmin();
   }
-  private reg(){
+  private reg(): void {
     const dialogRef = this.dialog.open(RegistrationComponent, {
       height: '400px',
       width: '400px',
@@ -40,4 +40,3 @@ export class JobDetailsComponent implements OnInit {
          });
   }
   }
-

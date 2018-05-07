@@ -16,8 +16,6 @@ export class ApplicationsComponent implements OnInit {
   private jobTitle: string;
   private id: string;
   private pathToStorage: string = '../../../../storage/';
-  // private pathToStorage: string = 'C:/Users/ACER/Desktop/front-end-company-life/storage/';
-  // private pathToStorage: string = 'http://localhost:4200/storage/';
   private displayedColumns = ['id', 'name', 'email', 'comment', 'createdAt', 'cv', 'cl'];
   private dataSource: MatTableDataSource<IJobApplications>;
   private noApplications: boolean;
@@ -37,7 +35,6 @@ export class ApplicationsComponent implements OnInit {
         jobApp.coverLetter = this.sanitizer.bypassSecurityTrustResourceUrl(this.pathToStorage + jobApp.coverLetter);
         return jobApp;
       });
-      console.log(jobApplications);
       this.dataSource = new MatTableDataSource(jobApplications);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;

@@ -1,13 +1,13 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef, MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { JobAdsService } from '../../core/admin/job-ads.service';
 import { TransferJobAdsService } from '../../core/transfer-data/transfer-data.service';
 import { IJobAds } from '../../models/job-ads';
 import { AddJobComponent } from './add-job/add-job.component';
 import { EditJobComponent } from './edit-job/edit-job.component';
-import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
-import "froala-editor/js/froala_editor.pkgd.min.js";
+
 @Component({
   selector: 'app-ads',
   templateUrl: './ads.component.html',
@@ -21,7 +21,6 @@ export class AdsComponent implements OnInit {
   private displayedColumns = ['id', 'title', 'createdAt', 'view', 'edit', 'delete', 'job-applications'];
   private dataSource: MatTableDataSource<IJobAds>;
   private noJobAds: boolean;
-  private test: any;
 
   constructor(public dialog: MatDialog, private readonly jobAdsService: JobAdsService,
               private transferJobAdsService: TransferJobAdsService) {
@@ -69,11 +68,9 @@ export class AdsComponent implements OnInit {
   public openDialog(id: number): void {
     if (confirm('Are you sure you want to delete this job ad!')) {
       this.deleteAd(id);
-              setTimeout(() => {
+      setTimeout(() => {
           window.location.reload();
           });
-
-      // window.location.reload();
     }
   }
 }

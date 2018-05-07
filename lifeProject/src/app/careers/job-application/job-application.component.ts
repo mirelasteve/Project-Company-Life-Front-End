@@ -29,7 +29,6 @@ export class JobApplicationComponent implements OnInit {
     this.jobId = this.activatedRoute.snapshot.paramMap.get('id');
    }
 
-  // tslint:disable-next-line:no-empty
   public ngOnInit(): void {
     this.userId = this.loginService.giveDecoded().id;
     this.standartEmail = this.loginService.giveDecoded().email;
@@ -37,7 +36,6 @@ export class JobApplicationComponent implements OnInit {
   }
 
   public onSelectedCV(event: any): void {
-       console.log(this.selectedCV);
        this.selectedCV = event.target.files[0];
 
   }
@@ -45,8 +43,8 @@ export class JobApplicationComponent implements OnInit {
     this.selectedCoverLetter = event.target.files[0];
   }
   public acceptedFormat(): boolean {
-    const acceptedTypes=['pdf','doc','docx'];
-    const result = acceptedTypes.some((format)=> this.selectedCV.name.includes(format));
+    const acceptedTypes = [ 'pdf', 'doc', 'docx'];
+    const result = acceptedTypes.some((format) => this.selectedCV.name.includes(format));
     return result;
   }
   public isValidEmail(name: string): boolean {
@@ -74,10 +72,9 @@ export class JobApplicationComponent implements OnInit {
     formData.append('coverLetter', this.selectedCoverLetter);
     formData.append('email', value.email);
     formData.append('jobId', this.jobId);
-    console.log(formData);
     this.createService.createApplication(formData);
-    setTimeout(()=>{
+    setTimeout(() => {
       window.location.reload();
-    })
+    });
  }
 }

@@ -16,7 +16,10 @@
         <div *ngIf="isValidData" class="errorEmail"> This email is not found</div>
     </div>
     <div>
-
+        <input type="checkbox">
+        <label>Remember me?</label>
+      </div>
+    <div>
         <button *ngIf="isValidEmail(username) && isValidPassword(password)" mat-raised-button color="primary" (click)="login()">Enter</button>
         <button mat-raised-button color=" btn-warning accent" (click)="onNoClick()">Cancel</button>
     </div>

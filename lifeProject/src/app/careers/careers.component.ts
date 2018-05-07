@@ -29,7 +29,6 @@ export class CareersComponent implements OnInit {
 
   public ngOnInit(): void {
     this.getData();
-
 }
 
   private getData(): void {
@@ -58,7 +57,6 @@ export class CareersComponent implements OnInit {
     }
     this.careersService.getTypes().subscribe((data) => {
     this.types = data;
-    console.log(this.types);
 });
   }
 

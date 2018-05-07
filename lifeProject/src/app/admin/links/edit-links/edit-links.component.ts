@@ -10,11 +10,11 @@ import { TransferJobAdsService } from '../../../core/transfer-data/transfer-data
   styleUrls: ['./edit-links.component.scss'],
 })
 export class EditLinksComponent implements OnInit {
-  public data: any;
-  public checked: boolean = false;
-  public options: any[];
+  private data: any;
+  private checked: boolean = false;
+  private options: any[];
   private title = new FormControl();
- // tslint:disable-next-line:no-empty
+
   constructor(public dialogRef: MatDialogRef<EditLinksComponent>,
               private transferJobAdsService: TransferJobAdsService,
               private linksService: LinksService ) {
@@ -27,7 +27,6 @@ export class EditLinksComponent implements OnInit {
   this.dialogRef.close();
 }
 
-  // tslint:disable-next-line:no-empty
   public ngOnInit(): void {
     this.data = this.transferJobAdsService.transferredObject;
   }
@@ -41,7 +40,6 @@ export class EditLinksComponent implements OnInit {
       value.hidden = null;
       delete value.checked;
     }
-    console.log(value);
     this.linksService.updateLinks(value);
     setTimeout(() => {
       window.location.reload();

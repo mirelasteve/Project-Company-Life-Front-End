@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
-import 'froala-editor/js/froala_editor.pkgd.min.js';
 import { JobAdsService } from '../../../core/admin/job-ads.service';
 import { JobApplicationsService } from '../../../core/admin/job-applications.service';
 import { CareersService } from '../../../core/careers/careers.service';

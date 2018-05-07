@@ -10,7 +10,7 @@ import { ContactsService } from '../../../core/admin/contacts.service';
 })
 export class AddContactsComponent implements OnInit {
 
-  public checked: boolean = false;
+  private checked: boolean = false;
   private title = new FormControl();
   constructor(public dialogRef: MatDialogRef<AddContactsComponent>, private contactsService: ContactsService ) {
 }
@@ -21,7 +21,6 @@ export class AddContactsComponent implements OnInit {
     } else {
       delete value.checked;
     }
-    console.log(value);
     this.contactsService.createContactDetails(value);
     setTimeout( () => {
       window.location.reload();
