@@ -11,14 +11,28 @@ The purpose of this project is rather straightforward - create a web application
     A configurable about/contacts page.
 
 ## How to start
-git clone https://github.com/mvelyov/Project-Company-Life-Front-End
-npm install
-ng serve
-Navigate to `http://localhost:4200/`
-In another folder
+You need Node.js, MariaDB and Angular installed on your machine.
+## First Step
 git clone https://github.com/mvelyov/Project-Company-Life-Back-End
+
 npm install
+
 create database company-life
+
 npm run migrate
+
 npm run seed
+
 npm start
+
+## Second Step
+git clone https://github.com/mvelyov/Project-Company-Life-Front-End
+
+npm install
+
+ng serve
+
+Navigate to `http://localhost:4200/`
+
+
+
